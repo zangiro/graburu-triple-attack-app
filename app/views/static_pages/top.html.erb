@@ -1,3 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="d-flex">
+      <% unless logged_in? %>
+        <div class="row me-3">
+          <%= link_to "新規作成", "#" %>
+        </div>
+        <div class="row">
+          <%= link_to "ログインページ", login_path %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+  
 <div class="top-wrapper">
   <div class="top-inner-text">
     <h1>RUNTEQ BOARD APP</h1>
