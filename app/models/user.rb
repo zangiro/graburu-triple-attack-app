@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
-  #sorceryによる認証機能を持たせる
+  # sorceryによる認証機能を持たせる
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   # if => {}:   「新しいレコード」または「crypted_passwordが変更された」
