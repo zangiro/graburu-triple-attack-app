@@ -14,4 +14,13 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
   validates :name, presence: true, length: { maximum: 255 }
+  validate :agreement
+
+  def agreement
+    if new_record?
+      unless agree_terms == "1" || agree_terms == true
+        errors.add(:agree_terms, "に同意されてません")
+      end
+    end
+  end
 end
