@@ -16,6 +16,8 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 255 }
   validate :agreement
 
+  attr_accessor :agree_terms
+
   def agreement
     if new_record?
       unless agree_terms == "1" || agree_terms == true

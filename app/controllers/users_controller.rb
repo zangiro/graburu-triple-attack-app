@@ -12,9 +12,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.all  # すべてのユーザーを取得
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :agree_terms)
   end
 end
