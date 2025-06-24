@@ -3,3 +3,14 @@
     <h1>RUNTEQ BOARD APP</h1>
   </div>
 </div>
+
+<div class="mt-3">
+  <%= link_to "Test Bootstrap Button", "#", class: "btn btn-primary", id: "testButton" %>
+</div>
+
+<script>
+  document.getElementById("testButton").addEventListener("click", function(event) {
+    event.preventDefault(); // リンクのデフォルト動作を防ぐ
+    alert("ボタンがクリックされたダ！");
+  });
+</script>
