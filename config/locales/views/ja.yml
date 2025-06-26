@@ -114,7 +114,7 @@ ja:
       your_account_information: アカウント情報を編集する
     edit:
       page_title: アカウント情報
-      your_account_information: "%{name}さんのアカウント情報"
+      your_account_information: "アカウント情報"
       name_required: 名前
       email_required: メールアドレス
       password_required: パスワードの変更
