@@ -16,6 +16,9 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 255 }
   validate :agreement
 
+  has_many :authentications, dependent: :destroy
+  accepts_nested_attributes_for :authentications
+
   attr_accessor :agree_terms
 
   def agreement
