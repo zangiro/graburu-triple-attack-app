@@ -1,3 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="d-flex">
+      <% unless logged_in? %>
+        <div class="row me-3">
+          <%= link_to t(".to_register_page"), new_user_path %>
+        </div>
+        <div class="row">
+          <%= link_to t(".to_login_page"), login_path %>
+        </div>
+      <% end %>
+
+      <% if logged_in? %>
+        <%= link_to t(".logout"), logout_path, data: { turbo_method: :delete } %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= link_to "ユーザー一覧", users_path %>
+  
 <div class="top-wrapper">
   <div class="top-inner-text">
     <h1>RUNTEQ BOARD APP</h1>
