@@ -111,9 +111,10 @@ ja:
       to_posts_list: 投稿一覧
       to_likes_list: いいねした記事
       to_view_histories: 閲覧履歴
+      your_account_information: アカウント情報を編集する
     edit:
       page_title: アカウント情報
-      your_account_information: "%{name}さんのアカウント情報"
+      your_account_information: "アカウント情報"
       name_required: 名前
       email_required: メールアドレス
       password_required: パスワードの変更
