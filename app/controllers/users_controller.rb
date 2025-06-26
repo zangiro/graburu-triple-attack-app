@@ -14,9 +14,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path
+      auto_login(@user)
+      redirect_to root_path, success: t("flash_message.user_create")
     else
-      render :new
+      flash.now[:danger] = t("flash_message.failure")
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -24,9 +26,9 @@ class UsersController < ApplicationController
     @user = current_user
 
     if @user.update(user_params)
-      redirect_to user_path(current_user) #, success: t("flash_message.update_success")
+      redirect_to user_path(current_user), success: t("flash_message.update_success")
     else
-      # flash.now[:danger] = t("flash_message.update_failure")
+      flash.now[:danger] = t("flash_message.update_failure")
       render :edit, status: :unprocessable_entity
     end
   end
