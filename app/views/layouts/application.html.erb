@@ -18,11 +18,11 @@
   </head>
 
   <body class="d-flex flex-column min-vh-100 bg-primary-subtle">
-    <%# if logged_in? %>
-      <%# render 'shared/header' %>
-    <%# else %>
+    <% if logged_in? %>
       <%= render 'shared/header' %>
-    <%# end %>
+    <% else %>
+      <%= render 'shared/before_login_header' %>
+    <% end %>
     <div class="flex-grow-1">
       <%# render 'shared/flash_message' %>
       <%= yield %>
