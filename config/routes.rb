@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   delete "logout", to: "user_sessions#destroy"
   resources :user_sessions, only: %i[new create destroy]
   resources :users, only: %i[new create show edit update index]
-
+  post "oauth/callback", to: "oauths#callback"
+  get "oauth/callback", to: "oauths#callback"
+  get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
+  # Googleログインで使用する Oauthルーディング
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
