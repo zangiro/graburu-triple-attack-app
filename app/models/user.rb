@@ -15,6 +15,8 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :name, presence: true, length: { maximum: 255 }
   validate :agreement
+  validates :reset_password_token, presence: true, uniqueness: true, allow_nil: true
+
 
   has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications

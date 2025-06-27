@@ -1,0 +1,16 @@
+<% content_for(:title, t(".page_title")) %>
+
+
+<div class="container">
+  <div class="row">
+    <h3><%= t(".password_reset_request") %></h3>
+    <%= t(".password_reset_request_info") %>
+    <div class="mt-3">
+      <%= form_with url: password_resets_path do |f| %>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+        <%= f.submit t("helpers.submit.request") %>
+      <% end %>
+    </div>
+  </div>
+</div>
