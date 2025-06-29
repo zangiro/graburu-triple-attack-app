@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+
   root "static_pages#top"
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
   delete "logout", to: "user_sessions#destroy"
+  post "oauth/callback", to: "oauths#callback"
+  get "oauth/callback", to: "oauths#callback"
+  get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
+  # Googleログインで使用する Oauthルーディング
+
   resources :user_sessions, only: %i[new create destroy]
   resources :users, only: %i[new create show edit update index]
-
+  resources :password_resets, only: %i[new create edit update]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
