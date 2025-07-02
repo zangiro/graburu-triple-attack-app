@@ -1,0 +1,41 @@
+<h1>支払代金計算</h1>
+
+<label>あなたは小学生ですか？ (はい/いいえ): </label>
+<input type="text" id="isElementary" placeholder="はい or いいえ">
+
+<label>クーポンをお持ちですか？ (はい/いいえ): </label>
+<input type="text" id="hasCoupon" placeholder="はい or いいえ">
+
+<label>お土産の金額: </label>
+<input type="number" id="souvenirCost" placeholder="金額を入力">
+
+<button id="calculateButton">計算</button>
+
+<h2 id="totalDisplay">支払代金: 0円</h2>
+
+<script>
+    document.getElementById('calculateButton').onclick = function() {
+        const isElementary = document.getElementById('isElementary').value.trim() === 'はい';
+        const hasCoupon = document.getElementById('hasCoupon').value.trim() === 'はい';
+        const souvenirCost = parseInt(document.getElementById('souvenirCost').value) || 0;
+
+        let total = 0;
+
+        // 問１の処理
+        if (isElementary) {
+            total += 300; // 小学生なら300円加算
+        } else {
+            total += 1000; // 小学生でなければ1000円加算
+        }
+
+        // 問２の処理
+        if (hasCoupon) {
+            total /= 2; // クーポンがあれば半額
+        }
+
+        // お土産の金額を加算
+        total += souvenirCost;
+
+        document.getElementById('totalDisplay').innerText = `支払代金: ${total}円`;
+    };
+</script>

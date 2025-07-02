@@ -1,0 +1,210 @@
+<style>
+
+/* インナーコンテナに対するスタイル */
+.estimate-formInner {
+    display: flex; /* 子要素をフレックスアイテムとして配置 */
+    flex-direction: row; /* フレックスアイテムを行方向に配置 */
+    gap: 20px 25px; /* フレックスアイテム間の隙間を20px(縦)と25px(横)に設定 */
+    flex-wrap: wrap; /* フレックスアイテムがコンテナの幅を超えた場合、折り返しを許可 */
+    border-bottom: solid 1px #eee; /* 下部に1pxの固体の境界線を追加 */
+    padding-bottom: 25px; /* 下部のパディングを25pxに設定 */
+}
+
+
+/* ヘッダ要素に対するスタイル */
+p.estimate-formHeading {
+    display: flex; /* 子要素をフレックスアイテムとして配置 */
+    width: 100%; /* 幅を100%に設定 */
+    margin: 0 0 -10px; /* マージンの下部を-10pxに設定 */
+    font-size: 1.3rem; /* フォントサイズを1.3remに設定 */
+    justify-content: flex-start; /* フレックスアイテムを左に寄せる */
+    align-items: center; /* フレックスアイテムを中央に配置 */
+    gap: 10px; /* フレックスアイテム間の隙間を10pxに設定 */
+}
+
+/* ヘッダ要素内のspanに対するスタイル */
+p.estimate-formHeading span {
+    background: green;
+    color: #fff; /* 文字色を#fff(白)に設定 */
+    font-size: 0.8rem; /* フォントサイズを0.8remに設定 */
+    padding: 2px 10px 2px; /* パディングを上下2px、左右10pxに設定 */
+    border-radius: 9999px; /* ボーダーの半径を非常に大きく設定して丸くする */
+    font-weight: 600; /* フォントの太さを600に設定 */
+    letter-spacing: 0.04rem; /* 文字間隔を0.04remに設定 */
+}
+
+/* ラジオボタンとチェックボックスを非表示に設定 */
+.estimate-formInner input[type="radio"], .estimate-formInner input[type="checkbox"] {
+    display: none; /* 表示しない */
+}
+
+/* チェックが入ったラジオボタンとチェックボックスのラベルのスタイルを設定 */
+.estimate-formInner input[type="radio"]:checked + label, .estimate-formInner input[type="checkbox"]:checked + label {
+    background: red;
+    color: yellow;
+}
+
+/* ラベルに対するスタイル */
+.estimate-formInner label {
+    display: flex; /* 子要素をフレックスアイテムとして配置 */
+    flex-direction: column; /* フレックスアイテムを列方向に配置 */
+    align-items: center; /* フレックスアイテムを中央に配置 */
+    padding: 15px 15px 5px; /* パディングを上下15px、左右5pxに設定 */
+    transition: 0.3s ease-in-out; /* トランジション効果を0.3秒で適用 */
+    box-shadow: 0 0 3px 0 rgb(0 0 0 / 12%), 0 1px 3px 0 rgb(0 0 0 / 9%); /* 影を設定 */
+    border-radius: 3px; /* ボーダーの半径を3pxに設定 */
+    cursor: pointer; /* マウスカーソルをポインターに設定 */
+    font-weight: 600; /* フォントの太さを600に設定 */
+    font-size: 1.2rem; /* フォントサイズを1.2remに設定 */
+    gap: 3px; /* フレックスアイテム間の隙間を3pxに設定 */
+    background: #fff; /* 背景色を#fff(白)に設定 */
+}
+
+/* ラベルにマウスをホバーすると影を強調、上に少し浮き上がる、透明度を0.8に、背景色を薄灰色に設定 */
+.estimate-formInner label:hover {
+    box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 10%); /* ホバー時の影を設定 */
+    transform: translateY(-4px); /* ホバー時に上に4px移動 */
+    opacity: 0.8; /* 透明度を0.8に設定 */
+    background: #f5f5f5; /* 背景色を#f5f5f5に設定 */
+}
+
+#total {
+  position: fixed; /* 固定位置にする */
+  top: 10px; /* 上からの位置 */
+  right: 10px; /* 右からの位置 */
+  background: white; /* 背景を白にして見やすく */
+  padding: 10px; /* パディングを追加 */
+  border: 1px solid #ccc; /* 枠線を追加 */
+}
+</style>
+
+
+
+<p id="total">Total: ¥0</p>
+
+<form id="estimate-form">
+  <div class="estimate-formInner">
+  <p class="estimate-formHeading">Media Option<span>個別選択</span></p>
+    <input type="radio" name="media" value="0" id="media-option-0">
+    <label for="media-option-0"><span class="choiceOption">Media Option 0</span>¥0</label>
+
+    <input type="radio" name="media" value="1000" id="media-option-1">
+    <label for="media-option-1"><span class="choiceOption">Media Option 1</span>¥1000</label>
+
+    <input type="radio" name="media" value="2000" id="media-option-2">
+    <label for="media-option-2"><span class="choiceOption">Media Option 2</span>¥2000</label>
+
+    <input type="radio" name="media" value="3000" id="media-option-3">
+    <label for="media-option-3"><span class="choiceOption">Media Option 3</span>¥3000</label>
+  </div>
+  
+  <div class="estimate-formInner">
+  <p class="estimate-formHeading">Site Type Option<span>個別選択</span></p>
+    <input type="radio" name="siteType" value="1000" id="siteType-option-1">
+    <label for="siteType-option-1"><span class="choiceOption">Site Type Option 1</span>¥1000</label>
+
+    <input type="radio" name="siteType" value="2000" id="siteType-option-2">
+    <label for="siteType-option-2"><span class="choiceOption">Site Type Option 2</span>¥2000</label>
+  </div>
+  
+  <div class="estimate-formInner">
+  <p class="estimate-formHeading">Page Option</p>
+    <label>
+      Pages: <input type="range" name="pages" min="0" max="10" value="0">
+    </label>
+  </div>
+  
+  <div class="estimate-formInner">
+  <p class="estimate-formHeading">Feature Option<span>複数選択</span></p>
+      <input type="checkbox" name="features" value="500" id="features-option-1">
+      <label for="features-option-1"><span class="choiceOption">Feature Option 1</span>¥500</label>
+
+      <input type="checkbox" name="features" value="1000" id="features-option-2">
+      <label for="features-option-2"><span class="choiceOption">Feature Option 2</span>¥1000</label>
+
+      <input type="checkbox" name="features" value="1500" id="features-option-3">
+      <label for="features-option-3"><span class="choiceOption">Feature Option 3</span>¥1500</label>
+  </div>
+  
+  <div class="estimate-formInner">
+  <p class="estimate-formHeading">Additional Option<span>複数選択</span></p>
+      <input type="checkbox" name="options" value="800" id="additional-option-1">
+      <label for="additional-option-1"><span class="choiceOption">Additional Option 1</span>¥800</label>
+
+      <input type="checkbox" name="options" value="1600" id="additional-option-2">
+      <label for="additional-option-2"><span class="choiceOption">Additional Option 2</span>¥1600</label>
+
+  </div>
+  
+  <div class="estimate-formInner">
+  <p class="estimate-formHeading">Design Option<span>個別選択</span></p>
+      <input type="radio" name="design" value="1500" id="design-option-1">
+      <label for="design-option-1"><span class="choiceOption">Design Option 1</span>¥1500</label>
+
+      <input type="radio" name="design" value="2500" id="design-option-2">
+      <label for="design-option-2"><span class="choiceOption">Design Option 2</span>¥2500</label>
+
+      <input type="radio" name="design" value="3500" id="design-option-3">
+      <label for="design-option-3"><span class="choiceOption">Design Option 3</span>¥3500</label>
+
+      <input type="radio" name="design" value="4500" id="design-option-4">
+      <label for="design-option-4"><span class="choiceOption">Design Option 4</span>¥4500</label>
+  </div>
+</form>
+
+<script>
+    // IDを使ってフォーム要素を取得
+const form = document.getElementById('estimate-form');
+
+// IDを使って総価格表示要素を取得
+const totalElement = document.getElementById('total');
+
+// ユーザーの選択に基づいて総価格を計算する関数
+function calculateTotal() {
+  // 総価格を0に初期化
+  let total = 0;
+
+  // 選択されたメディアオプションの値を取得
+  const media = document.querySelector('input[name="media"]:checked');
+  // メディアオプションが選択されていれば、その値を総価格に加算
+  if (media) total += Number(media.value);
+
+  // 選択されたサイトタイプオプションの値を取得
+  const siteType = document.querySelector('input[name="siteType"]:checked');
+  // サイトタイプオプションが選択されていれば、その値を総価格に加算
+  if (siteType) total += Number(siteType.value);
+
+  // ページ数を取得
+  const pages = document.querySelector('input[name="pages"]');
+  // ページ数のコストを総価格に加算（ここでは1ページあたり100円と仮定）
+  total += Number(pages.value) * 100;
+
+  // 選択されたすべての機能オプションの値を取得
+  const features = document.querySelectorAll('input[name="features"]:checked');
+  // 選択されたすべての機能オプションをループし、その値を総価格に加算
+  for (let i = 0; i < features.length; i++) {
+    total += Number(features[i].value);
+  }
+
+  // 選択されたすべての追加オプションの値を取得
+  const options = document.querySelectorAll('input[name="options"]:checked');
+  // 選択されたすべての追加オプションをループし、その値を総価格に加算
+  for (let i = 0; i < options.length; i++) {
+    total += Number(options[i].value);
+  }
+
+  // 選択されたデザインオプションの値を取得
+  const design = document.querySelector('input[name="design"]:checked');
+  // デザインオプションが選択されていれば、その値を総価格に加算
+  if (design) total += Number(design.value);
+
+  // 計算した総価格で総価格表示テキストを更新
+  totalElement.innerText = `Total: ¥${total}`;
+}
+
+// フォームにchangeイベントが発生した時にcalculateTotal関数を起動するイベントリスナーを追加
+form.addEventListener('change', calculateTotal);
+</script>
+
+
+

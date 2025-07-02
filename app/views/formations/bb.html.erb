@@ -1,0 +1,60 @@
+武器の加護計算
+<h1 id="totalDisplay">合計 0 円</h1>
+
+<label>りんご: </label>
+<select id="appleQuantity">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>
+
+<label>ばなな: </label>
+<select id="bananaQuantity">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>
+
+<label>すいか: </label>
+<select id="watermelonQuantity">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>
+
+<label>クーポン: </label>
+<select id="coupon">
+    <option value="0">0%</option>
+    <option value="10">10%</option>
+    <option value="30">30%</option>
+</select>
+
+<button id="calculateButton" class="button">合計金額を計算</button>
+
+<script>
+    function calculateTotal() {
+        const applePrice = 100;
+        const bananaPrice = 200;
+        const watermelonPrice = 300;
+
+        const appleQuantity = parseInt(document.getElementById('appleQuantity').value);
+        const bananaQuantity = parseInt(document.getElementById('bananaQuantity').value);
+        const watermelonQuantity = parseInt(document.getElementById('watermelonQuantity').value);
+        const coupon = parseInt(document.getElementById('coupon').value);
+
+        const total = (applePrice * appleQuantity) + (bananaPrice * bananaQuantity) + (watermelonPrice * watermelonQuantity);
+        const discount_total = total - (total * coupon * 0.01)
+        document.getElementById('totalDisplay').innerText = `合計 ${discount_total} 円`;
+    }
+
+    document.getElementById('calculateButton').onclick = calculateTotal;
+</script>

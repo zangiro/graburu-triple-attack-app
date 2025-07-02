@@ -1,0 +1,35 @@
+<p id="total">Total: ¥0</p>
+<form id="estimate-form">
+<div class="estimate-formInner">
+<p class="estimate-formHeading">Feature Option<span>複数選択</span></p>
+    <input type="checkbox" name="features" value="500" id="features-option-1">
+    <label for="features-option-1"><span class="choiceOption">Feature Option 1</span>¥500</label>
+
+    <input type="checkbox" name="features" value="1000" id="features-option-2">
+    <label for="features-option-2"><span class="choiceOption">Feature Option 2</span>¥1000</label>
+
+    <input type="checkbox" name="features" value="1500" id="features-option-3">
+    <label for="features-option-3"><span class="choiceOption">Feature Option 3</span>¥1500</label>
+</div>
+</form>
+<script>
+const form = document.getElementById('estimate-form');
+const totalElement = document.getElementById('total');
+
+function calculateTotal() {
+
+  let total = 0;
+
+  // 選択されたすべての機能オプションの値を取得 選択されたすべての機能オプションをループし、その値を総価格に加算
+
+  const features = document.querySelectorAll('input[name="features"]:checked');
+  for (let i = 0; i < features.length; i++) {
+    total += Number(features[i].value);
+  }
+
+  totalElement.innerText = `Total: ¥${total}`;
+}
+
+form.addEventListener('change', calculateTotal);
+</script>
+

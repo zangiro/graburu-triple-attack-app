@@ -1,0 +1,40 @@
+<p id="total">Total: 0</p>
+
+<form id="estimate-form">
+  <label>りんご100円: </label>
+  <select id="apple">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+  </select>
+  
+  <label>ばなな200円: </label>
+  <select id="banana">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+  </select>
+  
+  <label>人数: </label>
+  <input type="number" class="box" name="persons">
+  
+  
+</form>
+
+<script>
+const form = document.getElementById('estimate-form');
+const totalElement = document.getElementById('total');
+
+function calculateTotal() {
+  let total = 0;
+
+  const apple = parseInt(document.getElementById('apple').value);
+  const banana = parseInt(document.getElementById('banana').value);
+  const persons = parseFloat(document.getElementsByName('persons')[0].value);
+
+  total += ((apple * 100) + (banana * 200)) * persons;
+
+  totalElement.innerText = `Total: ¥${total}`;
+}
+form.addEventListener('change', calculateTotal);
+</script>
