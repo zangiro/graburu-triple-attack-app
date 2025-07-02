@@ -13,6 +13,11 @@
 
 <h2 id="totalDisplay">支払代金: 0円</h2>
 
+<div>
+  <p id="apple" style="display: none;">りんご</p>
+</div>
+<button id="toggleButton">表示/非表示切替</button>
+
 <script>
     document.getElementById('calculateButton').onclick = function() {
         const isElementary = document.getElementById('isElementary').value.trim() === 'はい';
@@ -38,4 +43,15 @@
 
         document.getElementById('totalDisplay').innerText = `支払代金: ${total}円`;
     };
+
+    const apple = document.getElementById('apple');
+    const toggleButton = document.getElementById('toggleButton');
+
+toggleButton.addEventListener('click', () => {
+  if (apple.style.display === 'none') {
+    apple.style.display = 'block'; // 表示する
+  } else {
+    apple.style.display = 'none'; // 非表示にする
+  }
+});
 </script>
