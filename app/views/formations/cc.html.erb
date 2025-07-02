@@ -1,0 +1,46 @@
+武器の加護計算
+<h1 id="DisplayA">Aの合計 0</h1>
+<h1 id="DisplayB">Bの合計 0</h1>
+
+<label>Aの番号: </label>
+<select id="numberA">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+
+<label>当たりの番号: </label>
+<select id="hitNumber">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+
+<button id="calculateButton" class="button" onclick="calculateTotal;">計算</button>
+
+<script>
+    let totalA = 0;
+    let lastNumberA = null;
+
+    function calculateTotal() {
+        let numberA = parseInt(document.getElementById('numberA').value);
+        let hitNumber = parseInt(document.getElementById('hitNumber').value);
+        let keepA = 0;
+
+        // Aの処理
+        if (numberA === hitNumber) {
+            if (lastNumberA !== numberA) {
+                totalA += 10;
+                lastNumberA = numberA;
+            }
+        } else {
+            lastNumberA = null;
+        }
+
+        document.getElementById('DisplayA').innerText = `Aの合計 ${totalA}`;
+    }
+
+    #document.getElementById('calculateButton').onclick = calculateTotal;
+</script>
