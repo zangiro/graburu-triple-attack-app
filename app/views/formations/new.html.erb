@@ -2,8 +2,15 @@
   <div>
     武器の加護計算
     <p>マスクデータであるキャラごと、ジョブごとのTA基礎値は含まれておりません</p>
+      <div>
+      </div>
     <div>
-      <p id="character_1">character1: 0</p>
+      <div>
+        <p id="character_1">character1: 0</p>
+      </div>
+      <div>
+        <p id="character_2">character2: 0</p>
+      </div>
     </div>
 
     <div>
@@ -32,54 +39,75 @@
           </select>
         </div>
 
+        <%# ーーーーーーーー ↓オメガ武器・極星器 ーーーーーーーー %>
 
         <div>
-          <p>主人公得意武器</p>
+          <div>
+            <p>主人公の得意武器</p>
 
-          <input type="checkbox" name="forte_weapon" value="1">
-          <label>1番</label>
-          <input type="checkbox" name="forte_weapon" value="2">
-          <label>2番</label>
-          <input type="checkbox" name="forte_weapon" value="3">
-          <label>3番</label>
-          <input type="checkbox" name="forte_weapon" value="4">
-          <label>4番</label>
+            <input type="checkbox" name="forte_weapon_character_1" value="1">
+            <label>1番</label>
+            <input type="checkbox" name="forte_weapon_character_1" value="2">
+            <label>2番</label>
+            <input type="checkbox" name="forte_weapon_character_1" value="3">
+            <label>3番</label>
+            <input type="checkbox" name="forte_weapon_character_1" value="4">
+            <label>4番</label>
+          </div>
 
-          <p>オメガ武器（連撃）</p>
+          <div>
+            <p>キャラ2の得意武器</p>
 
-          <input type="radio" name="omega" value="0" id="omega-0" checked>
-          <label for="omega-0">0番</label>
+            <input type="checkbox" name="forte_weapon_character_2" value="1">
+            <label>1番</label>
+            <input type="checkbox" name="forte_weapon_character_2" value="2">
+            <label>2番</label>
+            <input type="checkbox" name="forte_weapon_character_2" value="3">
+            <label>3番</label>
+            <input type="checkbox" name="forte_weapon_character_2" value="4">
+            <label>4番</label>
+          </div>
 
-          <input type="radio" name="omega" value="1" id="omega-1">
-          <label for="omega-1">1番</label>
+          <div>
+            <p>オメガ武器（連撃）</p>
 
-          <input type="radio" name="omega" value="2" id="omega-2">
-          <label for="omega-2">2番</label>
+            <input type="radio" name="omega" value="0" id="omega-0" checked>
+            <label for="omega-0">0番</label>
 
-          <input type="radio" name="omega" value="3" id="omega-3">
-          <label for="omega-3">3番</label>
+            <input type="radio" name="omega" value="1" id="omega-1">
+            <label for="omega-1">1番</label>
 
-          <input type="radio" name="omega" value="4" id="omega-4">
-          <label for="omega-4">4番</label>
+            <input type="radio" name="omega" value="2" id="omega-2">
+            <label for="omega-2">2番</label>
 
-          <p>極星器</p>
+            <input type="radio" name="omega" value="3" id="omega-3">
+            <label for="omega-3">3番</label>
 
-          <input type="radio" name="star_weapon" value="0" id="star_weapon-0" checked>
-          <label for="star_weapon-0">0番</label>
+            <input type="radio" name="omega" value="4" id="omega-4">
+            <label for="omega-4">4番</label>
+          </div>
 
-          <input type="radio" name="star_weapon" value="1" id="star_weapon-1">
-          <label for="star_weapon-1">1番</label>
+          <div>
+            <p>極星器</p>
 
-          <input type="radio" name="star_weapon" value="2" id="star_weapon-2">
-          <label for="star_weapon-2">2番</label>
+            <input type="radio" name="star_weapon" value="0" id="star_weapon-0" checked>
+            <label for="star_weapon-0">0番</label>
 
-          <input type="radio" name="star_weapon" value="3" id="star_weapon-3">
-          <label for="star_weapon-3">3番</label>
+            <input type="radio" name="star_weapon" value="1" id="star_weapon-1">
+            <label for="star_weapon-1">1番</label>
 
-          <input type="radio" name="star_weapon" value="4" id="star_weapon-4">
-          <label for="star_weapon-4">4番</label>
+            <input type="radio" name="star_weapon" value="2" id="star_weapon-2">
+            <label for="star_weapon-2">2番</label>
+
+            <input type="radio" name="star_weapon" value="3" id="star_weapon-3">
+            <label for="star_weapon-3">3番</label>
+
+            <input type="radio" name="star_weapon" value="4" id="star_weapon-4">
+            <label for="star_weapon-4">4番</label>
+          </div>
         </div>
 
+        <%# ーーーーーーーー ↓メイン、サブ召喚石 ーーーーーーーー %>
 
         <div>
           <p>メイン、サブ召喚石</p>
@@ -96,6 +124,7 @@
           <label for="summons-3">両面かぐや</label>
         </div>
 
+        <%# ーーーーーーーー ↓ハーマー ーーーーーーーー %>
 
         <div>
           <p>サブ召喚石、ハーマー</p>
@@ -106,6 +135,7 @@
           <label for="hama-1">選択する</label>
         </div>
 
+        <%# ーーーーーーーー ↓終末武器 第二スキル ーーーーーーーー %>
         
         <div>
           <p>終末武器 第二スキルα</p>
@@ -119,11 +149,13 @@
           <label for="terminal_weapon-2">終末武器lv250 第二スキルα</label>
         </div>
 
+        <%# ーーーーーーーー ↓連撃覚醒 ーーーーーーーー %>
 
         <div>
           <p>連撃覚醒（主人公なし）</p>
         </div>
 
+        <%# ーーーーーーーー ↓神滅戦 ーーーーーーーー %>
 
         <div>
           <p>神滅戦</p>
@@ -137,40 +169,57 @@
           <label for="coat_of_arms-2">神滅の印章lv15</label>
         </div>
 
-
+        <%# ーーーーーーーー ↓武器その他 全体 ーーーーーーーー %>
         
         <div>
           <p>武器その他 全体</p>
           <input type="number" class="box" name="weapon_outher">
         </div>
 
+        <%# ーーーーーーーー ↓スキルバフ、召喚効果など 全体 ーーーーーーーー %>
 
         <div>
           <p>スキルバフ、召喚効果など 全体</p>
           <input type="number" class="box" name="skill_all">
         </div>
 
+        <%# ーーーーーーーー ↓スキルバフ、召喚効果など 単体 ーーーーーーーー %>
 
         <div>
-          <p>スキルバフ、召喚効果など 単体</p>
-          <input type="number" class="box" name="skill_single">
+          <div>
+            <p>スキルバフ、召喚効果など 主人公</p>
+            <input type="number" class="box" name="skill_single_character_1">
+          </div>
+
+          <div>
+            <p>スキルバフ、召喚効果など キャラクター2</p>
+            <input type="number" class="box" name="skill_single_character_2">
+          </div>
         </div>
 
-
-        <div>
-          <p>アーティファクト</p>
-          <input type="number" class="box" name="af">
-        </div>
-
-        <div>
-          <p>仲間のlb</p>
-          <input type="number" class="box" name="lb">
-        </div>
+        <%# ーーーーーーーー ↓アーティファクト ーーーーーーーー %>
 
         <div>
-          <p>仲間の指輪、耳飾り</p>
-          <input type="number" class="box" name="ring">
+          <p>アーティファクト キャラ2</p>
+          <input type="number" class="box" name="artifact_character_2">
         </div>
+
+        <%# ーーーーーーーー ↓仲間のリミットボーナス ーーーーーーーー %>
+
+        <div>
+          <p>キャラ2のリミットボーナス</p>
+          <input type="number" class="box" name="limit_bonus_character_2">
+        </div>
+
+        <%# ーーーーーーーー ↓仲間の指輪、耳飾り ーーーーーーーー %>
+
+        <div>
+          <p>キャラ2の指輪、耳飾り</p>
+          <input type="number" class="box" name="ring_character_2">
+        </div>
+
+        <%# ーーーーーーーー ↓主人公、コンプリートボーナス他 ーーーーーーーー %>
+        <%# ーーーーーーーー ↓主人公、コンプリートボーナス他 ーーーーーーーー %>
 
         <div>
           <p>主人公、コンプリートボーナス、ジョブのlvアップボーナス、lb、極地ボーナス</p>
@@ -184,75 +233,145 @@
 <script>
 const form = document.getElementById('estimate-form');
 const totalElement = document.getElementById('character_1');
+const totalElement_2 = document.getElementById('character_2');
 
 function calculateTotal() {
   let character_1 = 0;
+  let character_2 = 0;
 
 
   // 武器の三手 x 加護の計算
   const apple = parseInt(document.getElementById('apple').value);
   const banana = parseInt(document.getElementById('banana').value);
   const point = parseInt(document.getElementById('point').value);
-  character_1 += ((apple * 100) + (banana * 200)) * point;
+  const totalWeaponValue = ((apple * 100) + (banana * 200)) * point;
+  character_1 += totalWeaponValue
+  character_2 += totalWeaponValue
 
 
   // オメガ武器、極星器の計算
-  const forte_weapon = document.querySelectorAll('input[name="forte_weapon"]:checked');
-  const omega = document.querySelectorAll('input[name="omega"]:checked');
+  const forte_weapon_character_1 = document.querySelectorAll('input[name="forte_weapon_character_1"]:checked');
+  const forte_weapon_character_2 = document.querySelectorAll('input[name="forte_weapon_character_2"]:checked');
+  const omega_weapon = document.querySelectorAll('input[name="omega"]:checked');
   const star_weapon = document.querySelectorAll('input[name="star_weapon"]:checked');
   const star_weapon_minimum = 5;
-  for (let i = 0; i < forte_weapon.length; i++) {
-    if (forte_weapon[i].value === omega[0].value) {
+  for (let i = 0; i < forte_weapon_character_1.length; i++) {
+    if (forte_weapon_character_1[i].value === omega_weapon[0].value) {
       character_1 += 25;
     }
   }
-  for (let i = 0; i < forte_weapon.length; i++) {
-    if (forte_weapon[i].value === star_weapon[0].value) {
+  for (let i = 0; i < forte_weapon_character_1.length; i++) {
+    if (forte_weapon_character_1[i].value === star_weapon[0].value) {
       character_1 += 5;
     }
   }
-  if (star_weapon[0].value !== "0") {character_1 += star_weapon_minimum}
+
+  for (let i = 0; i < forte_weapon_character_2.length; i++) {
+    if (forte_weapon_character_2[i].value === omega_weapon[0].value) {
+      character_2 += 25;
+    }
+  }
+  for (let i = 0; i < forte_weapon_character_2.length; i++) {
+    if (forte_weapon_character_2[i].value === star_weapon[0].value) {
+      character_2 += 5;
+    }
+  }
+
+  if (star_weapon[0].value !== "0") {
+    character_1 += star_weapon_minimum;
+    character_2 += star_weapon_minimum
+  }
+
 
   // メイン召喚石の計算
   const summons = document.querySelector('input[name="summons"]:checked');
-  if (summons.value === "1") { character_1 += 50 } else if (summons.value === "2") { character_1 += 25 } else if (summons.value === "3") { character_1 += 50 }
+  if (summons.value === "1") {
+    character_1 += 50
+    } else if (summons.value === "2") {
+    character_1 += 25;
+    character_2 += 25;
+    } else if (summons.value === "3") {
+    character_1 += 50;
+    character_2 += 50;
+  }
 
 
   // 召喚石「ハールートマールトの計算」
   const hama = document.querySelector('input[name="hama"]:checked');
-  if (hama.value === "1") { character_1 += 10 }
+  if (hama.value === "1") { 
+    character_1 += 10;
+    character_2 += 10;
+  }
 
 
   // 終末武器第二スキルの計算
   const terminal_weapon = document.querySelector('input[name="terminal_weapon"]:checked');
-  if (terminal_weapon.value === "1") { character_1 += 2.5 } else if (terminal_weapon.value === "2") { character_1 += 5 }
+  if (terminal_weapon.value === "1") {
+    character_1 += 2.5;
+    character_2 += 2.5;
+    } else if (terminal_weapon.value === "2") {
+    character_1 += 5;
+    character_2 += 5;
+  }
 
 
   // 神滅の印章の計算
   const coat_of_arms = document.querySelector('input[name="coat_of_arms"]:checked');
-  if (coat_of_arms.value === "1") { character_1 += 3 } else if (coat_of_arms.value === "2") { character_1 += 5 }
+  if (coat_of_arms.value === "1") {
+    character_1 += 3;
+    character_2 += 3;
+    } else if (coat_of_arms.value === "2") {
+    character_1 += 5;
+    character_2 += 5;
+  }
 
 
-  // 武器のその他要因の計算
+  // 武器のその他要因の計算（全体）
   const weapon_outher = parseFloat(document.getElementsByName('weapon_outher')[0].value);
-  if (weapon_outher) {character_1 += weapon_outher}
+  if (weapon_outher) {
+    character_1 += weapon_outher;
+    character_2 += weapon_outher;
+  }
 
 
   // スキルなどによる上昇の計算（全体）
   const skill_all = parseFloat(document.getElementsByName('skill_all')[0].value);
-  if (skill_all) {character_1 += skill_all}
+  if (skill_all) {
+    character_1 += skill_all;
+    character_2 += skill_all;
+  }
 
 
   // スキルなどによる上昇の計算（個別）
-  const skill_single = parseFloat(document.getElementsByName('skill_single')[0].value);
-  if (skill_single) {character_1 += skill_single}
+  const skill_single_character_1 = parseFloat(document.getElementsByName('skill_single_character_1')[0].value);
+  if (skill_single_character_1) {character_1 += skill_single_character_1}
+
+  const skill_single_character_2 = parseFloat(document.getElementsByName('skill_single_character_2')[0].value);
+  if (skill_single_character_2) {character_2 += skill_single_character_2}
+
+
+  // アーティファクトの計算（個別）
+  const artifact_character_2 = parseFloat(document.getElementsByName('artifact_character_2')[0].value);
+  if (artifact_character_2) {character_2 += artifact_character_2}
+
+
+  // リミットボーナスの計算（個別）
+  const limit_bonus_character_2 = parseFloat(document.getElementsByName('limit_bonus_character_2')[0].value);
+  if (limit_bonus_character_2) {character_2 += limit_bonus_character_2}
+
+
+  // 指輪、耳飾りの計算（個別）
+  const ring_character_2 = parseFloat(document.getElementsByName('ring_character_2')[0].value);
+  if (ring_character_2) {character_2 += ring_character_2}
 
 
   // 主人公のコンプリートボーナス、lbなどの計算
   const main_character_bonus = parseFloat(document.getElementsByName('main_character_bonus')[0].value);
   if (main_character_bonus) {character_1 += main_character_bonus}
 
+
   totalElement.innerText = `character1: ${character_1}`;
+  totalElement_2.innerText = `character2: ${character_2}`;
   }
 
 // フォームにchangeイベントが発生した時にcalculateTotal関数を起動するイベントリスナーを追加
