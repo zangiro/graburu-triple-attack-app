@@ -3,6 +3,7 @@
     <button id="toggleButton">表示/非表示切替</button>
     武器の加護計算
     <p>マスクデータであるキャラごと、ジョブごとのTA基礎値は含まれておりません</p>
+    <p>小数点第二位四捨五入</p>
       <div>
       </div>
     <div>
@@ -25,23 +26,76 @@
         <%# ーーーーーーーー ↓武器の三手 ーーーーーーーー %>
 
         <div>
-          <p>武器三手の計算(仮)</p>large, medium, or small 
+          <p>武器三手の計算(仮)</p>
   
-          <%= render "three_moves_options", label: "乱舞(小) Slv 10", id: "boisterous_dance_small_slv10" %>
-          <%= render "three_moves_options", label: "乱舞(小) Slv 15", id: "boisterous_dance_small_slv15" %>
-          <%= render "three_moves_options", label: "乱舞(中) Slv 10", id: "boisterous_dance_medium_slv10" %>
-          <%= render "three_moves_options", label: "乱舞(中) Slv 15", id: "boisterous_dance_medium_slv15" %>
-          <%= render "three_moves_options", label: "乱舞(中) Slv 20", id: "boisterous_dance_medium_slv20" %>
-          <%= render "three_moves_options", label: "乱舞(大) Slv 10", id: "boisterous_dance_large_slv10" %>
-          <%= render "three_moves_options", label: "乱舞(大) Slv 15", id: "boisterous_dance_large_slv15" %>
+          <%= render "three_moves_options", label: "マグナ 乱舞(小) Slv 10", id: "magna_boisterous_dance_small_slv10" %>
+          <%= render "three_moves_options", label: "マグナ 乱舞(中) Slv 10", id: "magna_boisterous_dance_medium_slv10" %>
+          <%= render "three_moves_options", label: "マグナ 乱舞(大) Slv 10", id: "magna_boisterous_dance_large_slv10" %>
 
-          <%= render "three_moves_options", label: "三手(小) Slv 10", id: "three_moves_small_slv10" %>
-          <%= render "three_moves_options", label: "三手(小) Slv 15", id: "three_moves_small_slv15" %>
-          <%= render "three_moves_options", label: "三手(中) Slv 10", id: "three_moves_medium_slv10" %>
-          <%= render "three_moves_options", label: "三手(中) Slv 15", id: "three_moves_medium_slv15" %>
-          <%= render "three_moves_options", label: "三手(中) Slv 20", id: "three_moves_medium_slv20" %>
-          <%= render "three_moves_options", label: "三手(大) Slv 10", id: "three_moves_large_slv10" %>
-          <%= render "three_moves_options", label: "三手(大) Slv 15", id: "three_moves_large_slv15" %>
+          <%= render "three_moves_options", label: "マグナ 乱舞(小) Slv 15", id: "magna_boisterous_dance_small_slv15" %>
+          <%= render "three_moves_options", label: "マグナ 乱舞(中) Slv 15", id: "magna_boisterous_dance_medium_slv15" %>
+          <%= render "three_moves_options", label: "マグナ 乱舞(大) Slv 15", id: "magna_boisterous_dance_large_slv15" %>
+
+          <%= render "three_moves_options", label: "マグナ 乱舞(中) Slv 20", id: "magna_boisterous_dance_medium_slv20" %>
+
+
+
+          <%= render "three_moves_options", label: "マグナ 三手(小) Slv 10", id: "magna_three_moves_small_slv10" %>
+          <%= render "three_moves_options", label: "マグナ 三手(中) Slv 10", id: "magna_three_moves_medium_slv10" %>
+          <%= render "three_moves_options", label: "マグナ 三手(大) Slv 10", id: "magna_three_moves_large_slv10" %>
+
+          <%= render "three_moves_options", label: "マグナ 三手(小) Slv 15", id: "magna_three_moves_small_slv15" %>
+          <%= render "three_moves_options", label: "マグナ 三手(中) Slv 15", id: "magna_three_moves_medium_slv15" %>
+          <%= render "three_moves_options", label: "マグナ 三手(大) Slv 15", id: "magna_three_moves_large_slv15" %>
+
+          <%= render "three_moves_options", label: "マグナ 三手(中) Slv 20", id: "magna_three_moves_medium_slv20" %>
+
+
+
+
+
+          <%= render "three_moves_options", label: "神石 乱舞(小) Slv 10", id: "optimus_boisterous_dance_small_slv10" %>
+          <%= render "three_moves_options", label: "神石 乱舞(中) Slv 10", id: "optimus_boisterous_dance_medium_slv10" %>
+          <%= render "three_moves_options", label: "神石 乱舞(大) Slv 10", id: "optimus_boisterous_dance_large_slv10" %>
+
+          <%= render "three_moves_options", label: "神石 乱舞(小) Slv 15", id: "optimus_boisterous_dance_small_slv15" %>
+          <%= render "three_moves_options", label: "神石 乱舞(中) Slv 15", id: "optimus_boisterous_dance_medium_slv15" %>
+          <%= render "three_moves_options", label: "神石 乱舞(大) Slv 15", id: "optimus_boisterous_dance_large_slv15" %>
+
+          <%= render "three_moves_options", label: "神石 乱舞(中) Slv 20", id: "optimus_boisterous_dance_medium_slv20" %>
+
+
+
+
+          <%= render "three_moves_options", label: "神石 三手(小) Slv 10", id: "optimus_three_moves_small_slv10" %>
+          <%= render "three_moves_options", label: "神石 三手(中) Slv 10", id: "optimus_three_moves_medium_slv10" %>
+          <%= render "three_moves_options", label: "神石 三手(大) Slv 10", id: "optimus_three_moves_large_slv10" %>
+
+          <%= render "three_moves_options", label: "神石 三手(小) Slv 15", id: "optimus_three_moves_small_slv15" %>
+          <%= render "three_moves_options", label: "神石 三手(中) Slv 15", id: "optimus_three_moves_medium_slv15" %>
+          <%= render "three_moves_options", label: "神石 三手(大) Slv 15", id: "optimus_three_moves_large_slv15" %>
+
+          <%= render "three_moves_options", label: "神石 三手(中) Slv 20", id: "optimus_three_moves_medium_slv20" %>
+          <div>
+            <p>終末武器 極破</p>
+            <input type="radio" name="kyokuha" value="0" id="kyokuha-0"  checked>
+            <label for="kyokuha-0">無</label>
+
+            <input type="radio" name="kyokuha" value="1" id="kyokuha-1">
+            <label for="kyokuha-1">有</label>
+          </div>
+
+          <%= render "three_moves_options", label: "limited武器 スキル『◯◯◯･アトス』", id: "athos" %>
+
+          <div>
+            <p>ル・オー・ホーン（光編成で使う場合でのみ選択可）</p>
+            <input type="radio" name="ruo" value="0" id="ruo-0"  checked>
+            <label for="ruo-0">無</label>
+
+            <input type="radio" name="ruo" value="1" id="ruo-1">
+            <label for="ruo-1">有</label>
+          </div>
+          
 
           <div>
             <p>マグナの加護</p>
@@ -53,7 +107,7 @@
             <input type="number" class="box" name="optimus_divine_protection" value="0">
           </div>
         </div>
-
+      <div>
         <%# ーーーーーーーー ↓オメガ武器・極星器 ーーーーーーーー %>
 
         <div>
@@ -312,6 +366,7 @@
           <p>主人公、コンプリートボーナス、ジョブのlvアップボーナス、lb、極地ボーナス</p>
           <input type="number" class="box" name="main_character_bonus">
         </div>
+      </div>
       </form>
     </div>
   </div>
@@ -332,12 +387,100 @@ function calculateTotal() {
 
 
   // 武器の三手 x 加護の計算
-  const magna_divine_protection = parseInt(document.getElementsByName('magna_divine_protection')[0].value);
-  const optimus_divine_protection = parseInt(document.getElementsByName('optimus_divine_protection')[0].value);
+  const magna_divine_protection_input = parseInt(document.getElementsByName('magna_divine_protection')[0].value);
+  const magna_divine_protection = magna_divine_protection_input + 100;
+  const optimus_divine_protection_input = parseInt(document.getElementsByName('optimus_divine_protection')[0].value);
+  const optimus_divine_protection = optimus_divine_protection_input + 100;
 
-  const boisterous_dance_small_slv10 = parseInt(document.getElementById('boisterous_dance_small_slv10').value);
-  const totalWeaponValue = magna_divine_protection * boisterous_dance_small_slv10;
-  if (totalWeaponValue) {character_1 += totalWeaponValue;}
+  // 武器の三手 マグナ乱舞（小、中、大）
+  const magna_boisterous_dance_small_slv10 = parseInt(document.getElementById('magna_boisterous_dance_small_slv10').value);
+  const magna_boisterous_dance_medium_slv10 = parseInt(document.getElementById('magna_boisterous_dance_medium_slv10').value);
+  const magna_boisterous_dance_large_slv10 = parseInt(document.getElementById('magna_boisterous_dance_large_slv10').value);
+  const magna_boisterous_dance_small_slv15 = parseInt(document.getElementById('magna_boisterous_dance_small_slv15').value);
+  const magna_boisterous_dance_medium_slv15 = parseInt(document.getElementById('magna_boisterous_dance_medium_slv15').value);
+  const magna_boisterous_dance_large_slv15 = parseInt(document.getElementById('magna_boisterous_dance_large_slv15').value);
+  const magna_boisterous_dance_medium_slv20 = parseInt(document.getElementById('magna_boisterous_dance_medium_slv20').value);
+
+  // 武器の三手 マグナ三手（小、中、大）
+  const magna_three_moves_small_slv10 = parseInt(document.getElementById('magna_three_moves_small_slv10').value);
+  const magna_three_moves_medium_slv10 = parseInt(document.getElementById('magna_three_moves_medium_slv10').value);
+  const magna_three_moves_large_slv10 = parseInt(document.getElementById('magna_three_moves_large_slv10').value);
+  const magna_three_moves_small_slv15 = parseInt(document.getElementById('magna_three_moves_small_slv15').value);
+  const magna_three_moves_medium_slv15 = parseInt(document.getElementById('magna_three_moves_medium_slv15').value);
+  const magna_three_moves_large_slv15 = parseInt(document.getElementById('magna_three_moves_large_slv15').value);
+  const magna_three_moves_medium_slv20 = parseInt(document.getElementById('magna_three_moves_medium_slv20').value);
+
+  // 武器の三手 神石乱舞（小、中、大）
+  const optimus_boisterous_dance_small_slv10 = parseInt(document.getElementById('optimus_boisterous_dance_small_slv10').value);
+  const optimus_boisterous_dance_medium_slv10 = parseInt(document.getElementById('optimus_boisterous_dance_medium_slv10').value);
+  const optimus_boisterous_dance_large_slv10 = parseInt(document.getElementById('optimus_boisterous_dance_large_slv10').value);
+  const optimus_boisterous_dance_small_slv15 = parseInt(document.getElementById('optimus_boisterous_dance_small_slv15').value);
+  const optimus_boisterous_dance_medium_slv15 = parseInt(document.getElementById('optimus_boisterous_dance_medium_slv15').value);
+  const optimus_boisterous_dance_large_slv15 = parseInt(document.getElementById('optimus_boisterous_dance_large_slv15').value);
+  const optimus_boisterous_dance_medium_slv20 = parseInt(document.getElementById('optimus_boisterous_dance_medium_slv20').value);
+
+  // 武器の三手 神石三手（小、中、大）
+  const optimus_three_moves_small_slv10 = parseInt(document.getElementById('optimus_three_moves_small_slv10').value);
+  const optimus_three_moves_medium_slv10 = parseInt(document.getElementById('optimus_three_moves_medium_slv10').value);
+  const optimus_three_moves_large_slv10 = parseInt(document.getElementById('optimus_three_moves_large_slv10').value);
+  const optimus_three_moves_small_slv15 = parseInt(document.getElementById('optimus_three_moves_small_slv15').value);
+  const optimus_three_moves_medium_slv15 = parseInt(document.getElementById('optimus_three_moves_medium_slv15').value);
+  const optimus_three_moves_large_slv15 = parseInt(document.getElementById('optimus_three_moves_large_slv15').value);
+  const optimus_three_moves_medium_slv20 = parseInt(document.getElementById('optimus_three_moves_medium_slv20').value);
+
+  // 各武器の数 x 武器ごとの固定連撃率
+
+  const magna_three_moves_total = 
+  ((magna_boisterous_dance_small_slv10 * 135) + (magna_boisterous_dance_medium_slv10 * 215) + (magna_boisterous_dance_large_slv10 * 345) +
+   (magna_boisterous_dance_small_slv15 * 200) + (magna_boisterous_dance_medium_slv15 * 290) + (magna_boisterous_dance_large_slv15 * 420) + (magna_boisterous_dance_medium_slv20 * 365) +
+   (magna_three_moves_small_slv10 * 200) + (magna_three_moves_medium_slv10 * 350) + (magna_three_moves_large_slv10 * 500) +
+   (magna_three_moves_small_slv15 * 350) + (magna_three_moves_medium_slv15 * 500) + (magna_three_moves_large_slv15 * 700) + (magna_three_moves_medium_slv20 * 600));
+
+  const optimus_three_moves_total = 
+  ((optimus_boisterous_dance_small_slv10 * 135) + (optimus_boisterous_dance_medium_slv10 * 215) + (optimus_boisterous_dance_large_slv10 * 345) +
+   (optimus_boisterous_dance_small_slv15 * 200) + (optimus_boisterous_dance_medium_slv15 * 290) + (optimus_boisterous_dance_large_slv15 * 420) + (optimus_boisterous_dance_medium_slv20 * 365) +
+   (optimus_three_moves_small_slv10 * 200) + (optimus_three_moves_medium_slv10 * 350) + (optimus_three_moves_large_slv10 * 500) +
+   (optimus_three_moves_small_slv15 * 350) + (optimus_three_moves_medium_slv15 * 500) + (optimus_three_moves_large_slv15 * 700) + (optimus_three_moves_medium_slv20 * 600));
+
+  // 浮動小数点数の精度の問題の誤差を防ぐため、実際の(連撃率 x 100)して整数で計算。
+  // Math.floorで下三桁を切り捨て。toFixed(1)で小数点以下1桁にして見た目上の精度を保つ。
+  // toFixed(1)で処理後は文字列になってしまうので parseFloat で数値に変換。
+
+  const totalWeaponValueBeforeRoundingDown = (magna_divine_protection * magna_three_moves_total) + (optimus_divine_protection * optimus_three_moves_total);
+  const totalWeaponValueBeforeToFixed = Math.floor(totalWeaponValueBeforeRoundingDown / 1000);
+
+  character_1 += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
+  character_2 += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
+  character_3 += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
+  character_4 += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
+
+
+  // 武器、極破、アトス、ルオーホーン
+  const kyokuha = document.querySelector('input[name="kyokuha"]:checked');
+  if (kyokuha.value === "1") { 
+    character_1 += 25;
+    character_2 += 25;
+    character_3 += 25;
+    character_4 += 25;
+  }
+
+  const athos = parseInt(document.getElementById('athos').value);
+  if (magna_divine_protection_input >= 280 || optimus_divine_protection_input >= 28000) {
+    const athosTotal = parseFloat((athos * 12.5).toFixed(1));
+    character_1 += athosTotal;
+  } else {
+    const athosTotal = parseFloat((athos * 6.25).toFixed(1));
+    character_1 += athosTotal;
+  }
+
+  const ruo = document.querySelector('input[name="ruo"]:checked');
+  if (ruo.value === "1") { 
+    character_1 += 14;
+    character_2 += 14;
+    character_3 += 14;
+    character_4 += 14;
+  }
+
 
   // オメガ武器、極星器の計算
   const forte_weapon_character_1 = document.querySelectorAll('input[name="forte_weapon_character_1"]:checked');
