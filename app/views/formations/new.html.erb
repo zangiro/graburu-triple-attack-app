@@ -25,27 +25,33 @@
         <%# ーーーーーーーー ↓武器の三手 ーーーーーーーー %>
 
         <div>
-          <p>武器三手の計算(仮)</p>
-          <label>りんご100円: </label>
-          <select id="apple">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-          </select>
+          <p>武器三手の計算(仮)</p>large, medium, or small 
   
-          <label>ばなな200円: </label>
-          <select id="banana">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-          </select>
-  
-          <label>ポイントの割合: </label>
-          <select id="point">
-            <option value="0">0</option>
-            <option value="100">100%</option>
-            <option value="200">200%</option>
-          </select>
+          <%= render "three_moves_options", label: "乱舞(小) Slv 10", id: "boisterous_dance_small_slv10" %>
+          <%= render "three_moves_options", label: "乱舞(小) Slv 15", id: "boisterous_dance_small_slv15" %>
+          <%= render "three_moves_options", label: "乱舞(中) Slv 10", id: "boisterous_dance_medium_slv10" %>
+          <%= render "three_moves_options", label: "乱舞(中) Slv 15", id: "boisterous_dance_medium_slv15" %>
+          <%= render "three_moves_options", label: "乱舞(中) Slv 20", id: "boisterous_dance_medium_slv20" %>
+          <%= render "three_moves_options", label: "乱舞(大) Slv 10", id: "boisterous_dance_large_slv10" %>
+          <%= render "three_moves_options", label: "乱舞(大) Slv 15", id: "boisterous_dance_large_slv15" %>
+
+          <%= render "three_moves_options", label: "三手(小) Slv 10", id: "three_moves_small_slv10" %>
+          <%= render "three_moves_options", label: "三手(小) Slv 15", id: "three_moves_small_slv15" %>
+          <%= render "three_moves_options", label: "三手(中) Slv 10", id: "three_moves_medium_slv10" %>
+          <%= render "three_moves_options", label: "三手(中) Slv 15", id: "three_moves_medium_slv15" %>
+          <%= render "three_moves_options", label: "三手(中) Slv 20", id: "three_moves_medium_slv20" %>
+          <%= render "three_moves_options", label: "三手(大) Slv 10", id: "three_moves_large_slv10" %>
+          <%= render "three_moves_options", label: "三手(大) Slv 15", id: "three_moves_large_slv15" %>
+
+          <div>
+            <p>マグナの加護</p>
+            <input type="number" class="box" name="magna_divine_protection" value="0">
+          </div>
+
+          <div>
+            <p>神石の加護</p>
+            <input type="number" class="box" name="optimus_divine_protection" value="0">
+          </div>
         </div>
 
         <%# ーーーーーーーー ↓オメガ武器・極星器 ーーーーーーーー %>
@@ -326,15 +332,12 @@ function calculateTotal() {
 
 
   // 武器の三手 x 加護の計算
-  const apple = parseInt(document.getElementById('apple').value);
-  const banana = parseInt(document.getElementById('banana').value);
-  const point = parseInt(document.getElementById('point').value);
-  const totalWeaponValue = ((apple * 100) + (banana * 200)) * point;
-  character_1 += totalWeaponValue
-  character_2 += totalWeaponValue
-  character_3 += totalWeaponValue
-  character_4 += totalWeaponValue
+  const magna_divine_protection = parseInt(document.getElementsByName('magna_divine_protection')[0].value);
+  const optimus_divine_protection = parseInt(document.getElementsByName('optimus_divine_protection')[0].value);
 
+  const boisterous_dance_small_slv10 = parseInt(document.getElementById('boisterous_dance_small_slv10').value);
+  const totalWeaponValue = magna_divine_protection * boisterous_dance_small_slv10;
+  if (totalWeaponValue) {character_1 += totalWeaponValue;}
 
   // オメガ武器、極星器の計算
   const forte_weapon_character_1 = document.querySelectorAll('input[name="forte_weapon_character_1"]:checked');
