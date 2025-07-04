@@ -107,7 +107,7 @@
             <input type="number" class="box" name="optimus_divine_protection" value="0">
           </div>
         </div>
-      <div>
+
         <%# ーーーーーーーー ↓オメガ武器・極星器 ーーーーーーーー %>
 
         <div>
@@ -366,7 +366,6 @@
           <p>主人公、コンプリートボーナス、ジョブのlvアップボーナス、lb、極地ボーナス</p>
           <input type="number" class="box" name="main_character_bonus">
         </div>
-      </div>
       </form>
     </div>
   </div>
@@ -465,12 +464,18 @@ function calculateTotal() {
   }
 
   const athos = parseInt(document.getElementById('athos').value);
-  if (magna_divine_protection_input >= 280 || optimus_divine_protection_input >= 28000) {
+  if (magna_divine_protection_input >= 280 || optimus_divine_protection_input >= 280) {
     const athosTotal = parseFloat((athos * 12.5).toFixed(1));
     character_1 += athosTotal;
+    character_2 += athosTotal;
+    character_3 += athosTotal;
+    character_4 += athosTotal;
   } else {
     const athosTotal = parseFloat((athos * 6.25).toFixed(1));
     character_1 += athosTotal;
+    character_2 += athosTotal;
+    character_3 += athosTotal;
+    character_4 += athosTotal;
   }
 
   const ruo = document.querySelector('input[name="ruo"]:checked');
