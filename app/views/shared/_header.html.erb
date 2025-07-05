@@ -3,14 +3,16 @@
     <div class="col-auto">
       <%= link_to root_path, class: "btn btn-light btn-sm" do %>
         <div class="d-flex align-items-center">
-          <p>トップページへ</p>
+          <p class="mb-0">トップページへ</p>
         </div>
       <% end %>
     </div>
 
     <div class="col-auto">
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></button>
+        <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+        メニュー
+        </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <li><%= link_to t(".my_page"), user_path(current_user), class: 'dropdown-item' %></li>
           <li><%= link_to t(".logout"), logout_path, data: { turbo_method: :delete }, class: 'dropdown-item' %></li>

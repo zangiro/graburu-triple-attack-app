@@ -13,13 +13,23 @@
       <div class="mx-3">
         <p id="character_4">character4: 0</p>
       </div>
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="characterSettingButton" data-bs-toggle="dropdown" aria-expanded="false">
+        設定
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="characterSettingButton">
+          <li><%= link_to "3", "#", class: 'dropdown-item' %></li>
+          <li><%= link_to "4", "#", class: 'dropdown-item' %></li>
+        </ul>
+      </div>
     </div>
 
     <button id="toggleButton">表示/非表示切替</button>
     武器の加護計算a
     <p>マスクデータであるキャラごと、ジョブごとのTA基礎値は含まれておりません</p>
     <p>小数点第二位四捨五入</p>
-    
+
     <div>
       <form id="estimate-form">
         <%# ーーーーーーーー ↓武器の三手 ーーーーーーーー %>
