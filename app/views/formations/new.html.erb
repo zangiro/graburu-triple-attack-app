@@ -58,7 +58,7 @@
         <%# ーーーーーーーー ↓武器の三手 ーーーーーーーー %>
         <div class="mt-3">
           <div class="item-title">
-              <p>スキル 乱舞、三手武器の本数</p>
+              <p>スキル 乱舞の武器、スキル 三手の武器の本数</p>
           </div>
 
           <div class="mt-3">
@@ -186,24 +186,15 @@
           </div>
         </div>
 
-          <div>
+        <div>
+          <div class="item-title mt-3">
             <p>オメガ武器（連撃）</p>
-
-            <input type="radio" name="omega" value="0" id="omega-0" checked>
-            <label for="omega-0">0番</label>
-
-            <input type="radio" name="omega" value="1" id="omega-1">
-            <label for="omega-1">1番</label>
-
-            <input type="radio" name="omega" value="2" id="omega-2">
-            <label for="omega-2">2番</label>
-
-            <input type="radio" name="omega" value="3" id="omega-3">
-            <label for="omega-3">3番</label>
-
-            <input type="radio" name="omega" value="4" id="omega-4">
-            <label for="omega-4">4番</label>
           </div>
+
+          <div class="selection-items">
+            <%= render "omega_and_star_weapon", weapon_name: "omega" %>
+          </div>
+        </div>
 
           <div>
             <p>極星器</p>
