@@ -52,12 +52,12 @@
 }
 
 /* ラジオボタンとチェックボックスを非表示に設定 */
-.selection-items input[type="radio"] {
+.selection-items input[type="radio"], .selection-items input[type="checkbox"]  {
   display: none; /* 表示しない */
 }
 
 /* チェックが入ったラジオボタンとチェックボックスのラベルのスタイルを設定 */
-.selection-items input[type="radio"]:checked + label {
+.selection-items input[type="radio"]:checked + label, .selection-items input[type="checkbox"]:checked + label {
   background: red;
   color: yellow;
 }

@@ -147,18 +147,24 @@
         <%# ーーーーーーーー ↓オメガ武器・極星器 ーーーーーーーー %>
 
         <div>
-          <div>
+          <div class="item-title mt-3">
             <p>主人公の得意武器</p>
-
-            <input type="checkbox" name="forte_weapon_character_1" value="1">
-            <label>1番</label>
-            <input type="checkbox" name="forte_weapon_character_1" value="2">
-            <label>2番</label>
-            <input type="checkbox" name="forte_weapon_character_1" value="3">
-            <label>3番</label>
-            <input type="checkbox" name="forte_weapon_character_1" value="4">
-            <label>4番</label>
           </div>
+
+          <div class="selection-items">
+            <input type="checkbox" name="forte_weapon_character_1" value="1" id="forte-weapon-character-1-option-1">
+            <label for="forte-weapon-character-1-option-1">1番</label>
+
+            <input type="checkbox" name="forte_weapon_character_1" value="2" id="forte-weapon-character-1-option-2">
+            <label for="forte-weapon-character-1-option-2">2番</label>
+
+            <input type="checkbox" name="forte_weapon_character_1" value="3" id="forte-weapon-character-1-option-3">
+            <label for="forte-weapon-character-1-option-3">3番</label>
+
+            <input type="checkbox" name="forte_weapon_character_1" value="4" id="forte-weapon-character-1-option-4">
+            <label for="forte-weapon-character-1-option-4">4番</label>
+          </div>
+        </div>
 
           <div>
             <p>キャラ2の得意武器</p>
@@ -236,7 +242,6 @@
             <input type="radio" name="star_weapon" value="4" id="star_weapon-4">
             <label for="star_weapon-4">4番</label>
           </div>
-        </div>
 
         <%# ーーーーーーーー ↓メイン、サブ召喚石 ーーーーーーーー %>
 
