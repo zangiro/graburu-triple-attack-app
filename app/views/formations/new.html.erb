@@ -152,58 +152,39 @@
           </div>
 
           <div class="selection-items">
-            <input type="checkbox" name="forte_weapon_character_1" value="1" id="forte-weapon-character-1-option-1">
-            <label for="forte-weapon-character-1-option-1">1番</label>
-
-            <input type="checkbox" name="forte_weapon_character_1" value="2" id="forte-weapon-character-1-option-2">
-            <label for="forte-weapon-character-1-option-2">2番</label>
-
-            <input type="checkbox" name="forte_weapon_character_1" value="3" id="forte-weapon-character-1-option-3">
-            <label for="forte-weapon-character-1-option-3">3番</label>
-
-            <input type="checkbox" name="forte_weapon_character_1" value="4" id="forte-weapon-character-1-option-4">
-            <label for="forte-weapon-character-1-option-4">4番</label>
+            <%= render "forte_weapon_list", id: 1 %>
           </div>
         </div>
 
-          <div>
-            <p>キャラ2の得意武器</p>
-
-            <input type="checkbox" name="forte_weapon_character_2" value="1">
-            <label>1番</label>
-            <input type="checkbox" name="forte_weapon_character_2" value="2">
-            <label>2番</label>
-            <input type="checkbox" name="forte_weapon_character_2" value="3">
-            <label>3番</label>
-            <input type="checkbox" name="forte_weapon_character_2" value="4">
-            <label>4番</label>
+        <div>
+          <div class="item-title mt-3">
+            <p>メンバー2の得意武器</p>
           </div>
 
-          <div>
-            <p>キャラ3の得意武器</p>
+          <div class="selection-items">
+            <%= render "forte_weapon_list", id: 2 %>
+          </div>
+        </div>
 
-            <input type="checkbox" name="forte_weapon_character_3" value="1">
-            <label>1番</label>
-            <input type="checkbox" name="forte_weapon_character_3" value="2">
-            <label>2番</label>
-            <input type="checkbox" name="forte_weapon_character_3" value="3">
-            <label>3番</label>
-            <input type="checkbox" name="forte_weapon_character_3" value="4">
-            <label>4番</label>
+        <div>
+          <div class="item-title mt-3">
+            <p>メンバー3の得意武器</p>
           </div>
 
-          <div>
-            <p>キャラ4の得意武器</p>
-
-            <input type="checkbox" name="forte_weapon_character_4" value="1">
-            <label>1番</label>
-            <input type="checkbox" name="forte_weapon_character_4" value="2">
-            <label>2番</label>
-            <input type="checkbox" name="forte_weapon_character_4" value="3">
-            <label>3番</label>
-            <input type="checkbox" name="forte_weapon_character_4" value="4">
-            <label>4番</label>
+          <div class="selection-items">
+            <%= render "forte_weapon_list", id: 3 %>
           </div>
+        </div>
+
+        <div>
+          <div class="item-title mt-3">
+            <p>メンバー4の得意武器</p>
+          </div>
+
+          <div class="selection-items">
+            <%= render "forte_weapon_list", id: 4 %>
+          </div>
+        </div>
 
           <div>
             <p>オメガ武器（連撃）</p>
