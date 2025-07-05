@@ -57,15 +57,7 @@
         <div class="mt-3">
           <div class="item-title">
               <p>スキル 乱舞、三手武器の本数</p>
-            <div class="weapon-setting-dropdown mx-3">
-              <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="weapon-setting-button" data-bs-toggle="dropdown" aria-expanded="false">
-              表示範囲設定
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="weapon-setting-button">
-                <li><button class="dropdown-item" id="showWeapon">slv10の武器を表示する</button></li>
-                <li><button class="dropdown-item" id="hideWeapon">slv10の武器を非表示にする</button></li>
-              </ul>
-            </div>
+              <button id="weaponSwitchingButton" type="button">slv10の武器の表示切替</button>
           </div>
 
           <div class="mt-3">
@@ -89,7 +81,7 @@
               <%= render "three_moves_options", label: "マグナ 三手(中) Slv 20", id: "magna_three_moves_medium_slv20" %>
             </div>
 
-            <div class="weapon-list" id="weaponSlv10" style="display: none;">
+            <div class="weapon-list" id="weaponSlv10Second" style="display: none;">
               <%= render "three_moves_options", label: "神石 乱舞(小) Slv 10", id: "optimus_boisterous_dance_small_slv10" %>
               <%= render "three_moves_options", label: "神石 乱舞(中) Slv 10", id: "optimus_boisterous_dance_medium_slv10" %>
               <%= render "three_moves_options", label: "神石 乱舞(大) Slv 10", id: "optimus_boisterous_dance_large_slv10" %>
@@ -715,15 +707,17 @@ function calculateTotal() {
 form.addEventListener('change', calculateTotal);
 
 const weaponSlv10 = document.getElementById('weaponSlv10');
-const showWeaponSlv10Button = document.getElementById('showWeapon');
-const hideWeaponSlv10Button = document.getElementById('hideWeapon');
+const weaponSlv10Second = document.getElementById('weaponSlv10Second');
+const weaponSwitchingButton = document.getElementById('weaponSwitchingButton');
 
-  showWeaponSlv10Button.addEventListener('click', (event) => {
+weaponSwitchingButton.addEventListener('click', () => {
+  if (weaponSlv10.style.display === 'none') {
     weaponSlv10.style.display = 'block';
-  });
-
-  hideWeaponSlv10Button.addEventListener('click', (event) => {
+    weaponSlv10Second.style.display = 'block';
+  } else {
     weaponSlv10.style.display = 'none';
-  });
+    weaponSlv10Second.style.display = 'none';
+  }
+});
 </script>
 
