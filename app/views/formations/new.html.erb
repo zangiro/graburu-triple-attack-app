@@ -37,6 +37,8 @@
 
     <div>
       <form id="estimate-form">
+
+
         <div class="three-moves-list">
           <div>
             <div class="item-title">
@@ -100,7 +102,9 @@
               <%= render "three_moves_options", label: "神石 三手(中) Slv 20", id: "optimus_three_moves_medium_slv20" %>
             </div>
           </div>
+        </div>
         
+        <div>
           <div class="item-title mt-3">
             <p>終末武器 極破</p>
           </div>
@@ -112,11 +116,26 @@
             <input type="radio" name="kyokuha" value="1" id="kyokuha-1">
             <label for="kyokuha-1">有</label>
           </div>
+        </div>
 
-          <%= render "three_moves_options", label: "limited武器 スキル『◯◯◯･アトス』", id: "athos" %>
+        <div class="three-moves-list">
+          <div class="item-title mt-3">
+            <p>リミテッドシリーズ武器 スキル『◯◯◯･アトス』</p>
+          </div>
+          <select id="athos">
+            <option value="0">0本</option>
+            <option value="1">1本</option>
+            <option value="2">2本</option>
+            <option value="3">3本</option>
+          </select>
+        </div>
 
-          <div>
+        <div>
+          <div class="item-title mt-3">
             <p>ル・オー・ホーン（光編成で使う場合でのみ選択可）</p>
+          </div>
+
+          <div class="selection-items">
             <input type="radio" name="ruo" value="0" id="ruo-0"  checked>
             <label for="ruo-0">無</label>
 
