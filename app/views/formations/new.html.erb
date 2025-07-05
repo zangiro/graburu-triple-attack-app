@@ -209,43 +209,61 @@
         <%# ーーーーーーーー ↓メイン、サブ召喚石 ーーーーーーーー %>
 
         <div>
-          <p>メイン、サブ召喚石</p>
-          <input type="radio" name="summons" value="0" id="summons-0" checked>
-          <label for="summons-0">選択なし</label>
+          <div class="item-title mt-3">
+            <p>メイン、サブ召喚石</p>
+          </div>
 
-          <input type="radio" name="summons" value="1" id="summons-1">
-          <label for="summons-1">ベルゼバブ</label>
+          <div class="selection-items">
+            <input type="radio" name="summons" value="0" id="summons-0" checked>
+            <label for="summons-0">選択なし</label>
 
-          <input type="radio" name="summons" value="2" id="summons-2">
-          <label for="summons-2">片面かぐや</label>
+            <input type="radio" name="summons" value="1" id="summons-1">
+            <label for="summons-1">ベルゼバブ</label>
 
-          <input type="radio" name="summons" value="3" id="summons-3">
-          <label for="summons-3">両面かぐや</label>
+            <input type="radio" name="summons" value="2" id="summons-2">
+            <label for="summons-2">片面かぐや</label>
+
+            <input type="radio" name="summons" value="3" id="summons-3">
+            <label for="summons-3">両面かぐや</label>
+
+            <input type="radio" name="summons" value="4" id="summons-4">
+            <label for="summons-4">ベルゼバブ＋かぐや</label>
+          </div>
         </div>
 
         <%# ーーーーーーーー ↓ハーマー ーーーーーーーー %>
 
         <div>
-          <p>サブ召喚石、ハーマー</p>
-          <input type="radio" name="hama" value="0" id="hama-0"  checked>
-          <label for="hama-0">選択なし</label>
+          <div class="item-title mt-3">
+            <p>サブ召喚石、ハールート・マールート</p>
+          </div>
 
-          <input type="radio" name="hama" value="1" id="hama-1">
-          <label for="hama-1">選択する</label>
+          <div class="selection-items">
+            <input type="radio" name="hama" value="0" id="hama-0"  checked>
+            <label for="hama-0">選択なし</label>
+
+            <input type="radio" name="hama" value="1" id="hama-1">
+            <label for="hama-1">選択する</label>
+          </div>
         </div>
 
         <%# ーーーーーーーー ↓終末武器 第二スキル ーーーーーーーー %>
-        
+    
         <div>
-          <p>終末武器 第二スキルα</p>
-          <input type="radio" name="terminal_weapon" value="0" id="terminal_weapon-0"  checked>
-          <label for="terminal_weapon-0">選択なし</label>
+          <div class="item-title mt-3">
+            <p>終末武器 第二スキル アルファ・ペンデュラム</p>
+          </div>
 
-          <input type="radio" name="terminal_weapon" value="1" id="terminal_weapon-1">
-          <label for="terminal_weapon-1">終末武器lv230 第二スキルα</label>
+          <div class="selection-items">
+            <input type="radio" name="terminal_weapon" value="0" id="terminal_weapon-0"  checked>
+            <label for="terminal_weapon-0">無</label>
 
-          <input type="radio" name="terminal_weapon" value="2" id="terminal_weapon-2">
-          <label for="terminal_weapon-2">終末武器lv250 第二スキルα</label>
+            <input type="radio" name="terminal_weapon" value="1" id="terminal_weapon-1">
+            <label for="terminal_weapon-1">有 (終末武器lv230)</label>
+
+            <input type="radio" name="terminal_weapon" value="2" id="terminal_weapon-2">
+            <label for="terminal_weapon-2">有 (終末武器lv250)</label>
+          </div>
         </div>
 
         <%# ーーーーーーーー ↓連撃覚醒 ーーーーーーーー %>
@@ -568,6 +586,11 @@ function calculateTotal() {
     character_2 += 50;
     character_3 += 50;
     character_4 += 50;
+    } else if (summons.value === "4") {
+    character_1 += 75;
+    character_2 += 25;
+    character_3 += 25;
+    character_4 += 25;
   }
 
 
