@@ -1,16 +1,16 @@
 <div class="container bg-info">
   <div class="row py-2 justify-content-between">
     <div class="col-auto">
-      <%= link_to root_path, class: "btn btn-light" do %>
+      <%= link_to root_path, class: "btn btn-light btn-sm" do %>
         <div class="d-flex align-items-center">
-          <p>たいとる</p>
+          <p class="mb-0">たいとる</p>
         </div>
       <% end %>
     </div>
 
     <div class="col-auto">
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></button>
+        <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <li><%= link_to t(".to_register_page"), new_user_path, class: 'dropdown-item' %></li>
           <li><%= link_to t(".to_login_page"), login_path, class: 'dropdown-item' %></li>

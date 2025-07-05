@@ -1,7 +1,7 @@
 <div class="container bg-info">
   <div class="row py-2 justify-content-between">
     <div class="col-auto">
-      <%= link_to root_path, class: "btn btn-light" do %>
+      <%= link_to root_path, class: "btn btn-light btn-sm" do %>
         <div class="d-flex align-items-center">
           <p>トップページへ</p>
         </div>
@@ -10,7 +10,7 @@
 
     <div class="col-auto">
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></button>
+        <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <li><%= link_to t(".my_page"), user_path(current_user), class: 'dropdown-item' %></li>
           <li><%= link_to t(".logout"), logout_path, data: { turbo_method: :delete }, class: 'dropdown-item' %></li>
