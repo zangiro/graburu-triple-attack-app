@@ -9,3 +9,27 @@
   display: flex;          /* フレックスボックスにする */
   flex-wrap: wrap;       /* 折り返す設定 */
 }
+
+.divine-protection-list {
+  display: flex; /* 横に並べる */
+  flex-wrap: wrap; /* 画面幅が狭くなったら折り返す */
+}
+
+.item-title {
+  display: flex; /* 子要素をフレックスアイテムとして配置 */
+    width: 100%; /* 幅を100%に設定 */
+    margin: 0 0 -10px; /* マージンの下部を-10pxに設定 */
+    font-size: 1.3rem; /* フォントサイズを1.3remに設定 */
+    justify-content: flex-start; /* フレックスアイテムを左に寄せる */
+    align-items: center; /* フレックスアイテムを中央に配置 */
+    gap: 10px; /* フレックスアイテム間の隙間を10pxに設定 */
+}
+
+.three-moves-list {
+  display: flex; /* 子要素をフレックスアイテムとして配置 */
+    flex-direction: row; /* フレックスアイテムを行方向に配置 */
+    gap: 20px 25px; /* フレックスアイテム間の隙間を20px(縦)と25px(横)に設定 */
+    flex-wrap: wrap; /* フレックスアイテムがコンテナの幅を超えた場合、折り返しを許可 */
+    border-bottom: solid 1px #eee; /* 下部に1pxの固体の境界線を追加 */
+    padding-bottom: 25px; /* 下部のパディングを25pxに設定 */
+}
