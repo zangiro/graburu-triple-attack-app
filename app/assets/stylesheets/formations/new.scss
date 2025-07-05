@@ -33,3 +33,12 @@
     border-bottom: solid 1px #eee; /* 下部に1pxの固体の境界線を追加 */
     padding-bottom: 25px; /* 下部のパディングを25pxに設定 */
 }
+
+.weapon-list {
+  display: flex; /* 子要素をフレックスアイテムとして配置 */
+    flex-direction: row; /* フレックスアイテムを行方向に配置 */
+    gap: 20px 25px; /* フレックスアイテム間の隙間を20px(縦)と25px(横)に設定 */
+    flex-wrap: wrap; /* フレックスアイテムがコンテナの幅を超えた場合、折り返しを許可 */
+    padding-bottom: 25px; /* 下部のパディングを25pxに設定 */
+}
+

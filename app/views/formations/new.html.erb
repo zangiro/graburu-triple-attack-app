@@ -51,42 +51,64 @@
         </div>
 
         <%# ーーーーーーーー ↓武器の三手 ーーーーーーーー %>
+         <div id="">
+ああああ
+         </div>
 
         <div class="mt-3">
           <div class="item-title">
-            <p>スキル 乱舞、三手武器の本数</p>
+              <p>スキル 乱舞、三手武器の本数</p>
+            <div class="character-setting-dropdown mx-3">
+              <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="characterSettingButton" data-bs-toggle="dropdown" aria-expanded="false">
+              設定
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="characterSettingButton">
+              <li><a href="#" class="dropdown-item" id="hideApple">省略</a></li>
+              <li><a href="#" class="dropdown-item" id="showApple">戻す</a></li>
+              </ul>
+            </div>
           </div>
 
-          <div class="three-moves-list mt-3">
-            <%= render "three_moves_options", label: "マグナ 乱舞(小) Slv 10", id: "magna_boisterous_dance_small_slv10" %>
-            <%= render "three_moves_options", label: "マグナ 乱舞(中) Slv 10", id: "magna_boisterous_dance_medium_slv10" %>
-            <%= render "three_moves_options", label: "マグナ 乱舞(大) Slv 10", id: "magna_boisterous_dance_large_slv10" %>
-            <%= render "three_moves_options", label: "マグナ 乱舞(小) Slv 15", id: "magna_boisterous_dance_small_slv15" %>
-            <%= render "three_moves_options", label: "マグナ 乱舞(中) Slv 15", id: "magna_boisterous_dance_medium_slv15" %>
-            <%= render "three_moves_options", label: "マグナ 乱舞(大) Slv 15", id: "magna_boisterous_dance_large_slv15" %>
-            <%= render "three_moves_options", label: "マグナ 乱舞(中) Slv 20", id: "magna_boisterous_dance_medium_slv20" %>
-            <%= render "three_moves_options", label: "マグナ 三手(小) Slv 10", id: "magna_three_moves_small_slv10" %>
-            <%= render "three_moves_options", label: "マグナ 三手(中) Slv 10", id: "magna_three_moves_medium_slv10" %>
-            <%= render "three_moves_options", label: "マグナ 三手(大) Slv 10", id: "magna_three_moves_large_slv10" %>
-            <%= render "three_moves_options", label: "マグナ 三手(小) Slv 15", id: "magna_three_moves_small_slv15" %>
-            <%= render "three_moves_options", label: "マグナ 三手(中) Slv 15", id: "magna_three_moves_medium_slv15" %>
-            <%= render "three_moves_options", label: "マグナ 三手(大) Slv 15", id: "magna_three_moves_large_slv15" %>
-            <%= render "three_moves_options", label: "マグナ 三手(中) Slv 20", id: "magna_three_moves_medium_slv20" %>
-            <%= render "three_moves_options", label: "神石 乱舞(小) Slv 10", id: "optimus_boisterous_dance_small_slv10" %>
-            <%= render "three_moves_options", label: "神石 乱舞(中) Slv 10", id: "optimus_boisterous_dance_medium_slv10" %>
-            <%= render "three_moves_options", label: "神石 乱舞(大) Slv 10", id: "optimus_boisterous_dance_large_slv10" %>
-            <%= render "three_moves_options", label: "神石 乱舞(小) Slv 15", id: "optimus_boisterous_dance_small_slv15" %>
-            <%= render "three_moves_options", label: "神石 乱舞(中) Slv 15", id: "optimus_boisterous_dance_medium_slv15" %>
-            <%= render "three_moves_options", label: "神石 乱舞(大) Slv 15", id: "optimus_boisterous_dance_large_slv15" %>
-            <%= render "three_moves_options", label: "神石 乱舞(中) Slv 20", id: "optimus_boisterous_dance_medium_slv20" %>
-            <%= render "three_moves_options", label: "神石 三手(小) Slv 10", id: "optimus_three_moves_small_slv10" %>
-            <%= render "three_moves_options", label: "神石 三手(中) Slv 10", id: "optimus_three_moves_medium_slv10" %>
-            <%= render "three_moves_options", label: "神石 三手(大) Slv 10", id: "optimus_three_moves_large_slv10" %>
-            <%= render "three_moves_options", label: "神石 三手(小) Slv 15", id: "optimus_three_moves_small_slv15" %>
-            <%= render "three_moves_options", label: "神石 三手(中) Slv 15", id: "optimus_three_moves_medium_slv15" %>
-            <%= render "three_moves_options", label: "神石 三手(大) Slv 15", id: "optimus_three_moves_large_slv15" %>
+          <div class="mt-3">
+            <div class="weapon-list" id="magna-weapon-slv10" style="display: none;">
+              <%= render "three_moves_options", label: "マグナ 乱舞(小) Slv 10", id: "magna_boisterous_dance_small_slv10" %>
+              <%= render "three_moves_options", label: "マグナ 乱舞(中) Slv 10", id: "magna_boisterous_dance_medium_slv10" %>
+              <%= render "three_moves_options", label: "マグナ 乱舞(大) Slv 10", id: "magna_boisterous_dance_large_slv10" %>
+              <%= render "three_moves_options", label: "マグナ 三手(小) Slv 10", id: "magna_three_moves_small_slv10" %>
+              <%= render "three_moves_options", label: "マグナ 三手(中) Slv 10", id: "magna_three_moves_medium_slv10" %>
+              <%= render "three_moves_options", label: "マグナ 三手(大) Slv 10", id: "magna_three_moves_large_slv10" %>
+            </div>
 
-            <%= render "three_moves_options", label: "神石 三手(中) Slv 20", id: "optimus_three_moves_medium_slv20" %>
+            <div class="weapon-list" class="three-moves-list" id="magna-weapon-slv15">
+              <%= render "three_moves_options", label: "マグナ 乱舞(小) Slv 15", id: "magna_boisterous_dance_small_slv15" %>
+              <%= render "three_moves_options", label: "マグナ 乱舞(中) Slv 15", id: "magna_boisterous_dance_medium_slv15" %>
+              <%= render "three_moves_options", label: "マグナ 乱舞(大) Slv 15", id: "magna_boisterous_dance_large_slv15" %>
+              <%= render "three_moves_options", label: "マグナ 三手(小) Slv 15", id: "magna_three_moves_small_slv15" %>
+              <%= render "three_moves_options", label: "マグナ 三手(中) Slv 15", id: "magna_three_moves_medium_slv15" %>
+              <%= render "three_moves_options", label: "マグナ 三手(大) Slv 15", id: "magna_three_moves_large_slv15" %>
+              <%= render "three_moves_options", label: "マグナ 乱舞(中) Slv 20", id: "magna_boisterous_dance_medium_slv20" %>
+              <%= render "three_moves_options", label: "マグナ 三手(中) Slv 20", id: "magna_three_moves_medium_slv20" %>
+            </div>
+
+            <div class="weapon-list" id="optimus-weapon-slv10" style="display: none;">
+              <%= render "three_moves_options", label: "神石 乱舞(小) Slv 10", id: "optimus_boisterous_dance_small_slv10" %>
+              <%= render "three_moves_options", label: "神石 乱舞(中) Slv 10", id: "optimus_boisterous_dance_medium_slv10" %>
+              <%= render "three_moves_options", label: "神石 乱舞(大) Slv 10", id: "optimus_boisterous_dance_large_slv10" %>
+              <%= render "three_moves_options", label: "神石 三手(小) Slv 10", id: "optimus_three_moves_small_slv10" %>
+              <%= render "three_moves_options", label: "神石 三手(中) Slv 10", id: "optimus_three_moves_medium_slv10" %>
+              <%= render "three_moves_options", label: "神石 三手(大) Slv 10", id: "optimus_three_moves_large_slv10" %>
+            </div>
+
+            <div class="weapon-list" id="optimus-weapon-slv15">
+              <%= render "three_moves_options", label: "神石 乱舞(小) Slv 15", id: "optimus_boisterous_dance_small_slv15" %>
+              <%= render "three_moves_options", label: "神石 乱舞(中) Slv 15", id: "optimus_boisterous_dance_medium_slv15" %>
+              <%= render "three_moves_options", label: "神石 乱舞(大) Slv 15", id: "optimus_boisterous_dance_large_slv15" %>
+              <%= render "three_moves_options", label: "神石 三手(小) Slv 15", id: "optimus_three_moves_small_slv15" %>
+              <%= render "three_moves_options", label: "神石 三手(中) Slv 15", id: "optimus_three_moves_medium_slv15" %>
+              <%= render "three_moves_options", label: "神石 三手(大) Slv 15", id: "optimus_three_moves_large_slv15" %>
+              <%= render "three_moves_options", label: "神石 乱舞(中) Slv 20", id: "optimus_boisterous_dance_medium_slv20" %>
+              <%= render "three_moves_options", label: "神石 三手(中) Slv 20", id: "optimus_three_moves_medium_slv20" %>
+            </div>
           </div>
 
 
