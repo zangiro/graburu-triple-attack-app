@@ -111,10 +111,10 @@
 
           <div class="selection-items">
             <input type="radio" name="kyokuha" value="0" id="kyokuha-0"  checked>
-            <label for="kyokuha-0">無</label>
+            <label for="kyokuha-0">未発動</label>
 
             <input type="radio" name="kyokuha" value="1" id="kyokuha-1">
-            <label for="kyokuha-1">有</label>
+            <label for="kyokuha-1">発動</label>
           </div>
         </div>
 
@@ -122,6 +122,7 @@
           <div class="item-title mt-3">
             <p>リミテッドシリーズ武器 スキル『◯◯◯･アトス』</p>
           </div>
+
           <select id="athos">
             <option value="0">0本</option>
             <option value="1">1本</option>
@@ -130,18 +131,17 @@
           </select>
         </div>
 
-        <div>
+        <div class="three-moves-list">
           <div class="item-title mt-3">
             <p>ル・オー・ホーン（光編成で使う場合でのみ選択可）</p>
           </div>
 
-          <div class="selection-items">
-            <input type="radio" name="ruo" value="0" id="ruo-0"  checked>
-            <label for="ruo-0">無</label>
-
-            <input type="radio" name="ruo" value="1" id="ruo-1">
-            <label for="ruo-1">有</label>
-          </div>
+          <select id="ruo">
+            <option value="0">0本</option>
+            <option value="1">1本</option>
+            <option value="2">2本</option>
+            <option value="3">3本</option>
+          </select>
         </div>
 
         <%# ーーーーーーーー ↓オメガ武器・極星器 ーーーーーーーー %>
@@ -196,24 +196,15 @@
           </div>
         </div>
 
-          <div>
+        <div>
+          <div class="item-title mt-3">
             <p>極星器</p>
-
-            <input type="radio" name="star_weapon" value="0" id="star_weapon-0" checked>
-            <label for="star_weapon-0">0番</label>
-
-            <input type="radio" name="star_weapon" value="1" id="star_weapon-1">
-            <label for="star_weapon-1">1番</label>
-
-            <input type="radio" name="star_weapon" value="2" id="star_weapon-2">
-            <label for="star_weapon-2">2番</label>
-
-            <input type="radio" name="star_weapon" value="3" id="star_weapon-3">
-            <label for="star_weapon-3">3番</label>
-
-            <input type="radio" name="star_weapon" value="4" id="star_weapon-4">
-            <label for="star_weapon-4">4番</label>
           </div>
+
+          <div class="selection-items">
+            <%= render "omega_and_star_weapon", weapon_name: "star_weapon" %>
+          </div>
+        </div>
 
         <%# ーーーーーーーー ↓メイン、サブ召喚石 ーーーーーーーー %>
 
@@ -491,14 +482,12 @@ function calculateTotal() {
     character_4 += athosTotal;
   }
 
-  const ruo = document.querySelector('input[name="ruo"]:checked');
-  if (ruo.value === "1") { 
-    character_1 += 14;
-    character_2 += 14;
-    character_3 += 14;
-    character_4 += 14;
-  }
-
+  const ruo = parseInt(document.getElementById('ruo').value);
+  const totalRuoWeapon = 14 * ruo;
+  character_1 += totalRuoWeapon;
+  character_2 += totalRuoWeapon;
+  character_3 += totalRuoWeapon;
+  character_4 += totalRuoWeapon;
 
   // オメガ武器、極星器の計算
   const forte_weapon_character_1 = document.querySelectorAll('input[name="forte_weapon_character_1"]:checked');
