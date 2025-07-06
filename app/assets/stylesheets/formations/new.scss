@@ -54,8 +54,8 @@
 
 /* チェックが入ったラジオボタンとチェックボックスのラベルのスタイルを設定 */
 .selection-items input[type="radio"]:checked + label, .selection-items input[type="checkbox"]:checked + label {
-  background: red;
-  color: yellow;
+  background: #707070; /* 背景色を#707070に設定 */
+  color: #fff; /* 文字色を#fff(白)に設定 */
 }
 
 
