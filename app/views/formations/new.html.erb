@@ -331,7 +331,12 @@
           </div>
 
           <div>
-            <p>連撃覚醒</p>
+            <p>連続攻撃覚醒lv9</p>
+
+            <select id="consecutive_attack_character_2">
+              <option value="0">無</option>
+              <option value="1">有</option>
+            </select>
           </div>
 
           <div>
@@ -546,6 +551,7 @@ function calculateTotal() {
   const omega_weapon = document.querySelectorAll('input[name="omega"]:checked');
   const star_weapon = document.querySelectorAll('input[name="star_weapon"]:checked');
   const star_weapon_minimum = 5;
+
   // オメガ武器、極星器の計算  主人公の計算
   for (let i = 0; i < forte_weapon_character_1.length; i++) {
     if (forte_weapon_character_1[i].value === omega_weapon[0].value) {
@@ -729,6 +735,12 @@ function calculateTotal() {
 
   const ring_character_4 = parseFloat(document.getElementsByName('ring_character_4')[0].value);
   if (ring_character_4) {character_4 += ring_character_4}
+
+  // 連続攻撃覚醒の計算
+  const consecutive_attack_character_2 = parseInt(document.getElementById('consecutive_attack_character_2').value);
+  character_2 += 5 * consecutive_attack_character_2;
+  //character_3 += totalRuoWeapon;
+  //character_4 += totalRuoWeapon;
 
 
   // 主人公のコンプリートボーナス、lbなどの計算
