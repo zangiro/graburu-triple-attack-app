@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
     @url  = edit_password_reset_url(@user.reset_password_token)
     mail(to: user.email,
          from: "test@example.com",
-         subject: "[アプリ名]パスワードリセット")
+         subject: "[グラブルTA計算ツール]パスワードリセット")
   end
   # このメソッドはPasswordResetsコントローラーのcreateメソッドの「@user&.deliver_reset_password_instructions!」によって使用されてると推察
   # 実際のメソッド名(reset_password_email)で使用していない感じなのでわかりにくい。引数の「user」も自動で設定されてそう
