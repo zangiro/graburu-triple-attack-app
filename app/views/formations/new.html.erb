@@ -309,7 +309,40 @@
           </div>
         </div>
 
-        <%# ーーーーーーーー ↓メンバーのステータス上昇要素 ーーーーーーーー %>
+        <%# ーーーーーーーー ↓主人公のステータス上昇要素 ーーーーーーーー %>
+
+        <div class="box-items">
+          <div class="item-title mt-3">
+            <p>主人公のステータス上昇要素</p>
+          </div>
+
+          <div>
+            <p>リミットボーナス</p>
+            <input type="number" class="box" name="limit_bonus_character_1">
+          </div>
+
+          <div>
+            <p>コンプリートボーナス</p>
+            <input type="number" class="box" name="complate_bonus_character_1">
+          </div>
+
+          <div>
+            <p>ジョブのLvアップボーナス</p>
+            <input type="number" class="box" name="levelup_bonus_character_1">
+          </div>
+
+          <div>
+            <p>ジョブの極地ボーナス</p>
+            <input type="number" class="box" name="master_bonus_character_1">
+          </div>
+
+          <div>
+            <p>その他要因（スキル効果（単体）など）</p>
+            <input type="number" class="box" name="skill_single_character_1">
+          </div>
+        </div>
+
+        メンバーのステータス上昇要素
 
         <div class="box-items">
           <%= render "members_status_up_infomation", id: 2 %>
@@ -321,26 +354,6 @@
 
         <div class="box-items">
           <%= render "members_status_up_infomation", id: 4 %>
-        </div>
-        
-        <%# ーーーーーーーー ↓スキルバフ、召喚効果など 単体 ーーーーーーーー %>
-
-        <div>
-          <div>
-            <p>スキルバフ、召喚効果など 単体 主人公</p>
-            <input type="number" class="box" name="skill_single_character_1">
-          </div>
-
-          
-
-
-
-        <%# ーーーーーーーー ↓主人公、コンプリートボーナス他 ーーーーーーーー %>
-        <%# ーーーーーーーー ↓主人公、コンプリートボーナス他 ーーーーーーーー %>
-
-        <div>
-          <p>主人公、コンプリートボーナス、ジョブのlvアップボーナス、lb、極地ボーナス</p>
-          <input type="number" class="box" name="main_character_bonus">
         </div>
       </form>
     </div>
@@ -633,8 +646,22 @@ function calculateTotal() {
   const artifact_character_4 = parseFloat(document.getElementsByName('artifact_character_4')[0].value);
   if (artifact_character_4) {character_4 += artifact_character_4}
 
+  // 主人公のボーナス計算
+
+  const complate_bonus_character_1 = parseFloat(document.getElementsByName('complate_bonus_character_1')[0].value);
+  if (complate_bonus_character_1) {character_1 += complate_bonus_character_1}
+
+  const levelup_bonus_character_1 = parseFloat(document.getElementsByName('levelup_bonus_character_1')[0].value);
+  if (levelup_bonus_character_1) {character_1 += levelup_bonus_character_1}
+
+  const master_bonus_character_1 = parseFloat(document.getElementsByName('master_bonus_character_1')[0].value);
+  if (master_bonus_character_1) {character_1 += master_bonus_character_1}
+
 
   // リミットボーナスの計算（個別）
+  const limit_bonus_character_1 = parseFloat(document.getElementsByName('limit_bonus_character_1')[0].value);
+  if (limit_bonus_character_1) {character_1 += limit_bonus_character_1}
+
   const limit_bonus_character_2 = parseFloat(document.getElementsByName('limit_bonus_character_2')[0].value);
   if (limit_bonus_character_2) {character_2 += limit_bonus_character_2}
 
@@ -664,9 +691,6 @@ function calculateTotal() {
   character_4 += 5 * consecutive_attack_character_4;
 
 
-  // 主人公のコンプリートボーナス、lbなどの計算
-  const main_character_bonus = parseFloat(document.getElementsByName('main_character_bonus')[0].value);
-  if (main_character_bonus) {character_1 += main_character_bonus}
 
 
   totalElement_1.innerText = `主人公: ${character_1}%`;
