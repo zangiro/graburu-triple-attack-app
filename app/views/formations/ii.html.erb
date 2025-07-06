@@ -1,25 +1,36 @@
-      <div class="estimate-test">
-        <p>りんご</p>
-        <input type="radio" name="apple" value="0" id="apple"  checked>
-        <label for="apple-0">無</label>
+<form id="e-form">
+<div class="mx-3">
+        <p id="total">0.0</p>
+</div>
 
-        <input type="radio" name="apple" value="1" id="apple-1">
-        <label for="apple-1">有</label>
-      </div>
-  <div class="estimate-test">
-    <p class="estimate-formHeadingTest">個別選択</p>
-    <input type="radio" name="media" value="0" id="media-option-0">
-    <label for="media-option-0"><span class="choiceOption">Media Option 0</span>¥0</label>
+<div>
+  <p>Ｎｏ．２</p>
+  <input type="number" class="box" name="n_2">
+</div>
 
-    <input type="radio" name="media" value="1000" id="media-option-1">
-    <label for="media-option-1"><span class="choiceOption">Media Option 1</span>¥1000</label>
-
-    <input type="radio" name="media" value="2000" id="media-option-2">
-    <label for="media-option-2"><span class="choiceOption">Media Option 2</span>¥2000</label>
-
-    <input type="radio" name="media" value="3000" id="media-option-3">
-    <label for="media-option-3"><span class="choiceOption">Media Option 3</span>¥3000</label>
-  </div>
+<div>
+  <p>Ｎｏ．3</p>
+  <input type="number" class="box" name="n_3">
+</div>
+</form>
 
 <script>
+const form = document.getElementById('e-form');
+const total = document.getElementById('total');
+
+function calculateTotal() {
+  let total_count = 0;
+const n_2 = parseFloat(document.getElementsByName('n_2')[0].value);
+if (n_2) {total_count += n_2}
+
+const n_3 = parseFloat(document.getElementsByName('n_3')[0].value);
+if (n_3) {total_count += n_3}
+
+const total_count_before_convervion = total_count.toFixed(1)
+
+total.innerText = `${total_count_before_convervion}`;
+}
+
+// フォームにchangeイベントが発生した時にcalculateTotal関数を起動するイベントリスナーを追加
+form.addEventListener('change', calculateTotal);
 </script>

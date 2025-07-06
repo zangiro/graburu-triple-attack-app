@@ -5,16 +5,16 @@
         <p>ta率合計</p>
       </div>
       <div class="mx-3">
-        <p id="character_1">主人公: 0%</p>
+        <p id="character_1">主人公: 0.0%</p>
       </div>
       <div class="mx-3">
-        <p id="character_2">メンバー2: 0%</p>
+        <p id="character_2">メンバー2: 0.0%</p>
       </div>
       <div class="mx-3">
-        <p id="character_3">メンバー3: 0%</p>
+        <p id="character_3">メンバー3: 0.0%</p>
       </div>
       <div class="mx-3">
-        <p id="character_4">メンバー4: 0%</p>
+        <p id="character_4">メンバー4: 0.0%</p>
       </div>
 
       <div class="character-setting-dropdown mx-3">
@@ -28,18 +28,20 @@
       </div>
     </div>
 
-    <h1 class="pt-5">連撃率計算ツール</h1>
-    <p>マスクデータであるキャラごと、ジョブごとのTA基礎値は含まれておりません</p>
-    <p>小数点第二位四捨五入</p>
 
-    <hr class="my-4">
-    <%# -----HTMLの水平線を描画するタグ----- %>
+    <div class="pt-3">
+      <p></p>
+    </div>
 
+    <div class="pt-5 infomation">
+      <h1>連撃率計算ツール</h1>
+      <p>マスクデータであるキャラごと、ジョブごとのTA基礎値は含まれておりません</p>
+      <p>小数点第二位四捨五入</p>
+    </div>
+    
     <div>
       <form id="estimate-form">
-
-
-        <div class="three-moves-list">
+        <div class="selection-items mt-3">
           <div>
             <div class="item-title">
               <p>マグナの加護(%)</p>
@@ -137,7 +139,7 @@
           </div>
         </div>
 
-        <div class="three-moves-list">
+        <div class="selection-items">
           <div class="item-title mt-3">
             <p>リミテッドシリーズ武器 スキル『◯◯◯･アトス』</p>
           </div>
@@ -150,7 +152,7 @@
           </select>
         </div>
 
-        <div class="three-moves-list">
+        <div class="selection-items">
           <div class="item-title mt-3">
             <p>ル・オー・ホーン（光編成で使う場合でのみ選択可）</p>
           </div>
@@ -342,7 +344,7 @@
           </div>
         </div>
 
-        メンバーのステータス上昇要素
+        <%# メンバーのステータス上昇要素 %>
 
         <div class="box-items">
           <%= render "members_status_up_infomation", id: 2 %>
@@ -691,12 +693,18 @@ function calculateTotal() {
   character_4 += 5 * consecutive_attack_character_4;
 
 
+  // 浮動小点数を処理
+  const character_1_after_convervion = character_1.toFixed(1)
+  const character_2_after_convervion = character_2.toFixed(1)
+  const character_3_after_convervion = character_3.toFixed(1)
+  const character_4_after_convervion = character_4.toFixed(1)
 
 
-  totalElement_1.innerText = `主人公: ${character_1}%`;
-  totalElement_2.innerText = `メンバー2: ${character_2}%`;
-  totalElement_3.innerText = `メンバー3: ${character_3}%`;
-  totalElement_4.innerText = `メンバー4: ${character_4}%`;
+  // 合計を表示
+  totalElement_1.innerText = `主人公: ${character_1_after_convervion}%`;
+  totalElement_2.innerText = `メンバー2: ${character_2_after_convervion}%`;
+  totalElement_3.innerText = `メンバー3: ${character_3_after_convervion}%`;
+  totalElement_4.innerText = `メンバー4: ${character_4_after_convervion}%`;
   }
 
 // フォームにchangeイベントが発生した時にcalculateTotal関数を起動するイベントリスナーを追加
