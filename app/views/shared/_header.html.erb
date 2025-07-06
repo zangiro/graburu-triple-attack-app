@@ -1,9 +1,14 @@
 <div class="container bg-info">
   <div class="row py-2 justify-content-between">
     <div class="col-auto">
-      <%= link_to root_path, class: "btn btn-light btn-sm" do %>
+      <%= link_to root_path, class: "btn btn-light" do %>
         <div class="d-flex align-items-center">
-          <p class="mb-0">トップページへ</p>
+          <div>
+            <%= image_tag "gbapp_title.png" %>
+          </div>
+          <div class="ms-2">
+            <p><%= t(".app_title") %></p>
+          </div>
         </div>
       <% end %>
     </div>
@@ -11,13 +16,11 @@
     <div class="col-auto">
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-        メニュー
+          <%= t(".menu") %>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <li><%= link_to t(".my_page"), user_path(current_user), class: 'dropdown-item' %></li>
           <li><%= link_to t(".logout"), logout_path, data: { turbo_method: :delete }, class: 'dropdown-item' %></li>
-          <li><%= link_to "3", "#", class: 'dropdown-item' %></li>
-          <li><%= link_to "4", "#", class: 'dropdown-item' %></li>
         </ul>
       </div>
     </div>
