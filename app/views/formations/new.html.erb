@@ -118,6 +118,25 @@
           </div>
         </div>
 
+        <%# ーーーーーーーー ↓終末武器 第二スキル ーーーーーーーー %>
+    
+        <div>
+          <div class="item-title mt-3">
+            <p>終末武器 第二スキル アルファ・ペンデュラム</p>
+          </div>
+
+          <div class="selection-items">
+            <input type="radio" name="terminal_weapon" value="0" id="terminal_weapon-0"  checked>
+            <label for="terminal_weapon-0">無</label>
+
+            <input type="radio" name="terminal_weapon" value="1" id="terminal_weapon-1">
+            <label for="terminal_weapon-1">有 (終末武器lv230)</label>
+
+            <input type="radio" name="terminal_weapon" value="2" id="terminal_weapon-2">
+            <label for="terminal_weapon-2">有 (終末武器lv250)</label>
+          </div>
+        </div>
+
         <div class="three-moves-list">
           <div class="item-title mt-3">
             <p>リミテッドシリーズ武器 スキル『◯◯◯･アトス』</p>
@@ -206,6 +225,18 @@
           </div>
         </div>
 
+        <%# ーーーーーーーー ↓武器その他 ーーーーーーーー %>
+
+        <div>
+          <div class="item-title mt-3">
+            <p>武器によるTA上昇 その他(ミーレスシリーズ、EXスキル付き武器など)</p>
+          </div>
+
+          <div class="selection-items">
+            <input type="number" class="box" name="weapon_outher">
+          </div>
+        </div>
+
         <%# ーーーーーーーー ↓メイン、サブ召喚石 ーーーーーーーー %>
 
         <div>
@@ -247,29 +278,10 @@
           </div>
         </div>
 
-        <%# ーーーーーーーー ↓終末武器 第二スキル ーーーーーーーー %>
-    
-        <div>
-          <div class="item-title mt-3">
-            <p>終末武器 第二スキル アルファ・ペンデュラム</p>
-          </div>
-
-          <div class="selection-items">
-            <input type="radio" name="terminal_weapon" value="0" id="terminal_weapon-0"  checked>
-            <label for="terminal_weapon-0">無</label>
-
-            <input type="radio" name="terminal_weapon" value="1" id="terminal_weapon-1">
-            <label for="terminal_weapon-1">有 (終末武器lv230)</label>
-
-            <input type="radio" name="terminal_weapon" value="2" id="terminal_weapon-2">
-            <label for="terminal_weapon-2">有 (終末武器lv250)</label>
-          </div>
-        </div>
-
         <%# ーーーーーーーー ↓連撃覚醒 ーーーーーーーー %>
 
         <div>
-          <p>連撃覚醒（主人公なし）</p>
+          <p>連撃覚醒（主人公なし）ーーーーーーーーーーーーーーーーーーー</p>
         </div>
 
         <%# ーーーーーーーー ↓神滅戦 ーーーーーーーー %>
@@ -291,18 +303,16 @@
           </div>
         </div>
 
-        <%# ーーーーーーーー ↓武器その他 全体 ーーーーーーーー %>
-        
-        <div>
-          <p>武器その他 全体</p>
-          <input type="number" class="box" name="weapon_outher">
-        </div>
-
         <%# ーーーーーーーー ↓スキルバフ、召喚効果など 全体 ーーーーーーーー %>
 
         <div>
-          <p>スキルバフ、召喚効果など 全体</p>
-          <input type="number" class="box" name="skill_all">
+          <div class="item-title mt-3">
+            <p>スキル、召喚効果によるTA上昇（全体）</p>
+          </div>
+
+          <div class="selection-items">
+            <input type="number" class="box" name="skill_all">
+          </div>
         </div>
 
         <%# ーーーーーーーー ↓スキルバフ、召喚効果など 単体 ーーーーーーーー %>
