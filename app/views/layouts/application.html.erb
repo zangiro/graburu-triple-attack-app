@@ -19,6 +19,8 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
 
+    <%= display_meta_tags(default_meta_tags) %>
+
     <% if Rails.env.production? %>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-53ZQNNNF0X"></script>
       <script>
