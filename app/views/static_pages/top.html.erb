@@ -13,38 +13,4 @@
   </div>
 </div>
 
-<%= link_to "ユーザー一覧", users_path %>
 <%= link_to "編成", new_formation_path %>
-<%= link_to "編成2", formations_path %>
-<%= link_to "編成aa", aa_formations_path %>
-<%= link_to "編成bb", bb_formations_path %>
-<%= link_to "編成cc", cc_formations_path %>
-<%= link_to "編成dd", dd_formations_path %>
-<%= link_to "編成ee　参考サイト", ee_formations_path %>
-<%= link_to "編成ff", ff_formations_path %>
-<%= link_to "編成gg", gg_formations_path %>
-<%= link_to "編成hh", hh_formations_path %>
-<%= link_to "編成ii", ii_formations_path %>
-  
-<div class="top-wrapper">
-  <div class="top-inner-text">
-    <h1>RUNTEQ BOARD APP</h1>
-  </div>
-</div>
-
-        <div>
-          <%= link_to "#" do %>
-            <%= image_tag "gbapp_favicon.png" %>
-          <% end %>
-        </div>
-
-<div class="mt-3">
-  <%= link_to "Test Bootstrap Button", "#", class: "btn btn-primary", id: "testButton" %>
-</div>
-
-<script>
-  document.getElementById("testButton").addEventListener("click", function(event) {
-    event.preventDefault(); // リンクのデフォルト動作を防ぐ
-    alert("ボタンがクリックされたダ！");
-  });
-</script>

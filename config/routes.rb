@@ -13,21 +13,9 @@ Rails.application.routes.draw do
   # Googleログインで使用する Oauthルーディング
 
   resources :user_sessions, only: %i[new create destroy]
-  resources :users, only: %i[new create show edit update index]
+  resources :users, only: %i[new create show edit update]
   resources :password_resets, only: %i[new create edit update]
-  resources :formations, only: %i[new index] do
-    collection do
-      get "aa"
-      get "bb"
-      get "cc"
-      get "dd"
-      get "ee"
-      get "ff"
-      get "gg"
-      get "hh"
-      get "ii"
-    end
-  end
+  resources :formations, only: %i[new]
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
