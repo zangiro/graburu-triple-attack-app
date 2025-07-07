@@ -501,10 +501,16 @@ const totalElement_3 = document.getElementById('character_3');
 const totalElement_4 = document.getElementById('character_4');
 
 function calculateTotal() {
-  let character_1 = 0;
-  let character_2 = 0;
-  let character_3 = 0;
-  let character_4 = 0;
+  let character_1_nolimit = 0;
+  let character_2_nolimit = 0;
+  let character_3_nolimit = 0;
+  let character_4_nolimit = 0;
+
+  let character_1_limited = 0;
+  let character_2_limited = 0;
+  let character_3_limited = 0;
+  let character_4_limited = 0;
+
 
 
   // 武器の三手 x 加護の計算
@@ -570,42 +576,42 @@ function calculateTotal() {
   const totalWeaponValueBeforeRoundingDown = (magna_divine_protection * magna_three_moves_total) + (optimus_divine_protection * optimus_three_moves_total);
   const totalWeaponValueBeforeToFixed = Math.floor(totalWeaponValueBeforeRoundingDown / 1000);
 
-  character_1 += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
-  character_2 += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
-  character_3 += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
-  character_4 += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
+  character_1_limited += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
+  character_2_limited += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
+  character_3_limited += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
+  character_4_limited += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
 
 
   // 武器、極破、アトス、ルオーホーン
   const kyokuha = document.querySelector('input[name="kyokuha"]:checked');
   if (kyokuha.value === "1") { 
-    character_1 += 25;
-    character_2 += 25;
-    character_3 += 25;
-    character_4 += 25;
+    character_1_limited += 25;
+    character_2_limited += 25;
+    character_3_limited += 25;
+    character_4_limited += 25;
   }
 
   const athos = parseInt(document.getElementById('athos').value);
   if (magna_divine_protection_input >= 280 || optimus_divine_protection_input >= 280) {
     const athosTotal = parseFloat((athos * 12.5).toFixed(1));
-    character_1 += athosTotal;
-    character_2 += athosTotal;
-    character_3 += athosTotal;
-    character_4 += athosTotal;
+    character_1_limited += athosTotal;
+    character_2_limited += athosTotal;
+    character_3_limited += athosTotal;
+    character_4_limited += athosTotal;
   } else {
     const athosTotal = parseFloat((athos * 6.25).toFixed(1));
-    character_1 += athosTotal;
-    character_2 += athosTotal;
-    character_3 += athosTotal;
-    character_4 += athosTotal;
+    character_1_limited += athosTotal;
+    character_2_limited += athosTotal;
+    character_3_limited += athosTotal;
+    character_4_limited += athosTotal;
   }
 
   const ruo = parseInt(document.getElementById('ruo').value);
   const totalRuoWeapon = 14 * ruo;
-  character_1 += totalRuoWeapon;
-  character_2 += totalRuoWeapon;
-  character_3 += totalRuoWeapon;
-  character_4 += totalRuoWeapon;
+  character_1_limited += totalRuoWeapon;
+  character_2_limited += totalRuoWeapon;
+  character_3_limited += totalRuoWeapon;
+  character_4_limited += totalRuoWeapon;
 
   // オメガ武器、極星器の計算
   const forte_weapon_character_1 = document.querySelectorAll('input[name="forte_weapon_character_1"]:checked');
@@ -620,215 +626,234 @@ function calculateTotal() {
   // オメガ武器、極星器の計算  主人公の計算
   for (let i = 0; i < forte_weapon_character_1.length; i++) {
     if (forte_weapon_character_1[i].value === omega_weapon[0].value) {
-      character_1 += 25;
+      character_1_limited += 25;
     }
   }
   for (let i = 0; i < forte_weapon_character_1.length; i++) {
     if (forte_weapon_character_1[i].value === star_weapon[0].value) {
-      character_1 += 5;
+      character_1_limited += 5;
     }
   }
 
   // オメガ武器、極星器の計算  キャラ2の計算
   for (let i = 0; i < forte_weapon_character_2.length; i++) {
     if (forte_weapon_character_2[i].value === omega_weapon[0].value) {
-      character_2 += 25;
+      character_2_limited += 25;
     }
   }
   for (let i = 0; i < forte_weapon_character_2.length; i++) {
     if (forte_weapon_character_2[i].value === star_weapon[0].value) {
-      character_2 += 5;
+      character_2_limited += 5;
     }
   }
 
   // オメガ武器、極星器の計算  キャラ3の計算
   for (let i = 0; i < forte_weapon_character_3.length; i++) {
     if (forte_weapon_character_3[i].value === omega_weapon[0].value) {
-      character_3 += 25;
+      character_3_limited += 25;
     }
   }
   for (let i = 0; i < forte_weapon_character_3.length; i++) {
     if (forte_weapon_character_3[i].value === star_weapon[0].value) {
-      character_3 += 5;
+      character_3_limited += 5;
     }
   }
 
   // オメガ武器、極星器の計算  キャラ4の計算
   for (let i = 0; i < forte_weapon_character_4.length; i++) {
     if (forte_weapon_character_4[i].value === omega_weapon[0].value) {
-      character_4 += 25;
+      character_4_limited += 25;
     }
   }
   for (let i = 0; i < forte_weapon_character_4.length; i++) {
     if (forte_weapon_character_4[i].value === star_weapon[0].value) {
-      character_4 += 5;
+      character_4_limited += 5;
     }
   }
 
   if (star_weapon[0].value !== "0") {
-    character_1 += star_weapon_minimum;
-    character_2 += star_weapon_minimum;
-    character_3 += star_weapon_minimum;
-    character_4 += star_weapon_minimum;
+    character_1_limited += star_weapon_minimum;
+    character_2_limited += star_weapon_minimum;
+    character_3_limited += star_weapon_minimum;
+    character_4_limited += star_weapon_minimum;
   }
 
 
   // メイン召喚石の計算
   const summons = document.querySelector('input[name="summons"]:checked');
   if (summons.value === "1") {
-    character_1 += 50
+    character_1_nolimit += 50
     } else if (summons.value === "2") {
-    character_1 += 25;
-    character_2 += 25;
-    character_3 += 25;
-    character_4 += 25;
+    character_1_nolimit += 25;
+    character_2_nolimit += 25;
+    character_3_nolimit += 25;
+    character_4_nolimit += 25;
     } else if (summons.value === "3") {
-    character_1 += 50;
-    character_2 += 50;
-    character_3 += 50;
-    character_4 += 50;
+    character_1_nolimit += 50;
+    character_2_nolimit += 50;
+    character_3_nolimit += 50;
+    character_4_nolimit += 50;
     } else if (summons.value === "4") {
-    character_1 += 75;
-    character_2 += 25;
-    character_3 += 25;
-    character_4 += 25;
+    character_1_nolimit += 75;
+    character_2_nolimit += 25;
+    character_3_nolimit += 25;
+    character_4_nolimit += 25;
   }
 
 
   // 召喚石「ハールートマールトの計算」
   const hama = document.querySelector('input[name="hama"]:checked');
   if (hama.value === "1") { 
-    character_1 += 10;
-    character_2 += 10;
-    character_3 += 10;
-    character_4 += 10;
+    character_1_nolimit += 10;
+    character_2_nolimit += 10;
+    character_3_nolimit += 10;
+    character_4_nolimit += 10;
   }
 
 
   // 終末武器第二スキルの計算
   const terminal_weapon = document.querySelector('input[name="terminal_weapon"]:checked');
   if (terminal_weapon.value === "1") {
-    character_1 += 2.5;
-    character_2 += 2.5;
-    character_3 += 2.5;
-    character_4 += 2.5;
+    character_1_limited += 2.5;
+    character_2_limited += 2.5;
+    character_3_limited += 2.5;
+    character_4_limited += 2.5;
     } else if (terminal_weapon.value === "2") {
-    character_1 += 5;
-    character_2 += 5;
-    character_3 += 5;
-    character_4 += 5;
+    character_1_limited += 5;
+    character_2_limited += 5;
+    character_3_limited += 5;
+    character_4_limited += 5;
   }
 
 
   // 神滅の印章の計算
   const coat_of_arms = document.querySelector('input[name="coat_of_arms"]:checked');
   if (coat_of_arms.value === "1") {
-    character_1 += 3;
-    character_2 += 3;
-    character_3 += 3;
-    character_4 += 3;
+    character_1_nolimit += 3;
+    character_2_nolimit += 3;
+    character_3_nolimit += 3;
+    character_4_nolimit += 3;
     } else if (coat_of_arms.value === "2") {
-    character_1 += 5;
-    character_2 += 5;
-    character_3 += 5;
-    character_4 += 5;
+    character_1_nolimit += 5;
+    character_2_nolimit += 5;
+    character_3_nolimit += 5;
+    character_4_nolimit += 5;
   }
 
 
   // 武器のその他要因の計算（全体）
   const weapon_outher = parseFloat(document.getElementsByName('weapon_outher')[0].value);
   if (weapon_outher) {
-    character_1 += weapon_outher;
-    character_2 += weapon_outher;
-    character_3 += weapon_outher;
-    character_4 += weapon_outher;
+    character_1_limited += weapon_outher;
+    character_2_limited += weapon_outher;
+    character_3_limited += weapon_outher;
+    character_4_limited += weapon_outher;
   }
 
 
   // スキルなどによる上昇の計算（全体）
   const skill_all = parseFloat(document.getElementsByName('skill_all')[0].value);
   if (skill_all) {
-    character_1 += skill_all;
-    character_2 += skill_all;
-    character_3 += skill_all;
-    character_4 += skill_all;
+    character_1_nolimit += skill_all;
+    character_2_nolimit += skill_all;
+    character_3_nolimit += skill_all;
+    character_4_nolimit += skill_all;
   }
 
 
   // スキルなどによる上昇の計算（個別）
   const skill_single_character_1 = parseFloat(document.getElementsByName('skill_single_character_1')[0].value);
-  if (skill_single_character_1) {character_1 += skill_single_character_1}
+  if (skill_single_character_1) {character_1_nolimit += skill_single_character_1}
 
   const skill_single_character_2 = parseFloat(document.getElementsByName('skill_single_character_2')[0].value);
-  if (skill_single_character_2) {character_2 += skill_single_character_2}
+  if (skill_single_character_2) {character_2_nolimit += skill_single_character_2}
 
   const skill_single_character_3 = parseFloat(document.getElementsByName('skill_single_character_3')[0].value);
-  if (skill_single_character_3) {character_3 += skill_single_character_3}
+  if (skill_single_character_3) {character_3_nolimit += skill_single_character_3}
 
   const skill_single_character_4 = parseFloat(document.getElementsByName('skill_single_character_4')[0].value);
-  if (skill_single_character_4) {character_4 += skill_single_character_4}
+  if (skill_single_character_4) {character_4_nolimit += skill_single_character_4}
 
 
   // アーティファクトの計算（個別）
   const artifact_character_2 = parseFloat(document.getElementsByName('artifact_character_2')[0].value);
-  if (artifact_character_2) {character_2 += artifact_character_2}
+  if (artifact_character_2) {character_2_nolimit += artifact_character_2}
 
   const artifact_character_3 = parseFloat(document.getElementsByName('artifact_character_3')[0].value);
-  if (artifact_character_3) {character_3 += artifact_character_3}
+  if (artifact_character_3) {character_3_nolimit += artifact_character_3}
 
   const artifact_character_4 = parseFloat(document.getElementsByName('artifact_character_4')[0].value);
-  if (artifact_character_4) {character_4 += artifact_character_4}
+  if (artifact_character_4) {character_4_nolimit += artifact_character_4}
 
   // 主人公のボーナス計算
 
   const complate_bonus_character_1 = parseFloat(document.getElementsByName('complate_bonus_character_1')[0].value);
-  if (complate_bonus_character_1) {character_1 += complate_bonus_character_1}
+  if (complate_bonus_character_1) {character_1_nolimit += complate_bonus_character_1}
 
   const levelup_bonus_character_1 = parseFloat(document.getElementsByName('levelup_bonus_character_1')[0].value);
-  if (levelup_bonus_character_1) {character_1 += levelup_bonus_character_1}
+  if (levelup_bonus_character_1) {character_1_nolimit += levelup_bonus_character_1}
 
   const master_bonus_character_1 = parseFloat(document.getElementsByName('master_bonus_character_1')[0].value);
-  if (master_bonus_character_1) {character_1 += master_bonus_character_1}
+  if (master_bonus_character_1) {character_1_nolimit += master_bonus_character_1}
 
 
   // リミットボーナスの計算（個別）
   const limit_bonus_character_1 = parseFloat(document.getElementsByName('limit_bonus_character_1')[0].value);
-  if (limit_bonus_character_1) {character_1 += limit_bonus_character_1}
+  if (limit_bonus_character_1) {character_1_nolimit += limit_bonus_character_1}
 
   const limit_bonus_character_2 = parseFloat(document.getElementsByName('limit_bonus_character_2')[0].value);
-  if (limit_bonus_character_2) {character_2 += limit_bonus_character_2}
+  if (limit_bonus_character_2) {character_2_nolimit += limit_bonus_character_2}
 
   const limit_bonus_character_3 = parseFloat(document.getElementsByName('limit_bonus_character_3')[0].value);
-  if (limit_bonus_character_3) {character_3 += limit_bonus_character_3}
+  if (limit_bonus_character_3) {character_3_nolimit += limit_bonus_character_3}
 
   const limit_bonus_character_4 = parseFloat(document.getElementsByName('limit_bonus_character_4')[0].value);
-  if (limit_bonus_character_4) {character_4 += limit_bonus_character_4}
+  if (limit_bonus_character_4) {character_4_nolimit += limit_bonus_character_4}
 
 
   // 指輪、耳飾りの計算（個別）
   const ring_character_2 = parseFloat(document.getElementsByName('ring_character_2')[0].value);
-  if (ring_character_2) {character_2 += ring_character_2}
+  if (ring_character_2) {character_2_nolimit += ring_character_2}
 
   const ring_character_3 = parseFloat(document.getElementsByName('ring_character_3')[0].value);
-  if (ring_character_3) {character_3 += ring_character_3}
+  if (ring_character_3) {character_3_nolimit += ring_character_3}
 
   const ring_character_4 = parseFloat(document.getElementsByName('ring_character_4')[0].value);
-  if (ring_character_4) {character_4 += ring_character_4}
+  if (ring_character_4) {character_4_nolimit += ring_character_4}
 
   // 連続攻撃覚醒の計算
   const consecutive_attack_character_2 = parseInt(document.getElementById('consecutive_attack_character_2').value);
   const consecutive_attack_character_3 = parseInt(document.getElementById('consecutive_attack_character_3').value);
   const consecutive_attack_character_4 = parseInt(document.getElementById('consecutive_attack_character_4').value);
-  character_2 += 5 * consecutive_attack_character_2;
-  character_3 += 5 * consecutive_attack_character_3;
-  character_4 += 5 * consecutive_attack_character_4;
+  character_2_nolimit += 5 * consecutive_attack_character_2;
+  character_3_nolimit += 5 * consecutive_attack_character_3;
+  character_4_nolimit += 5 * consecutive_attack_character_4;
+
+
+
+
+
+
+  
+
+
+
+
+  const total_character_1 = character_1_nolimit + character_1_limited;
+  const total_character_2 = character_2_nolimit + character_2_limited;
+  const total_character_3 = character_3_nolimit + character_3_limited;
+  const total_character_4 = character_4_nolimit + character_4_limited;
+
+
+
+
 
 
   // 浮動小点数を処理
-  const character_1_after_convervion = character_1.toFixed(1)
-  const character_2_after_convervion = character_2.toFixed(1)
-  const character_3_after_convervion = character_3.toFixed(1)
-  const character_4_after_convervion = character_4.toFixed(1)
+  const character_1_after_convervion = total_character_1.toFixed(1)
+  const character_2_after_convervion = total_character_2.toFixed(1)
+  const character_3_after_convervion = total_character_3.toFixed(1)
+  const character_4_after_convervion = total_character_4.toFixed(1)
 
 
   // 合計を表示
