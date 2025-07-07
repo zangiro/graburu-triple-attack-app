@@ -1,0 +1,32 @@
+<div class="item-title mt-3">
+  <p>メンバー<%= id %>のステータス上昇要素</p>
+</div>
+
+<div>
+  <p>アーティファクト</p>
+  <input type="number" class="box" name="artifact_character_<%= id %>">
+</div>
+
+<div>
+  <p>リミットボーナス</p>
+  <input type="number" class="box" name="limit_bonus_character_<%= id %>">
+</div>
+
+<div>
+  <p>指輪、耳飾り</p>
+  <input type="number" class="box" name="ring_character_<%= id %>">
+</div>
+
+<div>
+  <p>連続攻撃覚醒lv9</p>
+
+  <select id="consecutive_attack_character_<%= id %>">
+    <option value="0">無</option>
+    <option value="1">有</option>
+  </select>
+</div>
+
+<div>
+  <p>その他要因（スキル効果（単体）など）</p>
+  <input type="number" class="box" name="skill_single_character_<%= id %>">
+</div>

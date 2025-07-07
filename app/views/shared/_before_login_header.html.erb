@@ -3,14 +3,21 @@
     <div class="col-auto">
       <%= link_to root_path, class: "btn btn-light" do %>
         <div class="d-flex align-items-center">
-          <p>たいとる</p>
+          <div>
+            <%= image_tag "gbapp_title.png" %>
+          </div>
+          <div class="ms-2">
+            <p><%= t(".app_title") %></p>
+          </div>
         </div>
       <% end %>
     </div>
 
-    <div class="col-auto">
+    <div class="col-auto pt-2">
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></button>
+        <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          <%= t(".menu") %>
+        </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <li><%= link_to t(".to_register_page"), new_user_path, class: 'dropdown-item' %></li>
           <li><%= link_to t(".to_login_page"), login_path, class: 'dropdown-item' %></li>

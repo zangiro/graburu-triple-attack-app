@@ -1,370 +1,496 @@
 <div class="container">
   <div>
-    <button id="toggleButton">表示/非表示切替</button>
-    武器の加護計算
-    <p>マスクデータであるキャラごと、ジョブごとのTA基礎値は含まれておりません</p>
-    <p>小数点第二位四捨五入</p>
-      <div>
+    <div class="character-list pt-1">
+      <div class="mx-3">
+        <p>TA率合計</p>
       </div>
-    <div>
-      <div>
-        <p id="character_1">character1: 0</p>
+      <div class="mx-3">
+        <p id="character_1">主人公: 0.0%</p>
       </div>
-      <div>
-        <p id="character_2">character2: 0</p>
+      <div class="mx-3">
+        <p id="character_2">メンバー2: 0.0%</p>
       </div>
-      <div>
-        <p id="character_3">character3: 0</p>
+      <div class="mx-3">
+        <p id="character_3">メンバー3: 0.0%</p>
       </div>
-      <div>
-        <p id="character_4">character4: 0</p>
+      <div class="mx-3">
+        <p id="character_4">メンバー4: 0.0%</p>
+      </div>
+
+      <div class="character-setting-dropdown mx-3">
+        <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="character-setting-button" data-bs-toggle="dropdown" aria-expanded="false">
+        設定
+        </button>
+        
+        <ul class="dropdown-menu" aria-labelledby="character-setting-button">
+          <li><button id="hideShowButton" type="button" class="dropdown-item">解説の表示/非表示切替</button></li>
+        </ul>
       </div>
     </div>
 
+
+        <div class="pt-3">
+          <p></p>
+        </div>
+
+    <div class="pt-5 infomation">
+      <h1 class="text-center">TA率計算ページ</h1>
+      <div class="bg-danger-subtle mt-3">
+        <p class="text-center bg-danger">--注意点--</p>
+        <p class="text-center">マスクデータであるキャラごと、ジョブごとのTA基礎値は含まれておりません</p>
+        <p class="text-center">出力するTA率の計算結果は小数点第二位 四捨五入です</p>
+        <p class="text-center">武器によるTA率の最大値は75%です（召喚石、スキルなどは含まれない）</p>
+      </div>
+    </div>
+    
     <div>
       <form id="estimate-form">
-        <%# ーーーーーーーー ↓武器の三手 ーーーーーーーー %>
+        <div class="p-3 my-3 bg-secondary-subtle" id="explanation_1" style="display: none;">
+          <p>〜解説〜</p>
+          <p>マグナシリーズ召喚石、神石（オプティマスシリーズ）召喚石、ブースト武器、天司キャラの合計の加護の割合を設定してください</p>
+          <p>「マグナ加護の割合」 x 「マグナの乱舞、マグナの三手」の結果が全員の合計TA率に加算されます</p>
+          <p>「神石加護の割合」 x 「神石の乱舞、神石の三手」の結果が全員の合計TA率に加算されます</p>
+        </div>
 
-        <div>
-          <p>武器三手の計算(仮)</p>
-  
-          <%= render "three_moves_options", label: "マグナ 乱舞(小) Slv 10", id: "magna_boisterous_dance_small_slv10" %>
-          <%= render "three_moves_options", label: "マグナ 乱舞(中) Slv 10", id: "magna_boisterous_dance_medium_slv10" %>
-          <%= render "three_moves_options", label: "マグナ 乱舞(大) Slv 10", id: "magna_boisterous_dance_large_slv10" %>
-
-          <%= render "three_moves_options", label: "マグナ 乱舞(小) Slv 15", id: "magna_boisterous_dance_small_slv15" %>
-          <%= render "three_moves_options", label: "マグナ 乱舞(中) Slv 15", id: "magna_boisterous_dance_medium_slv15" %>
-          <%= render "three_moves_options", label: "マグナ 乱舞(大) Slv 15", id: "magna_boisterous_dance_large_slv15" %>
-
-          <%= render "three_moves_options", label: "マグナ 乱舞(中) Slv 20", id: "magna_boisterous_dance_medium_slv20" %>
-
-
-
-          <%= render "three_moves_options", label: "マグナ 三手(小) Slv 10", id: "magna_three_moves_small_slv10" %>
-          <%= render "three_moves_options", label: "マグナ 三手(中) Slv 10", id: "magna_three_moves_medium_slv10" %>
-          <%= render "three_moves_options", label: "マグナ 三手(大) Slv 10", id: "magna_three_moves_large_slv10" %>
-
-          <%= render "three_moves_options", label: "マグナ 三手(小) Slv 15", id: "magna_three_moves_small_slv15" %>
-          <%= render "three_moves_options", label: "マグナ 三手(中) Slv 15", id: "magna_three_moves_medium_slv15" %>
-          <%= render "three_moves_options", label: "マグナ 三手(大) Slv 15", id: "magna_three_moves_large_slv15" %>
-
-          <%= render "three_moves_options", label: "マグナ 三手(中) Slv 20", id: "magna_three_moves_medium_slv20" %>
-
-
-
-
-
-          <%= render "three_moves_options", label: "神石 乱舞(小) Slv 10", id: "optimus_boisterous_dance_small_slv10" %>
-          <%= render "three_moves_options", label: "神石 乱舞(中) Slv 10", id: "optimus_boisterous_dance_medium_slv10" %>
-          <%= render "three_moves_options", label: "神石 乱舞(大) Slv 10", id: "optimus_boisterous_dance_large_slv10" %>
-
-          <%= render "three_moves_options", label: "神石 乱舞(小) Slv 15", id: "optimus_boisterous_dance_small_slv15" %>
-          <%= render "three_moves_options", label: "神石 乱舞(中) Slv 15", id: "optimus_boisterous_dance_medium_slv15" %>
-          <%= render "three_moves_options", label: "神石 乱舞(大) Slv 15", id: "optimus_boisterous_dance_large_slv15" %>
-
-          <%= render "three_moves_options", label: "神石 乱舞(中) Slv 20", id: "optimus_boisterous_dance_medium_slv20" %>
-
-
-
-
-          <%= render "three_moves_options", label: "神石 三手(小) Slv 10", id: "optimus_three_moves_small_slv10" %>
-          <%= render "three_moves_options", label: "神石 三手(中) Slv 10", id: "optimus_three_moves_medium_slv10" %>
-          <%= render "three_moves_options", label: "神石 三手(大) Slv 10", id: "optimus_three_moves_large_slv10" %>
-
-          <%= render "three_moves_options", label: "神石 三手(小) Slv 15", id: "optimus_three_moves_small_slv15" %>
-          <%= render "three_moves_options", label: "神石 三手(中) Slv 15", id: "optimus_three_moves_medium_slv15" %>
-          <%= render "three_moves_options", label: "神石 三手(大) Slv 15", id: "optimus_three_moves_large_slv15" %>
-
-          <%= render "three_moves_options", label: "神石 三手(中) Slv 20", id: "optimus_three_moves_medium_slv20" %>
-          <div>
-            <p>終末武器 極破</p>
-            <input type="radio" name="kyokuha" value="0" id="kyokuha-0"  checked>
-            <label for="kyokuha-0">無</label>
-
-            <input type="radio" name="kyokuha" value="1" id="kyokuha-1">
-            <label for="kyokuha-1">有</label>
+        <div class="selection-items mt-3">
+          <div class="item-title">
+            <p>メイン、フレンド召喚石、ブースト武器、天司キャラの合計加護の設定</p>
           </div>
 
-          <%= render "three_moves_options", label: "limited武器 スキル『◯◯◯･アトス』", id: "athos" %>
-
           <div>
-            <p>ル・オー・ホーン（光編成で使う場合でのみ選択可）</p>
-            <input type="radio" name="ruo" value="0" id="ruo-0"  checked>
-            <label for="ruo-0">無</label>
-
-            <input type="radio" name="ruo" value="1" id="ruo-1">
-            <label for="ruo-1">有</label>
-          </div>
-          
-
-          <div>
-            <p>マグナの加護</p>
+            <div class="item-title">
+              <p>マグナの加護(%)</p>
+            </div>
             <input type="number" class="box" name="magna_divine_protection" value="0">
           </div>
 
           <div>
-            <p>神石の加護</p>
+            <div class="item-title">
+              <p>神石の加護(%)</p>
+            </div>
             <input type="number" class="box" name="optimus_divine_protection" value="0">
           </div>
         </div>
 
+        <%# ーーーーーーーー ↓武器の三手 ーーーーーーーー %>
+        <div class="mt-3">
+          <div class="p-3 my-3 bg-secondary-subtle" id="explanation_2" style="display: none;">
+            <p>〜解説〜</p>
+            <p>スキル乱舞、スキル三手を含む武器の編成へ組み込む本数を選択してください。</p>
+            <p>各武器のTAの上昇率は以下の通りです（マグナ、神石共通）</p>
+            <div class="weapon-list">
+              <div>乱舞(小) Slv 10 : 1.35%</div>
+              <div>乱舞(中) Slv 10 : 2.15%</div>
+              <div>乱舞(大) Slv 10 : 3.45%</div>
+              <div>三手(小) Slv 10 : 2%</div>
+              <div>三手(中) Slv 10 : 3.5%</div>
+              <div>三手(大) Slv 10 : 5%</div>
+
+              <div>乱舞(小) Slv 15 : 2%</div>
+              <div>乱舞(中) Slv 15 : 2.9%</div>
+              <div>乱舞(大) Slv 15 : 4.2%</div>
+              <div>三手(小) Slv 15 : 3.5%</div>
+              <div>三手(中) Slv 15 : 5%</div>
+              <div>三手(大) Slv 15 : 7%</div>
+              <div>乱舞(中) Slv 20 : 3.65%</div>
+              <div>三手(中) Slv 20 : 6%</div>
+            </div>
+          </div>
+
+          <div class="item-title">
+              <p>スキル 乱舞の武器、スキル 三手の武器の本数</p>
+          </div>
+
+          <div class="mt-3">
+            <div class="weapon-list" id="weaponSlv10">
+              <%= render "three_moves_options", label: "マグナ 乱舞(小) Slv 10", id: "magna_boisterous_dance_small_slv10" %>
+              <%= render "three_moves_options", label: "マグナ 乱舞(中) Slv 10", id: "magna_boisterous_dance_medium_slv10" %>
+              <%= render "three_moves_options", label: "マグナ 乱舞(大) Slv 10", id: "magna_boisterous_dance_large_slv10" %>
+              <%= render "three_moves_options", label: "マグナ 三手(小) Slv 10", id: "magna_three_moves_small_slv10" %>
+              <%= render "three_moves_options", label: "マグナ 三手(中) Slv 10", id: "magna_three_moves_medium_slv10" %>
+              <%= render "three_moves_options", label: "マグナ 三手(大) Slv 10", id: "magna_three_moves_large_slv10" %>
+            </div>
+
+            <div class="weapon-list" id="weaponSlv15">
+              <%= render "three_moves_options", label: "マグナ 乱舞(小) Slv 15", id: "magna_boisterous_dance_small_slv15" %>
+              <%= render "three_moves_options", label: "マグナ 乱舞(中) Slv 15", id: "magna_boisterous_dance_medium_slv15" %>
+              <%= render "three_moves_options", label: "マグナ 乱舞(大) Slv 15", id: "magna_boisterous_dance_large_slv15" %>
+              <%= render "three_moves_options", label: "マグナ 三手(小) Slv 15", id: "magna_three_moves_small_slv15" %>
+              <%= render "three_moves_options", label: "マグナ 三手(中) Slv 15", id: "magna_three_moves_medium_slv15" %>
+              <%= render "three_moves_options", label: "マグナ 三手(大) Slv 15", id: "magna_three_moves_large_slv15" %>
+              <%= render "three_moves_options", label: "マグナ 乱舞(中) Slv 20", id: "magna_boisterous_dance_medium_slv20" %>
+              <%= render "three_moves_options", label: "マグナ 三手(中) Slv 20", id: "magna_three_moves_medium_slv20" %>
+            </div>
+
+            <div class="weapon-list" id="weaponSlv10">
+              <%= render "three_moves_options", label: "神石 乱舞(小) Slv 10", id: "optimus_boisterous_dance_small_slv10" %>
+              <%= render "three_moves_options", label: "神石 乱舞(中) Slv 10", id: "optimus_boisterous_dance_medium_slv10" %>
+              <%= render "three_moves_options", label: "神石 乱舞(大) Slv 10", id: "optimus_boisterous_dance_large_slv10" %>
+              <%= render "three_moves_options", label: "神石 三手(小) Slv 10", id: "optimus_three_moves_small_slv10" %>
+              <%= render "three_moves_options", label: "神石 三手(中) Slv 10", id: "optimus_three_moves_medium_slv10" %>
+              <%= render "three_moves_options", label: "神石 三手(大) Slv 10", id: "optimus_three_moves_large_slv10" %>
+            </div>
+
+            <div class="three-moves-list" id="weaponSlv15">
+              <%= render "three_moves_options", label: "神石 乱舞(小) Slv 15", id: "optimus_boisterous_dance_small_slv15" %>
+              <%= render "three_moves_options", label: "神石 乱舞(中) Slv 15", id: "optimus_boisterous_dance_medium_slv15" %>
+              <%= render "three_moves_options", label: "神石 乱舞(大) Slv 15", id: "optimus_boisterous_dance_large_slv15" %>
+              <%= render "three_moves_options", label: "神石 三手(小) Slv 15", id: "optimus_three_moves_small_slv15" %>
+              <%= render "three_moves_options", label: "神石 三手(中) Slv 15", id: "optimus_three_moves_medium_slv15" %>
+              <%= render "three_moves_options", label: "神石 三手(大) Slv 15", id: "optimus_three_moves_large_slv15" %>
+              <%= render "three_moves_options", label: "神石 乱舞(中) Slv 20", id: "optimus_boisterous_dance_medium_slv20" %>
+              <%= render "three_moves_options", label: "神石 三手(中) Slv 20", id: "optimus_three_moves_medium_slv20" %>
+            </div>
+          </div>
+        </div>
+
+        <%# ーーーーーーーー ↓終末武器 ーーーーーーーー %>
+
+        <div class="p-3 my-3 bg-secondary-subtle" id="explanation_3" style="display: none;">
+          <p>〜解説〜</p>
+          <p>終末武器の第3スキルの設定してください</p>
+          <p>極破は第3スキルに絶涯のペンデュラムをセットしつつ、マグナか神石加護280%以上で発動でき、発動すると全員のTAが25%上昇します</p>
+        </div>
+        
+        <div>
+          <div class="item-title mt-3">
+            <p>終末武器 極破</p>
+          </div>
+
+          <div class="selection-items">
+            <input type="radio" name="kyokuha" value="0" id="kyokuha-0"  checked>
+            <label for="kyokuha-0">未発動</label>
+
+            <input type="radio" name="kyokuha" value="1" id="kyokuha-1">
+            <label for="kyokuha-1">発動</label>
+          </div>
+        </div>
+
+        <div class="p-3 my-3 bg-secondary-subtle" id="explanation_4" style="display: none;">
+          <p>〜解説〜</p>
+          <p>終末武器の第2スキルの設定してください</p>
+          <p>アルファ・ペンデュラムを第二スキルにセットしつつ、終末武器のlvが210以上で全員のTAが2.5%上昇、lvが240以上で全員のTAが5%上昇します</p>
+        </div>
+    
+        <div>
+          <div class="item-title mt-3">
+            <p>終末武器 第二スキル アルファ・ペンデュラム</p>
+          </div>
+
+          <div class="selection-items">
+            <input type="radio" name="terminal_weapon" value="0" id="terminal_weapon-0"  checked>
+            <label for="terminal_weapon-0">無</label>
+
+            <input type="radio" name="terminal_weapon" value="1" id="terminal_weapon-1">
+            <label for="terminal_weapon-1">有 (終末武器lv210)</label>
+
+            <input type="radio" name="terminal_weapon" value="2" id="terminal_weapon-2">
+            <label for="terminal_weapon-2">有 (終末武器lv240)</label>
+          </div>
+        </div>
+
+        <%# ーーーーーーーーーアトスの設定ーーーーーーーーーー %>
+
+        <div class="selection-items">
+          <div class="p-3 my-3 bg-secondary-subtle" id="explanation_5" style="display: none;">
+            <p>〜解説〜</p>
+            <p>リミテッドシリーズ武器のスキルに『◯◯◯･アトス』を持つ武器の本数の設定してください</p>
+            <p>スキル『◯◯◯･アトス』はマグナか神石加護280%以上で全員のTAが12.5%上昇、280%以下で全員のTAが6.25%上昇します</p>
+          </div>
+
+          <div class="item-title mt-3">
+            <p>リミテッドシリーズ武器 スキル『◯◯◯･アトス』</p>
+          </div>
+
+          <select id="athos">
+            <option value="0">0本</option>
+            <option value="1">1本</option>
+            <option value="2">2本</option>
+            <option value="3">3本</option>
+          </select>
+        </div>
+
+        <div class="p-3 my-3 bg-secondary-subtle" id="explanation_6" style="display: none;">
+          <p>〜解説〜</p>
+          <p>武器「ル・オー・ホーン」の本数の設定してください</p>
+          <p>効果は光属性のキャラにのみ適用され、光キャラのTAが14%上昇します</p>
+        </div>
+
+        <div class="selection-items">
+          <div class="item-title mt-3">
+            <p>ル・オー・ホーン（光編成で使う場合でのみ選択可）</p>
+          </div>
+
+          <select id="ruo">
+            <option value="0">0本</option>
+            <option value="1">1本</option>
+            <option value="2">2本</option>
+            <option value="3">3本</option>
+          </select>
+        </div>
+
         <%# ーーーーーーーー ↓オメガ武器・極星器 ーーーーーーーー %>
 
+        <div class="p-3 my-3 bg-secondary-subtle" id="explanation_7" style="display: none;">
+          <p>〜解説〜</p>
+          <p>各キャラクター得意武器の設定してください</p>
+        </div>
+
         <div>
-          <div>
+          <div class="item-title mt-3">
             <p>主人公の得意武器</p>
-
-            <input type="checkbox" name="forte_weapon_character_1" value="1">
-            <label>1番</label>
-            <input type="checkbox" name="forte_weapon_character_1" value="2">
-            <label>2番</label>
-            <input type="checkbox" name="forte_weapon_character_1" value="3">
-            <label>3番</label>
-            <input type="checkbox" name="forte_weapon_character_1" value="4">
-            <label>4番</label>
           </div>
 
-          <div>
-            <p>キャラ2の得意武器</p>
+          <div class="selection-items">
+            <%= render "forte_weapon_list", id: 1 %>
+          </div>
+        </div>
 
-            <input type="checkbox" name="forte_weapon_character_2" value="1">
-            <label>1番</label>
-            <input type="checkbox" name="forte_weapon_character_2" value="2">
-            <label>2番</label>
-            <input type="checkbox" name="forte_weapon_character_2" value="3">
-            <label>3番</label>
-            <input type="checkbox" name="forte_weapon_character_2" value="4">
-            <label>4番</label>
+        <div>
+          <div class="item-title mt-3">
+            <p>メンバー2の得意武器</p>
           </div>
 
-          <div>
-            <p>キャラ3の得意武器</p>
+          <div class="selection-items">
+            <%= render "forte_weapon_list", id: 2 %>
+          </div>
+        </div>
 
-            <input type="checkbox" name="forte_weapon_character_3" value="1">
-            <label>1番</label>
-            <input type="checkbox" name="forte_weapon_character_3" value="2">
-            <label>2番</label>
-            <input type="checkbox" name="forte_weapon_character_3" value="3">
-            <label>3番</label>
-            <input type="checkbox" name="forte_weapon_character_3" value="4">
-            <label>4番</label>
+        <div>
+          <div class="item-title mt-3">
+            <p>メンバー3の得意武器</p>
           </div>
 
-          <div>
-            <p>キャラ4の得意武器</p>
+          <div class="selection-items">
+            <%= render "forte_weapon_list", id: 3 %>
+          </div>
+        </div>
 
-            <input type="checkbox" name="forte_weapon_character_4" value="1">
-            <label>1番</label>
-            <input type="checkbox" name="forte_weapon_character_4" value="2">
-            <label>2番</label>
-            <input type="checkbox" name="forte_weapon_character_4" value="3">
-            <label>3番</label>
-            <input type="checkbox" name="forte_weapon_character_4" value="4">
-            <label>4番</label>
+        <div>
+          <div class="item-title mt-3">
+            <p>メンバー4の得意武器</p>
           </div>
 
-          <div>
+          <div class="selection-items">
+            <%= render "forte_weapon_list", id: 4 %>
+          </div>
+        </div>
+
+        <div class="p-3 my-3 bg-secondary-subtle" id="explanation_8" style="display: none;">
+          <p>〜解説〜</p>
+          <p>ガフスキー闘争(連続攻撃確率上昇)のスキルが付与されたオメガ武器がある場合選択してください</p>
+          <p>各キャラクターの得意武器と選択したオメガ武器の武器種が一致すると、そのキャラクターに対してTAが25%上昇します</p>
+        </div>
+
+        <div>
+          <div class="item-title mt-3">
             <p>オメガ武器（連撃）</p>
-
-            <input type="radio" name="omega" value="0" id="omega-0" checked>
-            <label for="omega-0">0番</label>
-
-            <input type="radio" name="omega" value="1" id="omega-1">
-            <label for="omega-1">1番</label>
-
-            <input type="radio" name="omega" value="2" id="omega-2">
-            <label for="omega-2">2番</label>
-
-            <input type="radio" name="omega" value="3" id="omega-3">
-            <label for="omega-3">3番</label>
-
-            <input type="radio" name="omega" value="4" id="omega-4">
-            <label for="omega-4">4番</label>
           </div>
 
-          <div>
+          <div class="selection-items">
+            <%= render "omega_and_star_weapon", weapon_name: "omega" %>
+          </div>
+        </div>
+
+        <div class="p-3 my-3 bg-secondary-subtle" id="explanation_9" style="display: none;">
+          <p>〜解説〜</p>
+          <p>採用する極星器の武器種を選択してください</p>
+          <p>各キャラクターの得意武器と極星器の武器種が一致すると、そのキャラクターに対してTAが10%上昇します</p>
+          <p>一致しない場合はキャラクターに対してTAが5%上昇します</p>
+        </div>
+
+        <div>
+          <div class="item-title mt-3">
             <p>極星器</p>
+          </div>
 
-            <input type="radio" name="star_weapon" value="0" id="star_weapon-0" checked>
-            <label for="star_weapon-0">0番</label>
+          <div class="selection-items">
+            <%= render "omega_and_star_weapon", weapon_name: "star_weapon" %>
+          </div>
+        </div>
 
-            <input type="radio" name="star_weapon" value="1" id="star_weapon-1">
-            <label for="star_weapon-1">1番</label>
+        <%# ーーーーーーーー ↓武器その他 ーーーーーーーー %>
 
-            <input type="radio" name="star_weapon" value="2" id="star_weapon-2">
-            <label for="star_weapon-2">2番</label>
+        <div class="p-3 my-3 bg-secondary-subtle" id="explanation_10" style="display: none;">
+          <p>〜解説〜</p>
+          <p>その他の全員のTA率が上昇するスキルを持った武器があれば上昇値を入力してください</p>
+          <p>例</p>
+          <div class="weapon-list">
+            <div>連撃覚醒リミテッド武器 : 5%〜10%</div>
+            <div>パラスソードミーレス : 最小5%〜最大20%</div>
+            <div>シグルズボウミーレス : 最小5%〜最大20%</div>
+            <div>ヴィルヘルム･ミーレス : 6% (アーカルム内で60%)</div>
+            <div>ソロモンドライブ･ミーレス : 6% (アーカルム内で60%)</div>
+            <div>マイムールヴィジョン･ミーレス : 最小5%〜最大35%</div>
+            <div>スパルナフェザー･ミーレス : 最小5%〜最大20%</div>
+            <div>ヴァイナテーヤ･ミーレス : 最小5%〜最大20%</div>
+          </div>
+        </div>
 
-            <input type="radio" name="star_weapon" value="3" id="star_weapon-3">
-            <label for="star_weapon-3">3番</label>
+        <div>
+          <div class="item-title mt-3">
+            <p>武器によるTA上昇（全体） その他(連撃覚醒リミテッド武器、ミーレスシリーズ、EXスキル付き武器など)</p>
+          </div>
 
-            <input type="radio" name="star_weapon" value="4" id="star_weapon-4">
-            <label for="star_weapon-4">4番</label>
+          <div class="selection-items">
+            <input type="number" class="box" name="weapon_outher">
           </div>
         </div>
 
         <%# ーーーーーーーー ↓メイン、サブ召喚石 ーーーーーーーー %>
 
         <div>
-          <p>メイン、サブ召喚石</p>
-          <input type="radio" name="summons" value="0" id="summons-0" checked>
-          <label for="summons-0">選択なし</label>
+          <div class="p-3 my-3 bg-secondary-subtle" id="explanation_11" style="display: none;">
+            <p>〜解説〜</p>
+            <p>メイン、サブに選択するとTA率が上昇する召喚石を選択してください</p>
+            <div class="weapon-list">
+              <div>ベルゼバブ : 主人公のみ50%</div>
+              <div>片面かぐや : 25%</div>
+              <div>両面かぐや : 50%</div>
+              <div>ベルゼバブ＋かぐや : 主人公75% : 他キャラ25%</div>
+            </div>
+          </div>
 
-          <input type="radio" name="summons" value="1" id="summons-1">
-          <label for="summons-1">ベルゼバブ</label>
+          <div class="item-title mt-3">
+            <p>メイン、サブ召喚石</p>
+          </div>
 
-          <input type="radio" name="summons" value="2" id="summons-2">
-          <label for="summons-2">片面かぐや</label>
+          <div class="selection-items">
+            <input type="radio" name="summons" value="0" id="summons-0" checked>
+            <label for="summons-0">選択しない</label>
 
-          <input type="radio" name="summons" value="3" id="summons-3">
-          <label for="summons-3">両面かぐや</label>
+            <input type="radio" name="summons" value="1" id="summons-1">
+            <label for="summons-1">ベルゼバブ</label>
+
+            <input type="radio" name="summons" value="2" id="summons-2">
+            <label for="summons-2">片面かぐや</label>
+
+            <input type="radio" name="summons" value="3" id="summons-3">
+            <label for="summons-3">両面かぐや</label>
+
+            <input type="radio" name="summons" value="4" id="summons-4">
+            <label for="summons-4">ベルゼバブ＋かぐや</label>
+          </div>
         </div>
 
         <%# ーーーーーーーー ↓ハーマー ーーーーーーーー %>
 
         <div>
-          <p>サブ召喚石、ハーマー</p>
-          <input type="radio" name="hama" value="0" id="hama-0"  checked>
-          <label for="hama-0">選択なし</label>
+          <div class="p-3 my-3 bg-secondary-subtle" id="explanation_12" style="display: none;">
+            <p>〜解説〜</p>
+            <p>サブ召喚石にハールート・マールートを使うか選択してください</p>
+            <p>ハールート・マールート : TA10%上昇</p>
+          </div>
 
-          <input type="radio" name="hama" value="1" id="hama-1">
-          <label for="hama-1">選択する</label>
-        </div>
+          <div class="item-title mt-3">
+            <p>サブ召喚石、ハールート・マールート</p>
+          </div>
 
-        <%# ーーーーーーーー ↓終末武器 第二スキル ーーーーーーーー %>
-        
-        <div>
-          <p>終末武器 第二スキルα</p>
-          <input type="radio" name="terminal_weapon" value="0" id="terminal_weapon-0"  checked>
-          <label for="terminal_weapon-0">選択なし</label>
+          <div class="selection-items">
+            <input type="radio" name="hama" value="0" id="hama-0"  checked>
+            <label for="hama-0">選択しない</label>
 
-          <input type="radio" name="terminal_weapon" value="1" id="terminal_weapon-1">
-          <label for="terminal_weapon-1">終末武器lv230 第二スキルα</label>
-
-          <input type="radio" name="terminal_weapon" value="2" id="terminal_weapon-2">
-          <label for="terminal_weapon-2">終末武器lv250 第二スキルα</label>
-        </div>
-
-        <%# ーーーーーーーー ↓連撃覚醒 ーーーーーーーー %>
-
-        <div>
-          <p>連撃覚醒（主人公なし）</p>
+            <input type="radio" name="hama" value="1" id="hama-1">
+            <label for="hama-1">選択する</label>
+          </div>
         </div>
 
         <%# ーーーーーーーー ↓神滅戦 ーーーーーーーー %>
 
         <div>
-          <p>神滅戦</p>
-          <input type="radio" name="coat_of_arms" value="0" id="coat_of_arms-0"  checked>
-          <label for="coat_of_arms-0">選択しない</label>
+          <div class="p-3 my-3 bg-secondary-subtle" id="explanation_13" style="display: none;">
+            <p>〜解説〜</p>
+            <p>イベント神滅戦における大事な物によるTAの上昇率を選択してください</p>
+            <div class="weapon-list">
+              <div>神滅の印章lv10 : 3%</div>
+              <div>神滅の印章lv15 : 5%</div>
+            </div>
+          </div>
 
-          <input type="radio" name="coat_of_arms" value="1" id="coat_of_arms-1">
-          <label for="coat_of_arms-1">神滅の印章lv10</label>
+          <div class="item-title mt-3">
+            <p>神滅戦</p>
+          </div>
 
-          <input type="radio" name="coat_of_arms" value="2" id="coat_of_arms-2">
-          <label for="coat_of_arms-2">神滅の印章lv15</label>
-        </div>
+          <div class="selection-items">
+            <input type="radio" name="coat_of_arms" value="0" id="coat_of_arms-0"  checked>
+            <label for="coat_of_arms-0">選択しない</label>
 
-        <%# ーーーーーーーー ↓武器その他 全体 ーーーーーーーー %>
-        
-        <div>
-          <p>武器その他 全体</p>
-          <input type="number" class="box" name="weapon_outher">
+            <input type="radio" name="coat_of_arms" value="1" id="coat_of_arms-1">
+            <label for="coat_of_arms-1">神滅の印章lv10</label>
+
+            <input type="radio" name="coat_of_arms" value="2" id="coat_of_arms-2">
+            <label for="coat_of_arms-2">神滅の印章lv15</label>
+          </div>
         </div>
 
         <%# ーーーーーーーー ↓スキルバフ、召喚効果など 全体 ーーーーーーーー %>
 
-        <div>
-          <p>スキルバフ、召喚効果など 全体</p>
-          <input type="number" class="box" name="skill_all">
+        <div class="p-3 my-3 bg-secondary-subtle" id="explanation_14" style="display: none;">
+          <p>〜解説〜</p>
+          <p>スキル効果、奥義効果、召喚効果によるTA上昇がある場合入力してください</p>
         </div>
 
-        <%# ーーーーーーーー ↓スキルバフ、召喚効果など 単体 ーーーーーーーー %>
-
         <div>
+          <div class="item-title mt-3">
+            <p>スキル効果、奥義効果、召喚効果によるTA上昇（全体）</p>
+          </div>
+
+          <div class="selection-items">
+            <input type="number" class="box" name="skill_all">
+          </div>
+        </div>
+
+        <%# ーーーーーーーー ↓主人公のステータス上昇要素 ーーーーーーーー %>
+
+        <div class="p-3 my-3 bg-secondary-subtle" id="explanation_15" style="display: none;">
+          <p>〜解説〜</p>
+          <p>主人公と仲間キャラの個別のTA率上昇値を設定してください</p>
+        </div>
+
+        <div class="box-items">
+          <div class="item-title mt-3">
+            <p>主人公のステータス上昇要素</p>
+          </div>
+
           <div>
-            <p>スキルバフ、召喚効果など 単体 主人公</p>
+            <p>リミットボーナス</p>
+            <input type="number" class="box" name="limit_bonus_character_1">
+          </div>
+
+          <div>
+            <p>コンプリートボーナス</p>
+            <input type="number" class="box" name="complate_bonus_character_1">
+          </div>
+
+          <div>
+            <p>ジョブのLvアップボーナス</p>
+            <input type="number" class="box" name="levelup_bonus_character_1">
+          </div>
+
+          <div>
+            <p>ジョブの極地ボーナス</p>
+            <input type="number" class="box" name="master_bonus_character_1">
+          </div>
+
+          <div>
+            <p>その他要因（スキル効果（単体）など）</p>
             <input type="number" class="box" name="skill_single_character_1">
           </div>
-
-          <div>
-            <p>スキルバフ、召喚効果など 単体 キャラクター2</p>
-            <input type="number" class="box" name="skill_single_character_2">
-          </div>
-
-          <div>
-            <p>スキルバフ、召喚効果など 単体 キャラクター3</p>
-            <input type="number" class="box" name="skill_single_character_3">
-          </div>
-
-          <div>
-            <p>スキルバフ、召喚効果など 単体 キャラクター4</p>
-            <input type="number" class="box" name="skill_single_character_4">
-          </div>
         </div>
 
-        <%# ーーーーーーーー ↓アーティファクト ーーーーーーーー %>
+        <%#  %>
+        <%# メンバーのステータス上昇要素 %>
 
-        <div>
-          <div>
-            <p>アーティファクト キャラ2</p>
-            <input type="number" class="box" name="artifact_character_2">
-          </div>
-
-          <div>
-            <p>アーティファクト キャラ3</p>
-            <input type="number" class="box" name="artifact_character_3">
-          </div>
-
-          <div>
-            <p>アーティファクト キャラ4</p>
-            <input type="number" class="box" name="artifact_character_4">
-          </div>
+        <div class="box-items">
+          <%= render "members_status_up_infomation", id: 2 %>
         </div>
 
-        <%# ーーーーーーーー ↓仲間のリミットボーナス ーーーーーーーー %>
-
-        <div>
-          <div>
-            <p>キャラ2のリミットボーナス</p>
-            <input type="number" class="box" name="limit_bonus_character_2">
-          </div>
-
-          <div>
-            <p>キャラ3のリミットボーナス</p>
-            <input type="number" class="box" name="limit_bonus_character_3">
-          </div>
-
-          <div>
-            <p>キャラ4のリミットボーナス</p>
-            <input type="number" class="box" name="limit_bonus_character_4">
-          </div>
+        <div class="box-items">
+          <%= render "members_status_up_infomation", id: 3 %>
         </div>
 
-        <%# ーーーーーーーー ↓仲間の指輪、耳飾り ーーーーーーーー %>
-
-        <div>
-          <div>
-            <p>キャラ2の指輪、耳飾り</p>
-            <input type="number" class="box" name="ring_character_2">
-          </div>
-
-          <div>
-            <p>キャラ3の指輪、耳飾り</p>
-            <input type="number" class="box" name="ring_character_3">
-          </div>
-
-          <div>
-            <p>キャラ4の指輪、耳飾り</p>
-            <input type="number" class="box" name="ring_character_4">
-          </div>
-        </div>
-
-        <%# ーーーーーーーー ↓主人公、コンプリートボーナス他 ーーーーーーーー %>
-        <%# ーーーーーーーー ↓主人公、コンプリートボーナス他 ーーーーーーーー %>
-
-        <div>
-          <p>主人公、コンプリートボーナス、ジョブのlvアップボーナス、lb、極地ボーナス</p>
-          <input type="number" class="box" name="main_character_bonus">
+        <div class="box-items">
+          <%= render "members_status_up_infomation", id: 4 %>
         </div>
       </form>
     </div>
@@ -379,10 +505,17 @@ const totalElement_3 = document.getElementById('character_3');
 const totalElement_4 = document.getElementById('character_4');
 
 function calculateTotal() {
-  let character_1 = 0;
-  let character_2 = 0;
-  let character_3 = 0;
-  let character_4 = 0;
+  // 上限のないTA率と上限のあるTA率があるので分けて変数を設定
+  let character_1_nolimit = 0;
+  let character_2_nolimit = 0;
+  let character_3_nolimit = 0;
+  let character_4_nolimit = 0;
+
+  let character_1_limited = 0;
+  let character_2_limited = 0;
+  let character_3_limited = 0;
+  let character_4_limited = 0;
+
 
 
   // 武器の三手 x 加護の計算
@@ -448,44 +581,42 @@ function calculateTotal() {
   const totalWeaponValueBeforeRoundingDown = (magna_divine_protection * magna_three_moves_total) + (optimus_divine_protection * optimus_three_moves_total);
   const totalWeaponValueBeforeToFixed = Math.floor(totalWeaponValueBeforeRoundingDown / 1000);
 
-  character_1 += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
-  character_2 += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
-  character_3 += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
-  character_4 += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
+  character_1_limited += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
+  character_2_limited += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
+  character_3_limited += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
+  character_4_limited += parseFloat((totalWeaponValueBeforeToFixed * 0.1).toFixed(1));
 
 
   // 武器、極破、アトス、ルオーホーン
   const kyokuha = document.querySelector('input[name="kyokuha"]:checked');
   if (kyokuha.value === "1") { 
-    character_1 += 25;
-    character_2 += 25;
-    character_3 += 25;
-    character_4 += 25;
+    character_1_limited += 25;
+    character_2_limited += 25;
+    character_3_limited += 25;
+    character_4_limited += 25;
   }
 
   const athos = parseInt(document.getElementById('athos').value);
   if (magna_divine_protection_input >= 280 || optimus_divine_protection_input >= 280) {
     const athosTotal = parseFloat((athos * 12.5).toFixed(1));
-    character_1 += athosTotal;
-    character_2 += athosTotal;
-    character_3 += athosTotal;
-    character_4 += athosTotal;
+    character_1_limited += athosTotal;
+    character_2_limited += athosTotal;
+    character_3_limited += athosTotal;
+    character_4_limited += athosTotal;
   } else {
     const athosTotal = parseFloat((athos * 6.25).toFixed(1));
-    character_1 += athosTotal;
-    character_2 += athosTotal;
-    character_3 += athosTotal;
-    character_4 += athosTotal;
+    character_1_limited += athosTotal;
+    character_2_limited += athosTotal;
+    character_3_limited += athosTotal;
+    character_4_limited += athosTotal;
   }
 
-  const ruo = document.querySelector('input[name="ruo"]:checked');
-  if (ruo.value === "1") { 
-    character_1 += 14;
-    character_2 += 14;
-    character_3 += 14;
-    character_4 += 14;
-  }
-
+  const ruo = parseInt(document.getElementById('ruo').value);
+  const totalRuoWeapon = 14 * ruo;
+  character_1_limited += totalRuoWeapon;
+  character_2_limited += totalRuoWeapon;
+  character_3_limited += totalRuoWeapon;
+  character_4_limited += totalRuoWeapon;
 
   // オメガ武器、極星器の計算
   const forte_weapon_character_1 = document.querySelectorAll('input[name="forte_weapon_character_1"]:checked');
@@ -496,198 +627,295 @@ function calculateTotal() {
   const omega_weapon = document.querySelectorAll('input[name="omega"]:checked');
   const star_weapon = document.querySelectorAll('input[name="star_weapon"]:checked');
   const star_weapon_minimum = 5;
+
   // オメガ武器、極星器の計算  主人公の計算
   for (let i = 0; i < forte_weapon_character_1.length; i++) {
     if (forte_weapon_character_1[i].value === omega_weapon[0].value) {
-      character_1 += 25;
+      character_1_limited += 25;
     }
   }
   for (let i = 0; i < forte_weapon_character_1.length; i++) {
     if (forte_weapon_character_1[i].value === star_weapon[0].value) {
-      character_1 += 5;
+      character_1_limited += 5;
     }
   }
 
   // オメガ武器、極星器の計算  キャラ2の計算
   for (let i = 0; i < forte_weapon_character_2.length; i++) {
     if (forte_weapon_character_2[i].value === omega_weapon[0].value) {
-      character_2 += 25;
+      character_2_limited += 25;
     }
   }
   for (let i = 0; i < forte_weapon_character_2.length; i++) {
     if (forte_weapon_character_2[i].value === star_weapon[0].value) {
-      character_2 += 5;
+      character_2_limited += 5;
     }
   }
 
   // オメガ武器、極星器の計算  キャラ3の計算
   for (let i = 0; i < forte_weapon_character_3.length; i++) {
     if (forte_weapon_character_3[i].value === omega_weapon[0].value) {
-      character_3 += 25;
+      character_3_limited += 25;
     }
   }
   for (let i = 0; i < forte_weapon_character_3.length; i++) {
     if (forte_weapon_character_3[i].value === star_weapon[0].value) {
-      character_3 += 5;
+      character_3_limited += 5;
     }
   }
 
   // オメガ武器、極星器の計算  キャラ4の計算
   for (let i = 0; i < forte_weapon_character_4.length; i++) {
     if (forte_weapon_character_4[i].value === omega_weapon[0].value) {
-      character_4 += 25;
+      character_4_limited += 25;
     }
   }
   for (let i = 0; i < forte_weapon_character_4.length; i++) {
     if (forte_weapon_character_4[i].value === star_weapon[0].value) {
-      character_4 += 5;
+      character_4_limited += 5;
     }
   }
 
   if (star_weapon[0].value !== "0") {
-    character_1 += star_weapon_minimum;
-    character_2 += star_weapon_minimum;
-    character_3 += star_weapon_minimum;
-    character_4 += star_weapon_minimum;
+    character_1_limited += star_weapon_minimum;
+    character_2_limited += star_weapon_minimum;
+    character_3_limited += star_weapon_minimum;
+    character_4_limited += star_weapon_minimum;
   }
 
 
   // メイン召喚石の計算
   const summons = document.querySelector('input[name="summons"]:checked');
   if (summons.value === "1") {
-    character_1 += 50
+    character_1_nolimit += 50
     } else if (summons.value === "2") {
-    character_1 += 25;
-    character_2 += 25;
-    character_3 += 25;
-    character_4 += 25;
+    character_1_nolimit += 25;
+    character_2_nolimit += 25;
+    character_3_nolimit += 25;
+    character_4_nolimit += 25;
     } else if (summons.value === "3") {
-    character_1 += 50;
-    character_2 += 50;
-    character_3 += 50;
-    character_4 += 50;
+    character_1_nolimit += 50;
+    character_2_nolimit += 50;
+    character_3_nolimit += 50;
+    character_4_nolimit += 50;
+    } else if (summons.value === "4") {
+    character_1_nolimit += 75;
+    character_2_nolimit += 25;
+    character_3_nolimit += 25;
+    character_4_nolimit += 25;
   }
 
 
   // 召喚石「ハールートマールトの計算」
   const hama = document.querySelector('input[name="hama"]:checked');
   if (hama.value === "1") { 
-    character_1 += 10;
-    character_2 += 10;
-    character_3 += 10;
-    character_4 += 10;
+    character_1_nolimit += 10;
+    character_2_nolimit += 10;
+    character_3_nolimit += 10;
+    character_4_nolimit += 10;
   }
 
 
   // 終末武器第二スキルの計算
   const terminal_weapon = document.querySelector('input[name="terminal_weapon"]:checked');
   if (terminal_weapon.value === "1") {
-    character_1 += 2.5;
-    character_2 += 2.5;
-    character_3 += 2.5;
-    character_4 += 2.5;
+    character_1_limited += 2.5;
+    character_2_limited += 2.5;
+    character_3_limited += 2.5;
+    character_4_limited += 2.5;
     } else if (terminal_weapon.value === "2") {
-    character_1 += 5;
-    character_2 += 5;
-    character_3 += 5;
-    character_4 += 5;
+    character_1_limited += 5;
+    character_2_limited += 5;
+    character_3_limited += 5;
+    character_4_limited += 5;
   }
 
 
   // 神滅の印章の計算
   const coat_of_arms = document.querySelector('input[name="coat_of_arms"]:checked');
   if (coat_of_arms.value === "1") {
-    character_1 += 3;
-    character_2 += 3;
-    character_3 += 3;
-    character_4 += 3;
+    character_1_nolimit += 3;
+    character_2_nolimit += 3;
+    character_3_nolimit += 3;
+    character_4_nolimit += 3;
     } else if (coat_of_arms.value === "2") {
-    character_1 += 5;
-    character_2 += 5;
-    character_3 += 5;
-    character_4 += 5;
+    character_1_nolimit += 5;
+    character_2_nolimit += 5;
+    character_3_nolimit += 5;
+    character_4_nolimit += 5;
   }
 
 
   // 武器のその他要因の計算（全体）
   const weapon_outher = parseFloat(document.getElementsByName('weapon_outher')[0].value);
   if (weapon_outher) {
-    character_1 += weapon_outher;
-    character_2 += weapon_outher;
-    character_3 += weapon_outher;
-    character_4 += weapon_outher;
+    character_1_limited += weapon_outher;
+    character_2_limited += weapon_outher;
+    character_3_limited += weapon_outher;
+    character_4_limited += weapon_outher;
   }
 
 
   // スキルなどによる上昇の計算（全体）
   const skill_all = parseFloat(document.getElementsByName('skill_all')[0].value);
   if (skill_all) {
-    character_1 += skill_all;
-    character_2 += skill_all;
-    character_3 += skill_all;
-    character_4 += skill_all;
+    character_1_nolimit += skill_all;
+    character_2_nolimit += skill_all;
+    character_3_nolimit += skill_all;
+    character_4_nolimit += skill_all;
   }
 
 
   // スキルなどによる上昇の計算（個別）
   const skill_single_character_1 = parseFloat(document.getElementsByName('skill_single_character_1')[0].value);
-  if (skill_single_character_1) {character_1 += skill_single_character_1}
+  if (skill_single_character_1) {character_1_nolimit += skill_single_character_1}
 
   const skill_single_character_2 = parseFloat(document.getElementsByName('skill_single_character_2')[0].value);
-  if (skill_single_character_2) {character_2 += skill_single_character_2}
+  if (skill_single_character_2) {character_2_nolimit += skill_single_character_2}
 
   const skill_single_character_3 = parseFloat(document.getElementsByName('skill_single_character_3')[0].value);
-  if (skill_single_character_3) {character_3 += skill_single_character_3}
+  if (skill_single_character_3) {character_3_nolimit += skill_single_character_3}
 
   const skill_single_character_4 = parseFloat(document.getElementsByName('skill_single_character_4')[0].value);
-  if (skill_single_character_4) {character_4 += skill_single_character_4}
+  if (skill_single_character_4) {character_4_nolimit += skill_single_character_4}
 
 
   // アーティファクトの計算（個別）
   const artifact_character_2 = parseFloat(document.getElementsByName('artifact_character_2')[0].value);
-  if (artifact_character_2) {character_2 += artifact_character_2}
+  if (artifact_character_2) {character_2_nolimit += artifact_character_2}
 
   const artifact_character_3 = parseFloat(document.getElementsByName('artifact_character_3')[0].value);
-  if (artifact_character_3) {character_3 += artifact_character_3}
+  if (artifact_character_3) {character_3_nolimit += artifact_character_3}
 
   const artifact_character_4 = parseFloat(document.getElementsByName('artifact_character_4')[0].value);
-  if (artifact_character_4) {character_4 += artifact_character_4}
+  if (artifact_character_4) {character_4_nolimit += artifact_character_4}
+
+  // 主人公のボーナス計算
+
+  const complate_bonus_character_1 = parseFloat(document.getElementsByName('complate_bonus_character_1')[0].value);
+  if (complate_bonus_character_1) {character_1_nolimit += complate_bonus_character_1}
+
+  const levelup_bonus_character_1 = parseFloat(document.getElementsByName('levelup_bonus_character_1')[0].value);
+  if (levelup_bonus_character_1) {character_1_nolimit += levelup_bonus_character_1}
+
+  const master_bonus_character_1 = parseFloat(document.getElementsByName('master_bonus_character_1')[0].value);
+  if (master_bonus_character_1) {character_1_nolimit += master_bonus_character_1}
 
 
   // リミットボーナスの計算（個別）
+  const limit_bonus_character_1 = parseFloat(document.getElementsByName('limit_bonus_character_1')[0].value);
+  if (limit_bonus_character_1) {character_1_nolimit += limit_bonus_character_1}
+
   const limit_bonus_character_2 = parseFloat(document.getElementsByName('limit_bonus_character_2')[0].value);
-  if (limit_bonus_character_2) {character_2 += limit_bonus_character_2}
+  if (limit_bonus_character_2) {character_2_nolimit += limit_bonus_character_2}
 
   const limit_bonus_character_3 = parseFloat(document.getElementsByName('limit_bonus_character_3')[0].value);
-  if (limit_bonus_character_3) {character_3 += limit_bonus_character_3}
+  if (limit_bonus_character_3) {character_3_nolimit += limit_bonus_character_3}
 
   const limit_bonus_character_4 = parseFloat(document.getElementsByName('limit_bonus_character_4')[0].value);
-  if (limit_bonus_character_4) {character_4 += limit_bonus_character_4}
+  if (limit_bonus_character_4) {character_4_nolimit += limit_bonus_character_4}
 
 
   // 指輪、耳飾りの計算（個別）
   const ring_character_2 = parseFloat(document.getElementsByName('ring_character_2')[0].value);
-  if (ring_character_2) {character_2 += ring_character_2}
+  if (ring_character_2) {character_2_nolimit += ring_character_2}
 
   const ring_character_3 = parseFloat(document.getElementsByName('ring_character_3')[0].value);
-  if (ring_character_3) {character_3 += ring_character_3}
+  if (ring_character_3) {character_3_nolimit += ring_character_3}
 
   const ring_character_4 = parseFloat(document.getElementsByName('ring_character_4')[0].value);
-  if (ring_character_4) {character_4 += ring_character_4}
+  if (ring_character_4) {character_4_nolimit += ring_character_4}
+
+  // 連続攻撃覚醒の計算
+  const consecutive_attack_character_2 = parseInt(document.getElementById('consecutive_attack_character_2').value);
+  const consecutive_attack_character_3 = parseInt(document.getElementById('consecutive_attack_character_3').value);
+  const consecutive_attack_character_4 = parseInt(document.getElementById('consecutive_attack_character_4').value);
+  character_2_nolimit += 5 * consecutive_attack_character_2;
+  character_3_nolimit += 5 * consecutive_attack_character_3;
+  character_4_nolimit += 5 * consecutive_attack_character_4;
+
+  // TA率の上限値に届いているか確認
+  if (character_1_limited > 75) {character_1_limited = 75}
+  if (character_2_limited > 75) {character_2_limited = 75}
+  if (character_3_limited > 75) {character_3_limited = 75}
+  if (character_4_limited > 75) {character_4_limited = 75}
+
+  // 上限のないTA率と上限のあるTA率を合算
+  const total_character_1 = character_1_nolimit + character_1_limited;
+  const total_character_2 = character_2_nolimit + character_2_limited;
+  const total_character_3 = character_3_nolimit + character_3_limited;
+  const total_character_4 = character_4_nolimit + character_4_limited;
+
+  // 浮動小点数を処理
+  const character_1_after_convervion = total_character_1.toFixed(1)
+  const character_2_after_convervion = total_character_2.toFixed(1)
+  const character_3_after_convervion = total_character_3.toFixed(1)
+  const character_4_after_convervion = total_character_4.toFixed(1)
 
 
-  // 主人公のコンプリートボーナス、lbなどの計算
-  const main_character_bonus = parseFloat(document.getElementsByName('main_character_bonus')[0].value);
-  if (main_character_bonus) {character_1 += main_character_bonus}
-
-
-  totalElement_1.innerText = `character1: ${character_1}`;
-  totalElement_2.innerText = `character2: ${character_2}`;
-  totalElement_3.innerText = `character3: ${character_3}`;
-  totalElement_4.innerText = `character4: ${character_4}`;
+  // 合計を表示
+  totalElement_1.innerText = `主人公: ${character_1_after_convervion}%`;
+  totalElement_2.innerText = `メンバー2: ${character_2_after_convervion}%`;
+  totalElement_3.innerText = `メンバー3: ${character_3_after_convervion}%`;
+  totalElement_4.innerText = `メンバー4: ${character_4_after_convervion}%`;
   }
 
 // フォームにchangeイベントが発生した時にcalculateTotal関数を起動するイベントリスナーを追加
 form.addEventListener('change', calculateTotal);
+
+
+// 解説の表示非表示の設定
+const explanation_1 = document.getElementById('explanation_1');
+const explanation_2 = document.getElementById('explanation_2');
+const explanation_3 = document.getElementById('explanation_3');
+const explanation_4 = document.getElementById('explanation_4');
+const explanation_5 = document.getElementById('explanation_5');
+const explanation_6 = document.getElementById('explanation_6');
+const explanation_7 = document.getElementById('explanation_7');
+const explanation_8 = document.getElementById('explanation_8');
+const explanation_9 = document.getElementById('explanation_9');
+const explanation_10 = document.getElementById('explanation_10');
+const explanation_11 = document.getElementById('explanation_11');
+const explanation_12 = document.getElementById('explanation_12');
+const explanation_13 = document.getElementById('explanation_13');
+const explanation_14 = document.getElementById('explanation_14');
+const explanation_15 = document.getElementById('explanation_15');
+const hideShowButton = document.getElementById('hideShowButton');
+
+hideShowButton.addEventListener('click', () => {
+  if (explanation_1.style.display === 'none') {
+    explanation_1.style.display = 'block'; // 表示する
+    explanation_2.style.display = 'block';
+    explanation_3.style.display = 'block';
+    explanation_4.style.display = 'block';
+    explanation_5.style.display = 'block';
+    explanation_6.style.display = 'block';
+    explanation_7.style.display = 'block';
+    explanation_8.style.display = 'block';
+    explanation_9.style.display = 'block';
+    explanation_10.style.display = 'block';
+    explanation_11.style.display = 'block';
+    explanation_12.style.display = 'block';
+    explanation_13.style.display = 'block';
+    explanation_14.style.display = 'block';
+    explanation_15.style.display = 'block';
+  } else {
+    explanation_1.style.display = 'none'; // 非表示にする
+    explanation_2.style.display = 'none';
+    explanation_3.style.display = 'none';
+    explanation_4.style.display = 'none';
+    explanation_5.style.display = 'none';
+    explanation_6.style.display = 'none';
+    explanation_7.style.display = 'none';
+    explanation_8.style.display = 'none';
+    explanation_9.style.display = 'none';
+    explanation_10.style.display = 'none';
+    explanation_11.style.display = 'none';
+    explanation_12.style.display = 'none';
+    explanation_13.style.display = 'none';
+    explanation_14.style.display = 'none';
+    explanation_15.style.display = 'none';
+  }
+});
 </script>
 

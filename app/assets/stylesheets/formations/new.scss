@@ -1,0 +1,97 @@
+.infomation {
+  border-bottom: solid 1px #eee; /* 下部に1pxの固体の境界線を追加 */
+  padding-bottom: 25px; /* 下部のパディングを25pxに設定 */
+}
+
+.character-list {
+  position: fixed;
+  background: white;
+  border: 1px solid #ccc; /* 枠線を追加 */
+  display: flex;          /* フレックスボックスにする */
+  flex-wrap: wrap;       /* 折り返す設定 */
+}
+
+.item-title {
+  display: flex; /* 子要素をフレックスアイテムとして配置 */
+    width: 100%; /* 幅を100%に設定 */
+    margin: 0 0 -10px; /* マージンの下部を-10pxに設定 */
+    font-size: 1.3rem; /* フォントサイズを1.3remに設定 */
+    justify-content: flex-start; /* フレックスアイテムを左に寄せる */
+    align-items: center; /* フレックスアイテムを中央に配置 */
+    gap: 10px; /* フレックスアイテム間の隙間を10pxに設定 */
+}
+
+.three-moves-list {
+  display: flex; /* 子要素をフレックスアイテムとして配置 */
+  flex-direction: row; /* フレックスアイテムを行方向に配置 */
+  gap: 20px 25px; /* フレックスアイテム間の隙間を20px(縦)と25px(横)に設定 */
+  flex-wrap: wrap; /* フレックスアイテムがコンテナの幅を超えた場合、折り返しを許可 */
+  border-bottom: solid 1px #eee; /* 下部に1pxの固体の境界線を追加 */
+  padding-bottom: 25px; /* 下部のパディングを25pxに設定 */
+}
+
+.weapon-list {
+  display: flex; /* 子要素をフレックスアイテムとして配置 */
+  flex-direction: row; /* フレックスアイテムを行方向に配置 */
+  gap: 20px 25px; /* フレックスアイテム間の隙間を20px(縦)と25px(横)に設定 */
+  flex-wrap: wrap; /* フレックスアイテムがコンテナの幅を超えた場合、折り返しを許可 */
+  padding-bottom: 25px; /* 下部のパディングを25pxに設定 */
+}
+
+.selection-items {
+  display: flex; /* 子要素をフレックスアイテムとして配置 */
+  flex-direction: row; /* フレックスアイテムを行方向に配置 */
+  gap: 20px 25px; /* フレックスアイテム間の隙間を20px(縦)と25px(横)に設定 */
+  flex-wrap: wrap; /* フレックスアイテムがコンテナの幅を超えた場合、折り返しを許可 */
+  border-bottom: solid 1px #eee; /* 下部に1pxの固体の境界線を追加 */
+  padding-bottom: 25px; /* 下部のパディングを25pxに設定 */
+}
+
+/* ラジオボタンとチェックボックスを非表示に設定 */
+.selection-items input[type="radio"], .selection-items input[type="checkbox"]  {
+  display: none; /* 表示しない */
+}
+
+/* チェックが入ったラジオボタンとチェックボックスのラベルのスタイルを設定 */
+.selection-items input[type="radio"]:checked + label, .selection-items input[type="checkbox"]:checked + label {
+  background: #707070; /* 背景色を#707070に設定 */
+  color: #fff; /* 文字色を#fff(白)に設定 */
+}
+
+
+/* ラベルに対するスタイル */
+.selection-items label {
+  display: flex; /* 子要素をフレックスアイテムとして配置 */
+  flex-direction: column; /* フレックスアイテムを列方向に配置 */
+  align-items: center; /* フレックスアイテムを中央に配置 */
+  padding: 15px 15px 5px; /* パディングを上下15px、左右5pxに設定 */
+  transition: 0.3s ease-in-out; /* トランジション効果を0.3秒で適用 */
+  box-shadow: 0 0 3px 0 rgb(0 0 0 / 12%), 0 1px 3px 0 rgb(0 0 0 / 9%); /* 影を設定 */
+  border-radius: 3px; /* ボーダーの半径を3pxに設定 */
+  cursor: pointer; /* マウスカーソルをポインターに設定 */
+  font-weight: 600; /* フォントの太さを600に設定 */
+  font-size: 1.2rem; /* フォントサイズを1.2remに設定 */
+  gap: 3px; /* フレックスアイテム間の隙間を3pxに設定 */
+  background: #fff; /* 背景色を#fff(白)に設定 */
+}
+
+/* ラベルにマウスをホバーすると影を強調、上に少し浮き上がる、透明度を0.8に、背景色を薄灰色に設定 */
+.selection-items label:hover {
+  box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 10%); /* ホバー時の影を設定 */
+  transform: translateY(-4px); /* ホバー時に上に4px移動 */
+  opacity: 0.8; /* 透明度を0.8に設定 */
+  background: #f5f5f5; /* 背景色を#f5f5f5に設定 */
+}
+
+.box {
+  width: 60px; /* 幅を50pxに指定 */
+}
+
+.box-items {
+  display: flex; /* 子要素をフレックスアイテムとして配置 */
+  flex-direction: row; /* フレックスアイテムを行方向に配置 */
+  gap: 20px 70px; /* フレックスアイテム間の隙間を20px(縦)と25px(横)に設定 */
+  flex-wrap: wrap; /* フレックスアイテムがコンテナの幅を超えた場合、折り返しを許可 */
+  border-bottom: solid 1px #eee; /* 下部に1pxの固体の境界線を追加 */
+  padding-bottom: 25px; /* 下部のパディングを25pxに設定 */
+}

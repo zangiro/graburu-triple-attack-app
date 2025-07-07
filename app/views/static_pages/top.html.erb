@@ -1,44 +1,62 @@
 <div class="container">
-  <div class="row">
+  <div>
     <div class="d-flex">
       <% unless logged_in? %>
-        <div class="row me-3">
+        <div class="me-3">
           <%= link_to t(".to_register_page"), new_user_path %>
         </div>
-        <div class="row">
+        <div>
           <%= link_to t(".to_login_page"), login_path %>
         </div>
       <% end %>
     </div>
+
+    <div class="mt-3">
+      <h1>グラブルTA計算アプリ</h1>
+    </div>
+
+    <div class="mt-3">
+      <%= link_to new_formation_path, class: "btn" do %>
+        <p>画像クリックで計算ページへ</p>
+        <div class="d-flex align-items-center">
+          <div>
+            <%= image_tag "ogp_1280_720.png" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <hr class="my-4 mt-5">
+    <%# -----HTMLの水平線を描画するタグ----- %>
+
+    <div class="bg-info-subtle p-3">
+      <div class="mt-3">
+        <h3 class="text-center">このアプリは、ブラウザゲーム「グランブルーファンタジー」におけるTA率(トリプルアタック率)の計算を目的としたアプリです</h3>
+      </div>
+
+      <div class="mt-3">
+        <h5 class="text-center">〜当アプリの使い方〜</h5>
+      </div>
+
+      <div class="mt-4">
+        <p class="text-center">基本機能使用にログインは必要ありません</p>
+        <p class="text-center">TA上昇武器、オメガ武器、召喚石、キャラクターごとの上昇値などの項目を埋めていくと自動でキャラクターごとのTA率を算出します (項目はすべて埋める必要はありません)</p>
+        <p class="text-center">「パーティ4人のTA率を100%にしつつ火力も最大限出したい！」</p>
+        <p class="text-center">そのような編成を組む、試行錯誤の際ご活用ください</p>
+      </div>
+    </div>
+
+    <hr class="my-4 mt-5">
+    <%# -----HTMLの水平線を描画するタグ----- %>
+
+    <div class="bg-info-subtle p-3">
+      <div class="mt-3">
+        <h3 class="text-center">ログインをすると？</h3>
+      </div>
+
+      <div class="mt-4">
+        <p class="text-center">まだ未実装ですが今後埋めた項目、TA率計算の情報を保存する機能を追加予定です</p>
+      </div>
+    </div>
   </div>
 </div>
-
-<%= link_to "ユーザー一覧", users_path %>
-<%= link_to "編成", new_formation_path %>
-<%= link_to "編成2", formations_path %>
-<%= link_to "編成aa", aa_formations_path %>
-<%= link_to "編成bb", bb_formations_path %>
-<%= link_to "編成cc", cc_formations_path %>
-<%= link_to "編成dd", dd_formations_path %>
-<%= link_to "編成ee", ee_formations_path %>
-<%= link_to "編成ff", ff_formations_path %>
-<%= link_to "編成gg", gg_formations_path %>
-<%= link_to "編成hh", hh_formations_path %>
-<%= link_to "編成ii", ii_formations_path %>
-  
-<div class="top-wrapper">
-  <div class="top-inner-text">
-    <h1>RUNTEQ BOARD APP</h1>
-  </div>
-</div>
-
-<div class="mt-3">
-  <%= link_to "Test Bootstrap Button", "#", class: "btn btn-primary", id: "testButton" %>
-</div>
-
-<script>
-  document.getElementById("testButton").addEventListener("click", function(event) {
-    event.preventDefault(); // リンクのデフォルト動作を防ぐ
-    alert("ボタンがクリックされたダ！");
-  });
-</script>
