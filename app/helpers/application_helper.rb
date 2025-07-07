@@ -7,7 +7,7 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: "グラブルTA計算アプリ",
-      title: "",
+      title: "グラブルTA計算アプリ",
       reverse: true,
       charset: "utf-8",
       description: "パーティメンバー全員のTA率を確認しながら編成を組む際に役に立ちます。このアプリは、ブラウザゲーム「グランブルーファンタジー」におけるTA率（トリプルアタック率）の計算を行うアプリです",
