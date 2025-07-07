@@ -21,17 +21,17 @@
         <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="character-setting-button" data-bs-toggle="dropdown" aria-expanded="false">
         設定
         </button>
+        
         <ul class="dropdown-menu" aria-labelledby="character-setting-button">
-          <li><%= link_to "3", "#", class: 'dropdown-item' %></li>
-          <li><%= link_to "4", "#", class: 'dropdown-item' %></li>
+          <li><button id="hideShowButton" type="button" class="dropdown-item">解説の表示/非表示切替</button></li>
         </ul>
       </div>
     </div>
 
 
-    <div class="pt-3">
-      <p></p>
-    </div>
+        <div class="pt-3">
+          <p></p>
+        </div>
 
     <div class="pt-5 infomation">
       <h1>TA率計算ページ</h1>
@@ -41,7 +41,17 @@
     
     <div>
       <form id="estimate-form">
+        <div class="pt-3" id="aiueo" style="display: none;">
+          <p>〜解説〜</p>
+          <p>マグナシリーズ召喚石、神石（オプティマスシリーズ）召喚石の加護の割合を設定してください</p>
+          <p>「召喚石の加護の割合」 x 「スキル 乱舞の武器、スキル 三手の武器」の結果が全員の合計TA率に加算されます</p>
+        </div>
+
         <div class="selection-items mt-3">
+          <div class="item-title">
+            <p>メイン、フレンド召喚石の設定</p>
+          </div>
+
           <div>
             <div class="item-title">
               <p>マグナの加護(%)</p>
@@ -709,5 +719,17 @@ function calculateTotal() {
 
 // フォームにchangeイベントが発生した時にcalculateTotal関数を起動するイベントリスナーを追加
 form.addEventListener('change', calculateTotal);
+
+
+const apple = document.getElementById('aiueo');
+const hideShowButton = document.getElementById('hideShowButton');
+
+hideShowButton.addEventListener('click', () => {
+  if (apple.style.display === 'none') {
+    apple.style.display = 'block'; // 表示する
+  } else {
+    apple.style.display = 'none'; // 非表示にする
+  }
+});
 </script>
 
