@@ -312,14 +312,14 @@
           <p>その他の全員のTA率が上昇するスキルを持った武器があれば上昇値を入力してください</p>
           <p>例</p>
           <div class="weapon-list">
-              <div>連撃覚醒リミテッド武器 : 5%〜10%</div>
-              <div>パラスソードミーレス : 最小5%〜最大20%</div>
-              <div>シグルズボウミーレス : 最小5%〜最大20%</div>
-              <div>ヴィルヘルム･ミーレス : 6% (アーカルム内で60%)</div>
-              <div>ソロモンドライブ･ミーレス : 6% (アーカルム内で60%)</div>
-              <div>マイムールヴィジョン･ミーレス : 最小5%〜最大35%</div>
-              <div>スパルナフェザー･ミーレス : 最小5%〜最大20%</div>
-              <div>ヴァイナテーヤ･ミーレス : 最小5%〜最大20%</div>
+            <div>連撃覚醒リミテッド武器 : 5%〜10%</div>
+            <div>パラスソードミーレス : 最小5%〜最大20%</div>
+            <div>シグルズボウミーレス : 最小5%〜最大20%</div>
+            <div>ヴィルヘルム･ミーレス : 6% (アーカルム内で60%)</div>
+            <div>ソロモンドライブ･ミーレス : 6% (アーカルム内で60%)</div>
+            <div>マイムールヴィジョン･ミーレス : 最小5%〜最大35%</div>
+            <div>スパルナフェザー･ミーレス : 最小5%〜最大20%</div>
+            <div>ヴァイナテーヤ･ミーレス : 最小5%〜最大20%</div>
           </div>
         </div>
 
@@ -375,7 +375,7 @@
           <div class="pt-3" id="explanation_12" style="display: none;">
             <p>〜解説〜</p>
             <p>サブ召喚石にハールート・マールートを使うか選択してください</p>
-            <p>ハールート・マールート : TA50%上昇</p>
+            <p>ハールート・マールート : TA10%上昇</p>
           </div>
 
           <div class="item-title mt-3">
@@ -474,6 +474,7 @@
           </div>
         </div>
 
+        <%#  %>
         <%# メンバーのステータス上昇要素 %>
 
         <div class="box-items">
@@ -841,14 +842,56 @@ function calculateTotal() {
 form.addEventListener('change', calculateTotal);
 
 
-const apple = document.getElementById('aiueo');
+const explanation_1 = document.getElementById('explanation_1');
+const explanation_2 = document.getElementById('explanation_2');
+const explanation_3 = document.getElementById('explanation_3');
+const explanation_4 = document.getElementById('explanation_4');
+const explanation_5 = document.getElementById('explanation_5');
+const explanation_6 = document.getElementById('explanation_6');
+const explanation_7 = document.getElementById('explanation_7');
+const explanation_8 = document.getElementById('explanation_8');
+const explanation_9 = document.getElementById('explanation_9');
+const explanation_10 = document.getElementById('explanation_10');
+const explanation_11 = document.getElementById('explanation_11');
+const explanation_12 = document.getElementById('explanation_12');
+const explanation_13 = document.getElementById('explanation_13');
+const explanation_14 = document.getElementById('explanation_14');
+const explanation_15 = document.getElementById('explanation_15');
 const hideShowButton = document.getElementById('hideShowButton');
 
 hideShowButton.addEventListener('click', () => {
-  if (apple.style.display === 'none') {
-    apple.style.display = 'block'; // 表示する
+  if (explanation_1.style.display === 'none') {
+    explanation_1.style.display = 'block'; // 表示する
+    explanation_2.style.display = 'block';
+    explanation_3.style.display = 'block';
+    explanation_4.style.display = 'block';
+    explanation_5.style.display = 'block';
+    explanation_6.style.display = 'block';
+    explanation_7.style.display = 'block';
+    explanation_8.style.display = 'block';
+    explanation_9.style.display = 'block';
+    explanation_10.style.display = 'block';
+    explanation_11.style.display = 'block';
+    explanation_12.style.display = 'block';
+    explanation_13.style.display = 'block';
+    explanation_14.style.display = 'block';
+    explanation_15.style.display = 'block';
   } else {
-    apple.style.display = 'none'; // 非表示にする
+    explanation_1.style.display = 'none'; // 非表示にする
+    explanation_2.style.display = 'none';
+    explanation_3.style.display = 'none';
+    explanation_4.style.display = 'none';
+    explanation_5.style.display = 'none';
+    explanation_6.style.display = 'none';
+    explanation_7.style.display = 'none';
+    explanation_8.style.display = 'none';
+    explanation_9.style.display = 'none';
+    explanation_10.style.display = 'none';
+    explanation_11.style.display = 'none';
+    explanation_12.style.display = 'none';
+    explanation_13.style.display = 'none';
+    explanation_14.style.display = 'none';
+    explanation_15.style.display = 'none';
   }
 });
 </script>
