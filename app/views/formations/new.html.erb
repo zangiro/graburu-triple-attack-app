@@ -34,23 +34,27 @@
         </div>
 
     <div class="pt-5 infomation">
-      <h1>TA率計算ページ</h1>
-      <p>マスクデータであるキャラごと、ジョブごとのTA基礎値は含まれておりません</p>
-      <p>小数点第二位四捨五入</p>
+      <h1 class="text-center">TA率計算ページ</h1>
+      <div class="bg-danger-subtle mt-3">
+        <p class="text-center bg-danger">--注意点--</p>
+        <p class="text-center">マスクデータであるキャラごと、ジョブごとのTA基礎値は含まれておりません</p>
+        <p class="text-center">出力するTA率の計算結果は小数点第二位 四捨五入です</p>
+        <p class="text-center">武器によるTA率の最大値は75%です（召喚石、スキルなどは含まれない）</p>
+      </div>
     </div>
     
     <div>
       <form id="estimate-form">
         <div class="p-3 my-3 bg-secondary-subtle" id="explanation_1" style="display: none;">
           <p>〜解説〜</p>
-          <p>マグナシリーズ召喚石、神石（オプティマスシリーズ）召喚石、ブースト武器の合計の加護の割合を設定してください</p>
+          <p>マグナシリーズ召喚石、神石（オプティマスシリーズ）召喚石、ブースト武器、天司キャラの合計の加護の割合を設定してください</p>
           <p>「マグナ加護の割合」 x 「マグナの乱舞、マグナの三手」の結果が全員の合計TA率に加算されます</p>
           <p>「神石加護の割合」 x 「神石の乱舞、神石の三手」の結果が全員の合計TA率に加算されます</p>
         </div>
 
         <div class="selection-items mt-3">
           <div class="item-title">
-            <p>メイン、フレンド召喚石、ブースト武器の合計加護の設定</p>
+            <p>メイン、フレンド召喚石、ブースト武器、天司キャラの合計加護の設定</p>
           </div>
 
           <div>
@@ -501,6 +505,7 @@ const totalElement_3 = document.getElementById('character_3');
 const totalElement_4 = document.getElementById('character_4');
 
 function calculateTotal() {
+  // 上限のないTA率と上限のあるTA率があるので分けて変数を設定
   let character_1_nolimit = 0;
   let character_2_nolimit = 0;
   let character_3_nolimit = 0;
@@ -829,25 +834,17 @@ function calculateTotal() {
   character_3_nolimit += 5 * consecutive_attack_character_3;
   character_4_nolimit += 5 * consecutive_attack_character_4;
 
+  // TA率の上限値に届いているか確認
+  if (character_1_limited > 75) {character_1_limited = 75}
+  if (character_2_limited > 75) {character_2_limited = 75}
+  if (character_3_limited > 75) {character_3_limited = 75}
+  if (character_4_limited > 75) {character_4_limited = 75}
 
-
-
-
-
-  
-
-
-
-
+  // 上限のないTA率と上限のあるTA率を合算
   const total_character_1 = character_1_nolimit + character_1_limited;
   const total_character_2 = character_2_nolimit + character_2_limited;
   const total_character_3 = character_3_nolimit + character_3_limited;
   const total_character_4 = character_4_nolimit + character_4_limited;
-
-
-
-
-
 
   // 浮動小点数を処理
   const character_1_after_convervion = total_character_1.toFixed(1)
@@ -867,6 +864,7 @@ function calculateTotal() {
 form.addEventListener('change', calculateTotal);
 
 
+// 解説の表示非表示の設定
 const explanation_1 = document.getElementById('explanation_1');
 const explanation_2 = document.getElementById('explanation_2');
 const explanation_3 = document.getElementById('explanation_3');
