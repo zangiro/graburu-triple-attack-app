@@ -42,7 +42,7 @@ ja:
     top:
       to_login_page: ログインページへ
       to_register_page: 新規登録ページへ
-      app_title: 気になるグルメ発掘ナビ
+      app_title: グラブルTA計算アプリ
       diagnosis_start: タグ検索を行う
     policy:
       page_title: プライバシーポリシー
@@ -50,7 +50,7 @@ ja:
       page_title: 利用規約
   shared:
     header:
-      app_title: グラブルTA計算ツール
+      app_title: グラブルTA計算アプリ
       menu: メニュー
       search_form: 検索
       login_now: ログイン中
@@ -59,7 +59,7 @@ ja:
       your_account_information: アカウント情報
       logout: ログアウト
     before_login_header:
-      app_title: グラブルTA計算ツール
+      app_title: グラブルTA計算アプリ
       menu: メニュー
       not_login: ログインしてません
       to_login_page: ログイン
