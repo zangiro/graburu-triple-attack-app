@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   resources :user_sessions, only: %i[new create destroy]
   resources :users, only: %i[new create show edit update]
   resources :password_resets, only: %i[new create edit update]
-  resources :formations, only: %i[new]
+  resources :formations, only: %i[new] do
+    collection do
+      get "test_1"
+    end
+  end
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
