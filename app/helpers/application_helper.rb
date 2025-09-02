@@ -12,21 +12,21 @@ module ApplicationHelper
       charset: "utf-8",
       description: "パーティメンバー全員のTA率を確認しながら編成を組む際に役に立ちます。このアプリは、ブラウザゲーム「グランブルーファンタジー」におけるTA率（トリプルアタック率）の計算を行うアプリです",
       keywords: "グラブル,グランブルーファンタジー,GRANBLUE FANTASY,TA,TA率,計算ツール,計算アプリ,計算,ツール,アプリ,トリプルアタック",
-      canonical: "https://myapp-old-hill-1313.fly.dev",
+      canonical: "https://graburu-triple-attack-app.com",
       separator: "|",
       og: {
         site_name: :site,
         title: :title,
         description: :description,
         type: "website",
-        url: "https://myapp-old-hill-1313.fly.dev",
-        image: image_url("ogp_1280_720.png"),
+        url: "https://graburu-triple-attack-app.com",
+        image: image_url("ogp.png"),
         local: "ja-JP"
       },
       twitter: {
         card: "summary",
         site: "@bfkjs8",
-        image: image_url("ogp_1280_720.png")
+        image: image_url("ogp.png")
       }
     }
   end

@@ -1,8 +1,8 @@
 # グラブルTA計算アプリ
 
-サービスURL：[グラブルTA計算アプリ](https://myapp-old-hill-1313.fly.dev)
+サービスURL：[グラブルTA計算アプリ](https://graburu-triple-attack-app.com)
 
-![グラブルTA計算アプリ](https://myapp-old-hill-1313.fly.dev/assets/ogp_1280_720.png)
+![グラブルTA計算アプリ](https://graburu-triple-attack-app.com/assets/ogp.png)
 
 ## サービス概要
 
