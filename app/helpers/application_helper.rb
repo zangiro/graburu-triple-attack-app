@@ -20,13 +20,13 @@ module ApplicationHelper
         description: :description,
         type: "website",
         url: "https://graburu-triple-attack-app.com",
-        image: image_url("ogp_1280_720.png"),
+        image: image_url("ogp.png"),
         local: "ja-JP"
       },
       twitter: {
         card: "summary",
         site: "@bfkjs8",
-        image: image_url("ogp_1280_720.png")
+        image: image_url("ogp.png")
       }
     }
   end
