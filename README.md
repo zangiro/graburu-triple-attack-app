@@ -2,8 +2,6 @@
 
 サービスURL：[グラブルTA計算アプリ](https://graburu-triple-attack-app.com)
 
-![グラブルTA計算アプリ](https://graburu-triple-attack-app.com/assets/ogp.png)
-
 ## サービス概要
 
 このアプリは、ブラウザゲーム「グランブルーファンタジー」を題材としたアプリです。<br>
